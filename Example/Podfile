@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SHMTable_Example' do
+  pod 'SHMTable', :path => '../'
+
+  target 'SHMTable_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

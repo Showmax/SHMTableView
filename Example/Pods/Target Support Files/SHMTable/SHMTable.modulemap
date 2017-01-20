@@ -1,0 +1,6 @@
+framework module SHMTable {
+  umbrella header "SHMTable-umbrella.h"
+
+  export *
+  module * { export * }
+}
