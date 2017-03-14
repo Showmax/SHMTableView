@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="sD8-EY-6zq" customClass="SimpleXibTableViewCell" customModule="SHMTableView_Example_tvOS">
+            <rect key="frame" x="0.0" y="0.0" width="1299" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sD8-EY-6zq" id="qLl-l8-Bt8">
+                <rect key="frame" x="0.0" y="0.0" width="1259" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-dH-4XH">
+                        <rect key="frame" x="8" y="8" width="1283" height="72"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2sU-dH-4XH" firstAttribute="top" secondItem="qLl-l8-Bt8" secondAttribute="topMargin" id="5Ry-2S-EoW"/>
+                    <constraint firstItem="2sU-dH-4XH" firstAttribute="leading" secondItem="qLl-l8-Bt8" secondAttribute="leadingMargin" id="B3c-GY-GJ1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2sU-dH-4XH" secondAttribute="trailing" id="L7w-1j-M9x"/>
+                    <constraint firstItem="2sU-dH-4XH" firstAttribute="bottom" secondItem="qLl-l8-Bt8" secondAttribute="bottomMargin" id="ozS-zx-Wbf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="2sU-dH-4XH" id="3kv-hu-dHv"/>
+            </connections>
+            <point key="canvasLocation" x="352.5" y="261"/>
+        </tableViewCell>
+    </objects>
+</document>

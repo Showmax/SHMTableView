@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PDj-Ry-WBb">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Logging View Controller-->
+        <scene sceneID="eFB-a0-QCz">
+            <objects>
+                <viewController id="Vf6-DG-tdr" customClass="LoggingViewController" customModule="SHMTableView_Example_tvOS_Tests" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O2P-yn-fg7"/>
+                        <viewControllerLayoutGuide type="bottom" id="mii-MV-Hwd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pew-VD-j72">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="P4z-ha-2xa">
+                                <rect key="frame" x="20" y="145" width="1880" height="935"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="P4z-ha-2xa" firstAttribute="top" secondItem="O2P-yn-fg7" secondAttribute="bottom" id="5z9-t3-eWK"/>
+                            <constraint firstItem="P4z-ha-2xa" firstAttribute="leading" secondItem="pew-VD-j72" secondAttribute="leadingMargin" id="IuJ-gi-IeO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P4z-ha-2xa" secondAttribute="trailing" id="Wwn-Gd-hSl"/>
+                            <constraint firstItem="mii-MV-Hwd" firstAttribute="top" secondItem="P4z-ha-2xa" secondAttribute="bottom" id="fOG-rh-FNZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dee-16-Fv6"/>
+                    <connections>
+                        <outlet property="tableView" destination="P4z-ha-2xa" id="6je-kT-eTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VYc-xX-BPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2262" y="-109"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lqb-cb-BGp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PDj-Ry-WBb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ti-Q8-02H">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vf6-DG-tdr" kind="relationship" relationship="rootViewController" id="yfY-B1-80M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEG-Tf-Pcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130" y="-109"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainControllerHeaderCell" customModule="SHMTableView_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="136"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xs4-S1-tBD">
+                    <rect key="frame" x="0.0" y="0.0" width="352" height="136"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dqv-dr-fmY">
+                        <rect key="frame" x="0.0" y="0.0" width="352" height="136"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIx-kU-7VX">
+                                <rect key="frame" x="0.0" y="0.0" width="352" height="136"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="zw1-sl-nI4">
+                                    <rect key="frame" x="0.0" y="0.0" width="352" height="136"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShowMaxLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cvM-zC-NK0">
+                    <rect key="frame" x="8" y="18" width="336" height="75.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cvM-zC-NK0" secondAttribute="height" multiplier="1218:274" id="ege-UE-x8P"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHMTableViews Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-rQ-iDj">
+                    <rect key="frame" x="8" y="88.5" width="336" height="29.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="28f-0K-UYv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cvM-zC-NK0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="10" id="3OQ-Zb-gle"/>
+                <constraint firstAttribute="bottom" secondItem="Xs4-S1-tBD" secondAttribute="bottom" id="EjE-WR-i3u"/>
+                <constraint firstAttribute="bottomMargin" secondItem="MSk-rQ-iDj" secondAttribute="bottom" constant="10" id="HIa-dW-iUM"/>
+                <constraint firstItem="MSk-rQ-iDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="HpD-9q-oJn"/>
+                <constraint firstItem="cvM-zC-NK0" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="Ict-7C-Q5b"/>
+                <constraint firstItem="Xs4-S1-tBD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="awo-8O-A4W"/>
+                <constraint firstItem="cvM-zC-NK0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="gkN-Or-3Kj"/>
+                <constraint firstItem="Xs4-S1-tBD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nHe-VP-Seh"/>
+                <constraint firstAttribute="trailing" secondItem="Xs4-S1-tBD" secondAttribute="trailing" id="nqF-jB-LOX"/>
+                <constraint firstAttribute="trailingMargin" secondItem="MSk-rQ-iDj" secondAttribute="trailing" id="zfD-s1-NdS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="85" y="19"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ShowMaxLogo" width="1218" height="274"/>
+    </resources>
+</document>
