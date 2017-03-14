@@ -455,7 +455,7 @@ ShowMax is an internet-based subscription video on demand service supplying an e
 
 ## License
 
-SHMTableView is available under the MIT license. See the LICENSE file for more info.
+SHMTableView is available under the Apache license. See the LICENSE file for more info.
 
 [swift-badge]: https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat
 [swift-url]: https://swift.org
