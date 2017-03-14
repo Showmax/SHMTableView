@@ -2,8 +2,7 @@
 
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
-[![Travis][travis-badge]][travis-url]
-[![License][mit-badge]][mit-url]
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 **SHMTableView** is a wrapper around UITableView datasource, that helps you define table contents by mapping view types to model instances.
 
