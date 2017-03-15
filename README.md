@@ -450,7 +450,7 @@ open SHMTableView.xcworkspace
 
 ## Authors
 
-ShowMax is an internet-based subscription video on demand service supplying an extensive catalogue of TV shows and movies. By leveraging relationships with major production studios from across the globe, ShowMax delivers both world-class international content as well as the best of specialised local content. ShowMax is accessible across a wide range of devices from smart TVs and computers to smartphones and tablets.
+Showmax is an internet-based subscription video on demand service supplying an extensive catalogue of TV shows and movies. By leveraging relationships with major production studios from across the globe, Showmax delivers both world-class international content as well as the best of specialised local content. Showmax is accessible across a wide range of devices from smart TVs and computers to smartphones and tablets.
 
 You can follow us at https://tech.showmax.com and/or https://twitter.com/ShowmaxDevs .
 
