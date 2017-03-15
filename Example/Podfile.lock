@@ -1,6 +1,6 @@
 PODS:
   - Nimble (6.0.1)
-  - SHMTableView (0.1.0)
+  - SHMTableView (1.0.0)
 
 DEPENDENCIES:
   - Nimble (= 6.0.1)
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
-  SHMTableView: 0dd93193b90707603f3752142da38fee6f3c3fe7
+  SHMTableView: c529ac9aac708ab2f21a4f6b6abcb3c3090132a7
 
 PODFILE CHECKSUM: 9627ec02ca8c0a97e6ec1c323c04ef8379d85107
 

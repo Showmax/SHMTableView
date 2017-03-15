@@ -209,11 +209,9 @@
 		607FACE51AFB9204008FA782 /* SHMTableView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMTableView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		632806C9CF3E85914D691479 /* Pods-SHMTableView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example/Pods-SHMTableView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6FFB9C82D6253BF7BF11C045 /* Pods_SHMTableView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		717DB52507F028E3FB16C695 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7550D60C7962AC845F744DC2 /* Pods-SHMTableView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example/Pods-SHMTableView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		805AB95191D3B229DAFD826A /* SHMTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SHMTableView.podspec; path = ../SHMTableView.podspec; sourceTree = "<group>"; };
 		89ADD639DDD18D22FD3D5767 /* Pods-SHMTableView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		A43470F5123564D991AF89BD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A5C7EE8D246261A2B220CB2F /* Pods_SHMTableView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A704A4D27DC408145B779B0D /* Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS_Tests/Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADDA7B7F81B344ECBB52ABCA /* Pods_SHMTableView_Example_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -534,8 +532,6 @@
 			isa = PBXGroup;
 			children = (
 				805AB95191D3B229DAFD826A /* SHMTableView.podspec */,
-				A43470F5123564D991AF89BD /* README.md */,
-				717DB52507F028E3FB16C695 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
