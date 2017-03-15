@@ -4,23 +4,23 @@
 [![Platform][platform-badge]][platform-url]
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-**SHMTableView** is a wrapper around UITableView datasource, that helps you define table contents by mapping view types to model instances.
+**SHMTableView** is a wrapper around `UITableView` datasource, that helps you define table contents by mapping view types to model instances.
 
-SHMTableView helps you abstract away the routine stuff in UITableViewDataSource and UITableViewDelegate. Instead you can focus on structure and content to be displayed by UITableView.
+`SHMTableView` helps you abstract away the routine stuff in `UITableViewDataSource` and `UITableViewDelegate`. Instead you can focus on structure and content to be displayed by `UITableView`.
 
-To use SHMTableView, you must:
+To use `SHMTableView`, you must:
 
 1. Create data model instances
 2. Map data models to view types
-3. Pass your mapping to the SHMTableView library
+3. Pass your mapping to the `SHMTableView` library
 
-SHMTableView creates and configures all UITableViewCell instances to be displayed in UITableView.
+`SHMTableView` creates and configures all `UITableViewCell` instances to be displayed in `UITableView`.
 
 ## Installation
 
 `SHMTableView` is available through [CocoaPods](http://cocoapods.org).
 
-Add the following line to your Podfile
+Add the following line to your `Podfile`
 
 ```ruby
 pod 'SHMTableView'
@@ -63,7 +63,7 @@ section += SHMTableRow<SeriesCell>(model: Series(name: "Friends", numberOfEpisod
 table.update(withNewSections: [section])
 ```
 
-Result: your content displays in UITableView
+Result: your content displays in `UITableView`
 
 ## Documentation
 
@@ -80,7 +80,7 @@ struct Movie
 }
 ```
 
-Each cell must conform to the SHMConfigurableRow protocol. Specify each model type via typealias.
+Each cell must conform to the `SHMConfigurableRow` protocol. Specify each model type via typealias.
 
 ```swift
 class MovieCell: UITableViewCell, SHMConfigurableRow
@@ -121,7 +121,7 @@ row.action = { indexPath in
 }
 ```
 
-SHMTableView loads NIB with the same name as the cell type. The library and UITableView use this name as reuse identifier when registering cells to UITableView.
+`SHMTableView` loads NIB with the same name as the cell type. The library and `UITableView` use this name as reuse identifier when registering cells to `UITableView`.
 
 ### Sections
 
@@ -172,7 +172,7 @@ if let view = Bundle.main.loadNibNamed("ColorfulFooterView", owner: nil, options
 }
 ```
 
-Custom header/footer view must conform to SHMConfigurable protocol.
+Custom header/footer view must conform to `SHMConfigurable` protocol.
 
 ```swift
 class ColorfulHeaderView: UIView, SHMConfigurable
@@ -245,7 +245,7 @@ Method  `update(withNewSections:)`  internally computes diff between current lis
     - one rows in second section
         - Big Bang Theory
 
-Optionally, you can improve diffing by implementing SHMDiffable into your model.
+Optionally, you can improve diffing by implementing `SHMDiffable` into your model.
 
 ```swift
 extension Movie: SHMDiffable
@@ -291,11 +291,11 @@ section += [
 
 ### Using UITableView in editing mode
 
-See example in Example/SHMTableView/EditingController
+See example in `Example/SHMTableView/EditingController`
 
 ### Using in view controller
 
-You can map `SHMTableView` instance to `UITableView` in outlet variable didSet handler. Alternatively you can use `SHMTableViewController`, which does exactly that.
+You can map `SHMTableView` instance to `UITableView` in outlet variable `didSet` handler. Alternatively you can use `SHMTableViewController`, which does exactly that.
 
 ```swift
 import SHMTableView
@@ -346,7 +346,7 @@ table += [
 ]
 ```
 
-Instances of models are mapped to the view types and passed to the SHMTableView library, which creates required sections and rows in UITableView.
+Instances of models are mapped to the view types and passed to the `SHMTableView` library, which creates required sections and rows in `UITableView`.
 
 #### Example of using plain UITableView
 
@@ -428,7 +428,7 @@ public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexP
 // ...
 ```
 
-Using plain UITableView requires you to implement all the data sources and delegate methods. You have to handle updates in a model structure. You have to write a lot of repetitive code. Each additional view and model requires more if-else checking, ending up with complex and difficult to maintain code.
+Using plain `UITableView` requires you to implement all the data sources and delegate methods. You have to handle updates in a model structure. You have to write a lot of repetitive code. Each additional view and model requires more if-else checking, ending up with complex and difficult to maintain code.
 
 ## Development
 
@@ -454,7 +454,7 @@ ShowMax is an internet-based subscription video on demand service supplying an e
 
 ## License
 
-SHMTableView is available under the Apache license. See the LICENSE file for more info.
+`SHMTableView` is available under the Apache license. See the `LICENSE` file for more info.
 
 [swift-badge]: https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat
 [swift-url]: https://swift.org
