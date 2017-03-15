@@ -452,6 +452,12 @@ open SHMTableView.xcworkspace
 
 ShowMax is an internet-based subscription video on demand service supplying an extensive catalogue of TV shows and movies. By leveraging relationships with major production studios from across the globe, ShowMax delivers both world-class international content as well as the best of specialised local content. ShowMax is accessible across a wide range of devices from smart TVs and computers to smartphones and tablets.
 
+You can follow us at https://tech.showmax.com and/or https://twitter.com/ShowmaxDevs .
+
+## Status
+
+This code is exactly one running in our production app. We are using the same pod as you see here. PRs are welcome.
+
 ## License
 
 `SHMTableView` is available under the Apache license. See the `LICENSE` file for more info.
