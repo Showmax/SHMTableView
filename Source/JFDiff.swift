@@ -56,9 +56,11 @@ internal struct JFDiff<T>
         return results.filter({ !$0.isInsertion }).sorted { $0.idx > $1.idx }
     }
     
-    public func reversed() -> JFDiff<T> {
+    public func reversed() -> JFDiff<T>
+    {
         let reversedResults = self.results.reversed().map { (result: JFDiffStep<T>) -> JFDiffStep<T> in
-            switch result {
+            switch result
+            {
             case .insert(let i, let j):
                 return .delete(i, j)
             case .delete(let i, let j):
@@ -96,7 +98,7 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
     
     var debugDescription: String
     {
-        switch(self)
+        switch self
         {
         case .insert(let i, let j):
             return "+\(j)@\(i)"
@@ -118,7 +120,7 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
     
     var value: T
     {
-        switch(self)
+        switch self
         {
         case .insert(let j):
             return j.1
@@ -166,13 +168,13 @@ internal struct JFLCSDiff
                 {
                     table[i][j] = 0
                     
-                } else if x[i-1].isEqual(to: y[j-1])
+                } else if x[i - 1].isEqual(to: y[j - 1])
                 {
-                    table[i][j] = table[i-1][j-1] + 1
+                    table[i][j] = table[i - 1][j - 1] + 1
                     
                 } else
                 {
-                    table[i][j] = max(table[i-1][j], table[i][j-1])
+                    table[i][j] = max(table[i - 1][j], table[i][j - 1])
                 }
             }
         }
@@ -194,23 +196,23 @@ internal struct JFLCSDiff
             
         } else if i == 0
         {
-            return backtrackDiffFromIndices(table, x, y, i, j-1) + JFDiffStep.insert(j-1, y[j-1])
+            return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
         } else if j == 0
         {
-            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i-1, x[i-1])
+            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
-        } else if table[i][j] == table[i][j-1]
+        } else if table[i][j] == table[i][j - 1]
         {
-            return backtrackDiffFromIndices(table, x, y, i, j-1) + JFDiffStep.insert(j-1, y[j-1])
+            return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
-        } else if table[i][j] == table[i-1][j]
+        } else if table[i][j] == table[i - 1][j]
         {
-            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i-1, x[i-1])
+            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
         } else
         {
-            return backtrackDiffFromIndices(table, x, y, i-1, j-1)
+            return backtrackDiffFromIndices(table, x, y, i - 1, j - 1)
         }
     }
 }

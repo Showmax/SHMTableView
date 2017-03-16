@@ -32,7 +32,7 @@ public struct SHMTableChangesFinderChanges: Equatable
     
     public init() {}
     
-    public static func ==(lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool
+    public static func == (lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool
     {
         return  lhs.sectionsToDelete == rhs.sectionsToDelete &&
                 lhs.sectionsToInsert == rhs.sectionsToInsert &&
@@ -74,7 +74,7 @@ public class SHMTableChangesFinder
         sectionsDiff.insertions.forEach { changes.sectionsToInsert.insert($0.idx) }
         
         // sections to reload (will ensure viewForHeaderInSection is called)
-        var candidateSectionsToReload = changes.sectionsToDelete.intersection(changes.sectionsToInsert)
+        let candidateSectionsToReload = changes.sectionsToDelete.intersection(changes.sectionsToInsert)
         
         // rows updates for reloaded sections
         for reloadIndex in candidateSectionsToReload

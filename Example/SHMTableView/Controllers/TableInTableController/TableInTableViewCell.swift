@@ -36,7 +36,8 @@ class TableInTableViewCell: UITableViewCell, SHMConfigurableRow
     
     var shmInTable: SHMTableView!
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: UITableView!
+    {
         didSet
         {
             shmInTable = SHMTableView(tableView: tableView)

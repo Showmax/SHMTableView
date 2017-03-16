@@ -72,7 +72,7 @@ extension EditingViewController
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             if  let textFields = alert?.textFields,
-                textFields.count > 0,
+                !textFields.isEmpty,
                 let text = textFields[0].text
             {
                 self.favouriteMoviesModel.append(text)
@@ -118,7 +118,7 @@ extension EditingViewController: SHMTableViewEditingDelegate
     {
         guard indexPath.row < favouriteMoviesModel.count else { return  .none }
         
-        if indexPath.row == favouriteMoviesModel.count-1
+        if indexPath.row == favouriteMoviesModel.count - 1
         {
             return .insert
             
@@ -189,5 +189,3 @@ fileprivate extension EditingViewController
         shmTable.update(withNewSections: [section])
     }
 }
-
-
