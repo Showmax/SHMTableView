@@ -27,7 +27,11 @@ import UIKit
  
  If you'd like to add a collection of sections, use the SHMTableView's method
  
- public func update(withNewSections newSections: [SHMTableSection], rowAnimation: UITableViewRowAnimation = .fade, forceReloadData: Bool = false)
+ public func update(
+    withNewSections newSections: [SHMTableSection], 
+    rowAnimation: UITableViewRowAnimation = .fade, 
+    forceReloadData: Bool = false
+ )
  
  instead.
  

@@ -37,8 +37,9 @@ import Foundation
 // Pragmatically, the problem of finding the difference between two arrays is trivially reducable to the LCS problem,
 // i.e. if you can find the longest common subsequence between two arrays, you've also found a series of transforms
 // to apply to array 1 that will result in array 2. This algorithm is written purely in Swift, and uses dynamic programming
-// to achieve substantial performance improvements over a naïve approach (that being said, there are several ways it could probably be sped up.)
-// If this kind of thing is interesting to you, there's a pretty great paper on diffing algorithms: http://www.xmailserver.org/diff2.pdf
+// to achieve substantial performance improvements over a naïve approach (that being said, there are several ways it could probably be 
+// sped up.) If this kind of thing is interesting to you, there's a pretty great paper on diffing 
+// algorithms: http://www.xmailserver.org/diff2.pdf
 //
 
 internal struct JFDiff<T>
@@ -74,7 +75,8 @@ internal func +<T> (left: JFDiff<T>, right: JFDiffStep<T>) -> JFDiff<T>
 }
 
 ///
-/// These get returned from calls to Array.diff(). They represent insertions or deletions that need to happen to transform array a into array b.
+/// These get returned from calls to Array.diff(). They represent insertions or deletions that need to happen to transform array 
+/// a into array b.
 ///
 internal enum JFDiffStep<T>: CustomDebugStringConvertible
 {
@@ -178,7 +180,13 @@ internal struct JFLCSDiff
     }
     
     /// Walks back through the generated table to generate the diff.
-    private static func backtrackDiffFromIndices(_ table: [[Int]], _ x: [SHMDiffable], _ y: [SHMDiffable], _ i: Int, _ j: Int) -> JFDiff<SHMDiffable>
+    private static func backtrackDiffFromIndices(
+        _ table: [[Int]],
+        _ x: [SHMDiffable],
+        _ y: [SHMDiffable],
+        _ i: Int,
+        _ j: Int
+        ) -> JFDiff<SHMDiffable>
     {
         if i == 0 && j == 0
         {
