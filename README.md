@@ -110,7 +110,7 @@ Connect the view type with the model instance
 let monsters = Movie(
     name: "Monsters, Inc.",
     director: "Pete Docter, Lee Unkrich, David Silverman",
-    action: { /* start video player */ }
+    watch: { /* start video player */ }
 )
 
 var row = SHMTableRow<MovieCell>(model: monsters)

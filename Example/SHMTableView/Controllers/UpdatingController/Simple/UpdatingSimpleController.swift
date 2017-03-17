@@ -41,8 +41,8 @@ class UpdatingSimpleController: SHMTableViewController
 {
     /// All movies divided into sections by category. Each section has category name as header title.
     /// Rows are created by mapping model (String with movie name) to the view type (SimpleXibTableViewCell) in which we want to show passed model.
-    lazy var sectionsForAll: [SHMTableSection] = {
-        
+    lazy var sectionsForAll: [SHMTableSection] =
+    {
         let adventures = SHMTableSection()
         adventures.headerTitle = "Adventures"
         adventures.rows = [
@@ -53,7 +53,7 @@ class UpdatingSimpleController: SHMTableViewController
             SHMTableRow<SimpleXibTableViewCell>(model:"Mission: Impossible", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Piggy Tales", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Stargate", reusableIdentifier: simpleCellIdentifier),
-            SHMTableRow<SimpleXibTableViewCell>(model:"Transformers", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Transformers", reusableIdentifier: simpleCellIdentifier)
         ]
         
         let comedy = SHMTableSection()
@@ -67,7 +67,7 @@ class UpdatingSimpleController: SHMTableViewController
             SHMTableRow<SimpleXibTableViewCell>(model:"Shaun The Sheep", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Smurfs", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Sex And The City", reusableIdentifier: simpleCellIdentifier),
-            SHMTableRow<SimpleXibTableViewCell>(model:"Silicon Valley", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Silicon Valley", reusableIdentifier: simpleCellIdentifier)
         ]
         
         let documentary = SHMTableSection()
@@ -78,7 +78,7 @@ class UpdatingSimpleController: SHMTableViewController
             SHMTableRow<SimpleXibTableViewCell>(model:"Lions On The Move", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Mandela", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"One Life", reusableIdentifier: simpleCellIdentifier),
-            SHMTableRow<SimpleXibTableViewCell>(model:"Shoreline", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Shoreline", reusableIdentifier: simpleCellIdentifier)
         ]
         
         return [
@@ -90,14 +90,14 @@ class UpdatingSimpleController: SHMTableViewController
     
     /// Movies suitable mainly for kids are divided into sections by category. Each section has category name as header title.
     /// Rows are created by mapping model (String with movie name) to the view type (SimpleXibTableViewCell) in which we want to show passed model.
-    lazy var sectionsForKids: [SHMTableSection] = {
-        
+    lazy var sectionsForKids: [SHMTableSection] =
+    {
         let adventures = SHMTableSection()
         adventures.headerTitle = "Adventures"
         adventures.rows = [
             SHMTableRow<SimpleXibTableViewCell>(model:"Bedtime Stories", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Disney Favourites", reusableIdentifier: simpleCellIdentifier),
-            SHMTableRow<SimpleXibTableViewCell>(model:"Piggy Tales", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Piggy Tales", reusableIdentifier: simpleCellIdentifier)
         ]
         
         let comedy = SHMTableSection()
@@ -106,13 +106,13 @@ class UpdatingSimpleController: SHMTableViewController
             SHMTableRow<SimpleXibTableViewCell>(model:"101 Dalmations", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Alladin", reusableIdentifier: simpleCellIdentifier),
             SHMTableRow<SimpleXibTableViewCell>(model:"Shaun The Sheep", reusableIdentifier: simpleCellIdentifier),
-            SHMTableRow<SimpleXibTableViewCell>(model:"Smurfs", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Smurfs", reusableIdentifier: simpleCellIdentifier)
         ]
         
         let documentary = SHMTableSection()
         documentary.headerTitle = "Documentary"
         documentary.rows = [
-            SHMTableRow<SimpleXibTableViewCell>(model:"Blue Planet", reusableIdentifier: simpleCellIdentifier),
+            SHMTableRow<SimpleXibTableViewCell>(model:"Blue Planet", reusableIdentifier: simpleCellIdentifier)
         ]
         
         return [
@@ -150,5 +150,3 @@ class UpdatingSimpleController: SHMTableViewController
         }
     }
 }
-
-

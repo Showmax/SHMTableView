@@ -91,8 +91,6 @@ extension SHMTableChangesFinderTests
     
     func test__rowsInsertedAndDeletedInList__areMentionedInChanges()
     {
-        var testCases: [TestCase] = []
-        
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),

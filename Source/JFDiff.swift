@@ -37,8 +37,9 @@ import Foundation
 // Pragmatically, the problem of finding the difference between two arrays is trivially reducable to the LCS problem,
 // i.e. if you can find the longest common subsequence between two arrays, you've also found a series of transforms
 // to apply to array 1 that will result in array 2. This algorithm is written purely in Swift, and uses dynamic programming
-// to achieve substantial performance improvements over a naïve approach (that being said, there are several ways it could probably be sped up.)
-// If this kind of thing is interesting to you, there's a pretty great paper on diffing algorithms: http://www.xmailserver.org/diff2.pdf
+// to achieve substantial performance improvements over a naïve approach (that being said, there are several ways it could probably be 
+// sped up.) If this kind of thing is interesting to you, there's a pretty great paper on diffing 
+// algorithms: http://www.xmailserver.org/diff2.pdf
 //
 
 internal struct JFDiff<T>
@@ -55,9 +56,11 @@ internal struct JFDiff<T>
         return results.filter({ !$0.isInsertion }).sorted { $0.idx > $1.idx }
     }
     
-    public func reversed() -> JFDiff<T> {
+    public func reversed() -> JFDiff<T>
+    {
         let reversedResults = self.results.reversed().map { (result: JFDiffStep<T>) -> JFDiffStep<T> in
-            switch result {
+            switch result
+            {
             case .insert(let i, let j):
                 return .delete(i, j)
             case .delete(let i, let j):
@@ -74,7 +77,8 @@ internal func +<T> (left: JFDiff<T>, right: JFDiffStep<T>) -> JFDiff<T>
 }
 
 ///
-/// These get returned from calls to Array.diff(). They represent insertions or deletions that need to happen to transform array a into array b.
+/// These get returned from calls to Array.diff(). They represent insertions or deletions that need to happen to transform array 
+/// a into array b.
 ///
 internal enum JFDiffStep<T>: CustomDebugStringConvertible
 {
@@ -94,7 +98,7 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
     
     var debugDescription: String
     {
-        switch(self)
+        switch self
         {
         case .insert(let i, let j):
             return "+\(j)@\(i)"
@@ -116,7 +120,7 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
     
     var value: T
     {
-        switch(self)
+        switch self
         {
         case .insert(let j):
             return j.1
@@ -164,13 +168,13 @@ internal struct JFLCSDiff
                 {
                     table[i][j] = 0
                     
-                } else if x[i-1].isEqual(to: y[j-1])
+                } else if x[i - 1].isEqual(to: y[j - 1])
                 {
-                    table[i][j] = table[i-1][j-1] + 1
+                    table[i][j] = table[i - 1][j - 1] + 1
                     
                 } else
                 {
-                    table[i][j] = max(table[i-1][j], table[i][j-1])
+                    table[i][j] = max(table[i - 1][j], table[i][j - 1])
                 }
             }
         }
@@ -178,7 +182,13 @@ internal struct JFLCSDiff
     }
     
     /// Walks back through the generated table to generate the diff.
-    private static func backtrackDiffFromIndices(_ table: [[Int]], _ x: [SHMDiffable], _ y: [SHMDiffable], _ i: Int, _ j: Int) -> JFDiff<SHMDiffable>
+    private static func backtrackDiffFromIndices(
+        _ table: [[Int]],
+        _ x: [SHMDiffable],
+        _ y: [SHMDiffable],
+        _ i: Int,
+        _ j: Int
+        ) -> JFDiff<SHMDiffable>
     {
         if i == 0 && j == 0
         {
@@ -186,23 +196,23 @@ internal struct JFLCSDiff
             
         } else if i == 0
         {
-            return backtrackDiffFromIndices(table, x, y, i, j-1) + JFDiffStep.insert(j-1, y[j-1])
+            return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
         } else if j == 0
         {
-            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i-1, x[i-1])
+            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
-        } else if table[i][j] == table[i][j-1]
+        } else if table[i][j] == table[i][j - 1]
         {
-            return backtrackDiffFromIndices(table, x, y, i, j-1) + JFDiffStep.insert(j-1, y[j-1])
+            return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
-        } else if table[i][j] == table[i-1][j]
+        } else if table[i][j] == table[i - 1][j]
         {
-            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i-1, x[i-1])
+            return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
         } else
         {
-            return backtrackDiffFromIndices(table, x, y, i-1, j-1)
+            return backtrackDiffFromIndices(table, x, y, i - 1, j - 1)
         }
     }
 }

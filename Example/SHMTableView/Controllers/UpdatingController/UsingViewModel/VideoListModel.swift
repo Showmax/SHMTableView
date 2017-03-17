@@ -57,40 +57,41 @@ class VideoListModel
                 title: "Adventures",
                 videos: [
                     Video(isForKids: false, title: "Atlantis"),
-                    Video(isForKids: true,  title: "Bedtime Stories"),
-                    Video(isForKids: true,  title: "Disney Favourites"),
+                    Video(isForKids: true, title: "Bedtime Stories"),
+                    Video(isForKids: true, title: "Disney Favourites"),
                     Video(isForKids: false, title: "Game Of Thrones"),
                     Video(isForKids: false, title: "Mission: Impossible"),
-                    Video(isForKids: true,  title: "Piggy Tales"),
+                    Video(isForKids: true, title: "Piggy Tales"),
                     Video(isForKids: false, title: "Stargate"),
-                    Video(isForKids: false, title: "Transformers"),
+                    Video(isForKids: false, title: "Transformers")
                 ]
             ),
             
             Category(
                 title: "Comedy",
                 videos: [
-                    Video(isForKids: true,  title: "101 Dalmations"),
-                    Video(isForKids: true,  title: "Alladin"),
+                    Video(isForKids: true, title: "101 Dalmations"),
+                    Video(isForKids: true, title: "Alladin"),
                     Video(isForKids: false, title: "Big Bang Theory"),
                     Video(isForKids: false, title: "Friends"),
                     Video(isForKids: false, title: "Little Fockers"),
-                    Video(isForKids: true,  title: "Shaun The Sheep"),
-                    Video(isForKids: true,  title: "Smurfs"),
+                    Video(isForKids: true, title: "Shaun The Sheep"),
+                    Video(isForKids: true, title: "Smurfs"),
                     Video(isForKids: false, title: "Sex And The City"),
-                    Video(isForKids: false, title: "Silicon Valley"),
+                    Video(isForKids: false, title: "Silicon Valley")
                 ]
             ),
+            
             
             Category(
                 title: "Documentary",
                 videos: [
-                    Video(isForKids: true,  title: "Blue Planet"),
+                    Video(isForKids: true, title: "Blue Planet"),
                     Video(isForKids: false, title: "David Attenborough's Natural Curiosities"),
                     Video(isForKids: false, title: "Lions On The Move"),
                     Video(isForKids: false, title: "Mandela"),
                     Video(isForKids: false, title: "One Life"),
-                    Video(isForKids: false, title: "Shoreline"),
+                    Video(isForKids: false, title: "Shoreline")
                 ]
             )
             
@@ -109,7 +110,7 @@ class VideoListModel
         for index in ((0 + 1)...array.count - 1).reversed()
         {
             // Random int from 0 to index-1
-            let j = Int(arc4random_uniform(UInt32(index-1)))
+            let j = Int(arc4random_uniform(UInt32(index - 1)))
             
             // Swap two array elements
             // Notice '&' required as swap uses 'inout' parameters

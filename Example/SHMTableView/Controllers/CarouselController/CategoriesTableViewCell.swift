@@ -29,10 +29,10 @@ enum Category: String
 class CategoriesViewModel
 {
     let categories: [Category]
-    let categoryAction: (Category) -> ()
+    let categoryAction: (Category) -> Void
     var selectedCategory: Category
     
-    init(categories: [Category], selectedCategory: Category, categoryAction: @escaping (Category) -> ())
+    init(categories: [Category], selectedCategory: Category, categoryAction: @escaping (Category) -> Void)
     {
         self.categories = categories
         self.selectedCategory = selectedCategory

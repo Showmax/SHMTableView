@@ -59,5 +59,3 @@ class UpdatingViewModelController: SHMTableViewController
         shmTable.update(withNewSections: viewModel.sectionsForSelectedList())
     }
 }
-
-

@@ -91,7 +91,11 @@ public class SHMTableView: NSObject, UITableViewDelegate, UITableViewDataSource
     /// Table view reload data is called when user use force flag, or when all currently visible 
     /// sections are about to be deleted. In other cases will try do batch section+rows animations
     ///
-    public func update(withNewSections newSections: [SHMTableSection], rowAnimation: UITableViewRowAnimation = .fade, forceReloadData: Bool = false)
+    public func update(
+        withNewSections newSections: [SHMTableSection],
+        rowAnimation: UITableViewRowAnimation = .fade,
+        forceReloadData: Bool = false
+        )
     {
         let changes = changesFinder.find(betweenOld: sections, andNew: newSections)
         
