@@ -32,9 +32,9 @@ public struct SHMTableChangesFinderChanges: Equatable
     
     public init() {}
     
-    public static func ==(lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool
+    public static func == (lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool
     {
-        guard   lhs.sectionsToDelete == rhs.sectionsToDelete &&
+        return  lhs.sectionsToDelete == rhs.sectionsToDelete &&
                 lhs.sectionsToInsert == rhs.sectionsToInsert &&
                 lhs.sectionsToReload == rhs.sectionsToReload &&
                 lhs.rowsToDelete == rhs.rowsToDelete &&
@@ -42,12 +42,6 @@ public struct SHMTableChangesFinderChanges: Equatable
                 lhs.rowsToReload == rhs.rowsToReload &&
                 lhs.sectionsToMove.count == rhs.sectionsToMove.count &&
                 lhs.rowsToMove.count == rhs.rowsToMove.count
-                else
-        {
-            return false
-        }
-        
-        return true
     }
 }
 
@@ -63,8 +57,8 @@ public class SHMTableChangesFinder
     /// Find changes between given old and new sections and theirs nested rows
     /// 
     /// Internally uses algorithm derived from Jack Flinterman Dwifft. First will compare which sections to delete and which to insert.
-    /// If some sections would be both inserted and deleted then we assume they should be reloaded instead. For each section to be reloaded
-    /// we compare their rows and determine which to delete and which to insert. 
+    /// If some sections would be both inserted and deleted then we assume they should be reloaded instead. For each section to be 
+    /// reloaded we compare their rows and determine which to delete and which to insert. 
     ///
     /// - Parameter oldSection: sections considered as old/initial
     /// - Parameter newSection: sections that will replace old sections
@@ -80,7 +74,7 @@ public class SHMTableChangesFinder
         sectionsDiff.insertions.forEach { changes.sectionsToInsert.insert($0.idx) }
         
         // sections to reload (will ensure viewForHeaderInSection is called)
-        var candidateSectionsToReload = changes.sectionsToDelete.intersection(changes.sectionsToInsert)
+        let candidateSectionsToReload = changes.sectionsToDelete.intersection(changes.sectionsToInsert)
         
         // rows updates for reloaded sections
         for reloadIndex in candidateSectionsToReload

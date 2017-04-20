@@ -59,7 +59,7 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
             
             let request = URLRequest(url: endpoint)
             
-            let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            let task = URLSession.shared.dataTask(with: request) { [weak self] (data, _, _) in
 
                 guard let data = data else
                 {
@@ -109,8 +109,3 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
         }
     }
 }
-
-
-
-
-

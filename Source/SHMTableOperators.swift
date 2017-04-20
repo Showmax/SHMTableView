@@ -27,18 +27,22 @@ import UIKit
  
  If you'd like to add a collection of sections, use the SHMTableView's method
  
- public func update(withNewSections newSections: [SHMTableSection], rowAnimation: UITableViewRowAnimation = .fade, forceReloadData: Bool = false)
+ public func update(
+    withNewSections newSections: [SHMTableSection], 
+    rowAnimation: UITableViewRowAnimation = .fade, 
+    forceReloadData: Bool = false
+ )
  
  instead.
  
  */
-public func +=(left: SHMTableView, right: SHMTableSection)
+public func += (left: SHMTableView, right: SHMTableSection)
 {
     left.append(section: right)
 }
 
 /// Add a row into a table by this one. It automatically handle the business logic behind sections.
-public func +=(left: SHMTableView, right: SHMTableRowProtocol)
+public func += (left: SHMTableView, right: SHMTableRowProtocol)
 {
     let section: SHMTableSection
     
@@ -57,13 +61,13 @@ public func +=(left: SHMTableView, right: SHMTableRowProtocol)
 }
 
 /// Add a row into a section by this one.
-public func +=(left: SHMTableSection, right: SHMTableRowProtocol)
+public func += (left: SHMTableSection, right: SHMTableRowProtocol)
 {
     left.rows.append(right)
 }
 
 /// Add a collection of rows into a section by this one.
-public func +=(left: SHMTableSection, right: [SHMTableRowProtocol])
+public func += (left: SHMTableSection, right: [SHMTableRowProtocol])
 {
     left.rows.append(contentsOf: right)
 }

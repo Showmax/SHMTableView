@@ -27,7 +27,7 @@ import SHMTableView
 
 struct InteractionModel
 {
-    let buttonAction: () -> ()
+    let buttonAction: () -> Void
 }
 
 class InteractionTableViewCell: UITableViewCell, SHMConfigurableRow

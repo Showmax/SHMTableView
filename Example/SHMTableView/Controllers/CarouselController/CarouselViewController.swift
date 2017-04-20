@@ -30,8 +30,8 @@ class CarouselViewController: SHMTableViewController
 {
     var viewModel = CarouselViewModel(category: .city)
     
-    lazy var categoriesViewModel: CategoriesViewModel = {
-        
+    lazy var categoriesViewModel: CategoriesViewModel =
+    {
         return CategoriesViewModel(
             categories: [.city, .food, .nature, .cats, .technics],
             selectedCategory: self.viewModel.category,

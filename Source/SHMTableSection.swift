@@ -33,15 +33,15 @@ public protocol SHMTableViewProtocol: class
  Class mapping section custom header view type with instances of model and custom view.
  
  */
-public class SHMTableHeader<view: SHMConfigurable>: SHMTableViewProtocol where view: UIView
+public class SHMTableHeader<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView
 {
     /// Holds instance of model
-    var model: view.T
+    var model: View.T
     
     /// Holds instance of view
     var view: UIView
     
-    public init(model: view.T, view: UIView)
+    public init(model: View.T, view: UIView)
     {
         self.model = model
         self.view = view
@@ -50,7 +50,7 @@ public class SHMTableHeader<view: SHMConfigurable>: SHMTableViewProtocol where v
     /// Will try to configure view with model
     public func configure() -> UIView
     {
-        (view as? view)?.configure(model)
+        (view as? View)?.configure(model)
         
         return view
     }
@@ -66,15 +66,15 @@ public class SHMTableHeader<view: SHMConfigurable>: SHMTableViewProtocol where v
  Class mapping section custom footer view type with instances of model and custom view.
  
  */
-public class SHMTableFooter<view: SHMConfigurable>: SHMTableViewProtocol where view: UIView
+public class SHMTableFooter<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView
 {
     /// Holds instance of model
-    var model: view.T
+    var model: View.T
     
     /// Holds instance of view
     var view: UIView
     
-    public init(model: view.T, view: UIView)
+    public init(model: View.T, view: UIView)
     {
         self.model = model
         self.view = view
@@ -83,7 +83,7 @@ public class SHMTableFooter<view: SHMConfigurable>: SHMTableViewProtocol where v
     /// Will try to configure view with model
     public func configure() -> UIView
     {
-        (view as? view)?.configure(model)
+        (view as? View)?.configure(model)
         
         return view
     }
@@ -117,16 +117,11 @@ public class SHMTableSection
     public var footerView: SHMTableViewProtocol? = nil
 
     /// Subordinate rows
-    private var _rows: [SHMTableRowProtocol] = []
     public var rows: [SHMTableRowProtocol]
-    {
-        get { return _rows }
-        set { _rows = newValue }
-    }
     
     public init()
     {
-        
+        rows = []
     }
     
     /// Rows can be specified via constructor

@@ -45,10 +45,43 @@ class MainViewController: SHMTableViewController
             section.headerView = SHMTableHeader<MainControllerHeaderCell>(model: nil, view: view)
         }
 
-        section += SHMTableRow<MainControllerCell>(
-            model: MainControllerModel(title: "Simple rows", desc: "This example demonstrates some basics. It uses just one type of cell, no sections at all."),
-            action: { [weak self] indexPath in
-                                                    
+        section += createSimpleRowsRow()
+        section += createTableInTableRow()
+        section += createInteractionsRow()
+        section += createCarouselRow()
+        section += createUpdatingSimpleRow()
+        section += createUpdatingViewModelRow()
+        section += createEditingRow()
+        
+        shmTable += section
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    // MARK: - Create rows
+    
+    
+    func createSimpleRowsRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(
+                title: "Simple rows",
+                desc: "This example demonstrates some basics. It uses just one type of cell, no sections at all."
+            ),
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 
                 #if os(tvOS)
@@ -58,11 +91,17 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-        
-        section += SHMTableRow<MainControllerCell>(
-            model: MainControllerModel(title: "Table in Table", desc: "This example demonstrates how to SHMTableView in a row of another SHMTableView."),
-            action: { [weak self] indexPath in
-                                                    
+    }
+    
+    func createTableInTableRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(
+                title: "Table in Table",
+                desc: "This example demonstrates how to SHMTableView in a row of another SHMTableView."
+            ),
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 #if os(tvOS)
                     me.showUnsupportedTVOSExampleAlert()
@@ -71,11 +110,17 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-
-        section += SHMTableRow<MainControllerCell>(
-            model: MainControllerModel(title: "Interactions", desc: "This example demonstrates how to connect things together and get an action."),
-            action: { [weak self] indexPath in
-                                                    
+    }
+    
+    func createInteractionsRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(
+                title: "Interactions",
+                desc: "This example demonstrates how to connect things together and get an action."
+            ),
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 
                 #if os(tvOS)
@@ -86,10 +131,14 @@ class MainViewController: SHMTableViewController
             }
         )
 
-        section += SHMTableRow<MainControllerCell>(
+    }
+    
+    func createCarouselRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Carousel", desc: "This example is desmonstration complex use of SHMTableViews."),
-            action: { [weak self] indexPath in
-                                                    
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 
                 #if os(tvOS)
@@ -99,21 +148,30 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-        
-        section += SHMTableRow<MainControllerCell>(
+    }
+    
+    func createUpdatingSimpleRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Updating (simple)", desc: "Switch between two lists and watch how table rows gets updated."),
-            action: { [weak self] indexPath in
+            action: { [weak self] _ in
                 
                 guard let me = self else { return }
                 
                 me.performSegue(withIdentifier: "UpdatingSimpleSegue", sender: self)
             }
         )
-
-        section += SHMTableRow<MainControllerCell>(
-            model: MainControllerModel(title: "Updating (using view model)", desc: "Switch between two lists and shuffle rows. Demonstration of view model usage."),
-            action: { [weak self] indexPath in
-                                                    
+    }
+    
+    func createUpdatingViewModelRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(
+                title: "Updating (using view model)",
+                desc: "Switch between two lists and shuffle rows. Demonstration of view model usage."
+            ),
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 
                 #if os(tvOS)
@@ -123,11 +181,14 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-
-        section += SHMTableRow<MainControllerCell>(
+    }
+    
+    func createEditingRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Editing", desc: "Demonstration of table in editing mode."),
-            action: { [weak self] indexPath in
-
+            action: { [weak self] _ in
+                
                 guard let me = self else { return }
                 
                 #if os(tvOS)
@@ -137,19 +198,8 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-        
-        shmTable += section
     }
     
-    override func viewWillDisappear(_ animated: Bool)
-    {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
     
     // MARK: - Helpers
     
@@ -169,4 +219,3 @@ class MainViewController: SHMTableViewController
         present(alert, animated: true, completion: nil)
     }
 }
-

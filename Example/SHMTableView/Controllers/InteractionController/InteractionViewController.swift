@@ -50,7 +50,11 @@ class InteractionViewController: SHMTableViewController
                 return
             }
             
-            let alertController = UIAlertController(title: "Interaction with Button", message: "You've just pressed a button in a cell.", preferredStyle: .alert)
+            let alertController = UIAlertController(
+                title: "Interaction with Button",
+                message: "You've just pressed a button in a cell.",
+                preferredStyle: .alert
+            )
             
             alertController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
             
@@ -63,7 +67,11 @@ class InteractionViewController: SHMTableViewController
                 return
             }
             
-            let alertController = UIAlertController(title: "Interaction with Row", message: "You've just pressed a cell at \(indexPath).", preferredStyle: .alert)
+            let alertController = UIAlertController(
+                title: "Interaction with Row",
+                message: "You've just pressed a cell at \(indexPath).",
+                preferredStyle: .alert
+            )
 
             alertController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
 
