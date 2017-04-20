@@ -216,7 +216,7 @@ public class SHMTableView: NSObject, UITableViewDelegate, UITableViewDataSource
             return
         }
         
-        if let _ = tableView?.dequeueReusableCell(withIdentifier: rowNibString)
+        if tableView?.dequeueReusableCell(withIdentifier: rowNibString) != nil
         {
             registeredNibs.append(rowNibString)
             

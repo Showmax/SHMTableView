@@ -137,7 +137,7 @@ custom_rules:
   open_bracket_on_new_line:
     included: ".*.swift"
     name: "Opening bracket on new line."
-    regex: "((func|var|class|struct|enum|if|switch|guard|protocol|extension|else)[^\n]*\{$)"
+    regex: "((func|var|class|struct|enum|if|switch|guard|protocol|extension|else)[^\n]*\\{$)"
     message: "Opening bracket MUST be on new line."
     severity: error
   
