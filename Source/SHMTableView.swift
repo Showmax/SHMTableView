@@ -29,7 +29,6 @@ public protocol SHMTableViewEditingDelegate: class
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
 }
 
-
 /**
  
  The heart of the module.
@@ -45,6 +44,9 @@ public class SHMTableView: NSObject
 {
     /// Optional. Delegate for table in editing mode
     open weak var editingDelegate: SHMTableViewEditingDelegate?
+    
+    /// Optional. All method calls for `UIScrollViewDelegate` protocol are forwarded to this delegate.
+    open weak var scrollDelegate: UIScrollViewDelegate?
     
     /// Optional. If specified, bundle will be used for loading NIBs in SHMTableView.register(row:)
     open var defaultBundle: Bundle?

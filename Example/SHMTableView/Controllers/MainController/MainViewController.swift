@@ -54,6 +54,7 @@ class MainViewController: SHMTableViewController
         section += createEditingRow()
         
         shmTable += section
+        shmTable.scrollDelegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool)
