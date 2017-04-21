@@ -1,19 +1,24 @@
 use_frameworks!
 
-target 'SHMTableView_Example' do
+def shmtableview_dev
     pod 'SHMTableView', :path => '../'
-  
-    target 'SHMTableView_Tests' do
-        inherit! :search_paths
-        pod 'Nimble', '6.0.1'
-    end
+end
+
+target 'SHMTableView_Example' do
+    shmtableview_dev
+end
+
+target 'SHMTableView_Tests' do
+    shmtableview_dev
+    pod 'Nimble'
 end
 
 target 'SHMTableView_Example_tvOS' do
-    pod 'SHMTableView', :path => '../'
-    
-    target 'SHMTableView_Example_tvOS_Tests' do
-        inherit! :search_paths
-        pod 'Nimble', '6.0.1'
-    end
+    shmtableview_dev
 end
+
+target 'SHMTableView_Example_tvOS_Tests' do
+    shmtableview_dev
+    pod 'Nimble'
+end
+

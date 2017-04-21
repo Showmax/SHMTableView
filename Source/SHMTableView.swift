@@ -41,7 +41,7 @@ public protocol SHMTableViewEditingDelegate: class
  Instead you just focus on a structure and a content to be displayed by a UITableView.
  
  */
-public class SHMTableView: NSObject, UITableViewDelegate, UITableViewDataSource
+public class SHMTableView: NSObject
 {
     /// Optional. Delegate for table in editing mode
     open weak var editingDelegate: SHMTableViewEditingDelegate?
@@ -154,57 +154,8 @@ public class SHMTableView: NSObject, UITableViewDelegate, UITableViewDataSource
         tableView?.setEditing(editing, animated: animated)
     }
 
-    // MARK: Data manipulation
+    // MARK: - Register xib
     
-    /// Forward call to editingDelegate
-    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
-    {
-        return editingDelegate?.tableView(tableView, editingStyleForRowAt: indexPath) ?? .none
-    }
-    
-    /// Forward call to editingDelegate
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
-        editingDelegate?.tableView(tableView, commit: editingStyle, forRowAt: indexPath)
-    }
-    
-    /// Forward call to editingDelegate, but also will update currently held sections structure.
-    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-    {
-        guard   sourceIndexPath.section < sections.count,
-                destinationIndexPath.section < sections.count,
-                sourceIndexPath.row < sections[sourceIndexPath.section].rows.count,
-                destinationIndexPath.row < sections[destinationIndexPath.section].rows.count
-                else
-        {
-            return
-        }
-        
-        let element = sections[sourceIndexPath.section].rows[sourceIndexPath.row]
-        
-        sections[sourceIndexPath.section].rows.remove(at: sourceIndexPath.row)
-        sections[destinationIndexPath.section].rows.insert(element, at: destinationIndexPath.row)
-        
-        editingDelegate?.tableView(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
-    }
-    
-    // MARK: Permissions
-    
-    /// Forward call to editingDelegate
-    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-    {
-        return editingDelegate?.tableView(tableView, canEditRowAt: indexPath) ?? false
-    }
-    
-    /// Forward call to editingDelegate
-    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
-    {
-        return editingDelegate?.tableView(tableView, canMoveRowAt: indexPath) ?? false
-    }
-
-
-    // MARK: - UITableViewDelegate, UITableViewDataSource
-
     /// Register NIB for given row reusable identifier. 
     /// Make sure nib with certain reusable identifier is registered only once.
     public func register(row: SHMTableRowProtocol)
@@ -229,110 +180,9 @@ public class SHMTableView: NSObject, UITableViewDelegate, UITableViewDataSource
         
         registeredNibs.append(rowNibString)
     }
+
+    // MARK: - Internal helpers
     
-    /// Return header title for current section
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        return sections[section].headerTitle
-    }
-
-    /// Return footer title for current section
-    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
-    {
-        return sections[section].footerTitle
-    }
-
-    /// Return header view for current section
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        return sections[section].headerView?.configure()
-    }
-
-    /// Return footer view for current section
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
-        return sections[section].footerView?.configure()
-    }
-
-    /// Specify header height if possible
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    {
-        return sections[section].headerView?.associatedView().frame.size.height ?? UITableViewAutomaticDimension
-    }
-
-    /// Specify footer height if possible
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
-    {
-        return sections[section].footerView?.associatedView().frame.size.height ?? UITableViewAutomaticDimension
-    }
-    
-    /// Specify number of currently displayed sections
-    public func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return sections.count
-    }
-    
-    /// Specify number of currently displayed rows under section
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        guard section < sections.count else { return 0 }
-        
-        return sections[section].rows.count
-    }
-
-    /// Will try to register row, dequeue cell, and return configured cell.
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        guard   indexPath.section < sections.count,
-                indexPath.row < sections[indexPath.section].rows.count
-                else
-        {
-            fatalError("Requesting cell on indexPath \(indexPath) out of bounds.")
-        }
-        
-        let row = sections[indexPath.section].rows[indexPath.item]
-        
-        register(row: row)
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: row.reusableIdentifier, for: indexPath as IndexPath)
-        
-        row.configure(tableViewCell: cell)
-        
-        return cell
-    }
-    
-    /// Will try to find row, and call on it configureAtWillDisplay.
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        guard   indexPath.section < sections.count,
-                indexPath.row < sections[indexPath.section].rows.count
-                else
-        {
-            return
-        }
-        
-        let row = sections[indexPath.section].rows[indexPath.item]
-        
-        row.configureAtWillDisplay(tableViewCell: cell)
-    }
-
-    /// Will try to find row, and call its primary action closure
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        guard   indexPath.section < sections.count,
-                indexPath.row < sections[indexPath.section].rows.count
-                else
-        {
-            return
-        }
-        
-        let row = sections[indexPath.section].rows[indexPath.item]
-        
-        row.action?(indexPath)
-    }
-
-    // MARK: - Helpers
-
     internal func allCurrentlyVisibleSectionsAboutToBeDeleted(with sectionsToDelete: IndexSet) -> Bool
     {
         return sectionsToDelete.contains(integersIn: allCurrentlyVisibleSections())
