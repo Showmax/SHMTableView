@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0965958A6BF1C81D34DDFB18 /* Pods_SHMTableView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C7EE8D246261A2B220CB2F /* Pods_SHMTableView_Tests.framework */; };
-		3403655F1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403655E1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift */; };
-		340365601EA9EE020078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403655E1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift */; };
-		340365611EA9EE030078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403655E1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift */; };
+		340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */; };
+		340365641EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */; };
 		4120BA891E76958200C9A1F0 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
 		4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182E01E6D80690003ADA6 /* SimpleXibTableViewCell.swift */; };
 		41A182911E6D7F510003ADA6 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
@@ -148,7 +147,7 @@
 /* Begin PBXFileReference section */
 		03D310A1CC98CD2857981562 /* Pods-SHMTableView_Example_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		0F57B1451A24137B4BCEEABA /* Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS_Tests/Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3403655E1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControlle+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SHMTableViewTests+ScrollDelegate.swift"; sourceTree = "<group>"; };
 		3B8770D195A5676F92D18B11 /* Pods-SHMTableView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		41A182531E6D7DC70003ADA6 /* SHMTableView_Example_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHMTableView_Example_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A182631E6D7DC70003ADA6 /* SHMTableView_Example_tvOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMTableView_Example_tvOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,10 +307,11 @@
 				41A182851E6D7F510003ADA6 /* SHMTableRowProtocolTests.swift */,
 				41A182861E6D7F510003ADA6 /* SHMTableRowTests.swift */,
 				41A182871E6D7F510003ADA6 /* SHMTableViewControllerTests.swift */,
+				41A1828B1E6D7F510003ADA6 /* SHMTableViewTests.swift */,
 				41A182881E6D7F510003ADA6 /* SHMTableViewTests+Editing.swift */,
 				41A182891E6D7F510003ADA6 /* SHMTableViewTests+HeadersAndFooters.swift */,
 				41A1828A1E6D7F510003ADA6 /* SHMTableViewTests+ReloadingData.swift */,
-				41A1828B1E6D7F510003ADA6 /* SHMTableViewTests.swift */,
+				340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */,
 			);
 			path = unit;
 			sourceTree = "<group>";
@@ -410,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				41A182DA1E6D80690003ADA6 /* MainViewController.swift */,
-				3403655E1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift */,
 				41A182D81E6D80690003ADA6 /* MainControllerCell.swift */,
 				41A182D91E6D80690003ADA6 /* MainControllerHeaderCell.swift */,
 				41A182DB1E6D80690003ADA6 /* ShowMaxHeader.xib */,
@@ -966,7 +965,6 @@
 				41A1833E1E6D994D0003ADA6 /* UpdatingSimpleController.swift in Sources */,
 				41A1832C1E6D82D40003ADA6 /* AppDelegate.swift in Sources */,
 				41A183341E6D8B550003ADA6 /* MainViewController.swift in Sources */,
-				340365601EA9EE020078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */,
 				4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */,
 				41A183351E6D8B5F0003ADA6 /* MainControllerCell.swift in Sources */,
 				41A183361E6D8B690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
@@ -981,6 +979,7 @@
 				41B3C2FC1E76B6D900CF4257 /* XCTestCase+Helpers.swift in Sources */,
 				41A1833D1E6D992D0003ADA6 /* SimpleXibTableViewCell.swift in Sources */,
 				41B3C2FD1E76B6E200CF4257 /* LoggingTableViewCell.swift in Sources */,
+				340365641EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */,
 				41A183371E6D8F360003ADA6 /* MainControllerCell.swift in Sources */,
 				41B3C3041E76B90C00CF4257 /* SHMTableRowProtocolTests.swift in Sources */,
 				41B3C2FA1E76B6AB00CF4257 /* SHMTableChangesFinderTests+ChangingSections.swift in Sources */,
@@ -1015,7 +1014,6 @@
 				41A182F01E6D80690003ADA6 /* CarouselViewController.swift in Sources */,
 				41A182EC1E6D80690003ADA6 /* CarouselCollectionViewCell.swift in Sources */,
 				41A182FE1E6D80690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
-				3403655F1EA9EDF80078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */,
 				41A183001E6D80690003ADA6 /* MainViewController.swift in Sources */,
 				41A183101E6D80690003ADA6 /* TableInTableViewController.swift in Sources */,
 				41A182FA1E6D80690003ADA6 /* InteractionViewController.swift in Sources */,
@@ -1041,6 +1039,7 @@
 				41A182F51E6D80690003ADA6 /* CategoryCollectionViewCell.swift in Sources */,
 				41A182A71E6D7F510003ADA6 /* SHMTableChangesFinderTests+ChangingSections.swift in Sources */,
 				41A182971E6D7F510003ADA6 /* LoggingTableTestCase.swift in Sources */,
+				340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */,
 				41A182B11E6D7F510003ADA6 /* SHMTableViewControllerTests.swift in Sources */,
 				41A182911E6D7F510003ADA6 /* JFDiffTests.swift in Sources */,
 				41A182EF1E6D80690003ADA6 /* CarouselTableViewCell.swift in Sources */,
@@ -1056,7 +1055,6 @@
 				41A182931E6D7F510003ADA6 /* LoggingSHMTableView.swift in Sources */,
 				41A182B51E6D7F510003ADA6 /* SHMTableViewTests+HeadersAndFooters.swift in Sources */,
 				41A183191E6D80690003ADA6 /* VideoListViewModel.swift in Sources */,
-				340365611EA9EE030078BDC9 /* MainViewControlle+UIScrollViewDelegate.swift in Sources */,
 				41A182F71E6D80690003ADA6 /* EditingViewController.swift in Sources */,
 				41A183091E6D80690003ADA6 /* SimpleStoryboardTableViewCell.swift in Sources */,
 				41A183011E6D80690003ADA6 /* MainViewController.swift in Sources */,
