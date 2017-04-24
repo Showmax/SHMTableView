@@ -50,8 +50,8 @@ extension SHMTableView: UITableViewDelegate
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         guard   indexPath.section < sections.count,
-            indexPath.row < sections[indexPath.section].rows.count
-            else
+                indexPath.row < sections[indexPath.section].rows.count
+                else
         {
             return
         }
@@ -61,12 +61,27 @@ extension SHMTableView: UITableViewDelegate
         row.configureAtWillDisplay(tableViewCell: cell)
     }
     
+    /// Will try to find row, and call on it configureOnHide.
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        guard   indexPath.section < sections.count,
+                indexPath.row < sections[indexPath.section].rows.count
+                else
+        {
+            return
+        }
+        
+        let row = sections[indexPath.section].rows[indexPath.item]
+        
+        row.configureOnHide(tableViewCell: cell)
+    }
+    
     /// Will try to find row, and call its primary action closure
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         guard   indexPath.section < sections.count,
-            indexPath.row < sections[indexPath.section].rows.count
-            else
+                indexPath.row < sections[indexPath.section].rows.count
+                else
         {
             return
         }

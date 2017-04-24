@@ -26,10 +26,10 @@ extension SHMTableView: UITableViewDataSource
     public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
     {
         guard   sourceIndexPath.section < sections.count,
-            destinationIndexPath.section < sections.count,
-            sourceIndexPath.row < sections[sourceIndexPath.section].rows.count,
-            destinationIndexPath.row < sections[destinationIndexPath.section].rows.count
-            else
+                destinationIndexPath.section < sections.count,
+                sourceIndexPath.row < sections[sourceIndexPath.section].rows.count,
+                destinationIndexPath.row < sections[destinationIndexPath.section].rows.count
+                else
         {
             return
         }
@@ -72,8 +72,8 @@ extension SHMTableView: UITableViewDataSource
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         guard   indexPath.section < sections.count,
-            indexPath.row < sections[indexPath.section].rows.count
-            else
+                indexPath.row < sections[indexPath.section].rows.count
+                else
         {
             fatalError("Requesting cell on indexPath \(indexPath) out of bounds.")
         }

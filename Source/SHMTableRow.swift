@@ -71,6 +71,12 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     {
         (tableViewCell as? Cell)?.configureAtWillDisplay(model)
     }
+    
+    /// Will try to call configureOnHide on given tableViewCell
+    public func configureOnHide(tableViewCell: UITableViewCell)
+    {
+        (tableViewCell as? Cell)?.configureOnHide(model)
+    }
 }
 
 // MARK: - SHMDiffable

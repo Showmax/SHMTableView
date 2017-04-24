@@ -32,6 +32,7 @@ public protocol SHMTableRowProtocol: class, SHMDiffable
 {
     func configure(tableViewCell: UITableViewCell)
     func configureAtWillDisplay(tableViewCell: UITableViewCell)
+    func configureOnHide(tableViewCell: UITableViewCell)
     
     var reusableIdentifier: String { get }
     var action: ((IndexPath) -> Void)? { get set }
@@ -60,4 +61,5 @@ public protocol SHMConfigurable
 public protocol SHMConfigurableRow: SHMConfigurable
 {
     func configureAtWillDisplay(_: T)
+    func configureOnHide(_: T)
 }
