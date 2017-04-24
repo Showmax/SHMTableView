@@ -10,6 +10,8 @@
 		0965958A6BF1C81D34DDFB18 /* Pods_SHMTableView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C7EE8D246261A2B220CB2F /* Pods_SHMTableView_Tests.framework */; };
 		340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */; };
 		340365641EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */; };
+		34DAAE111EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */; };
+		34DAAE121EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */; };
 		4120BA891E76958200C9A1F0 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
 		4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182E01E6D80690003ADA6 /* SimpleXibTableViewCell.swift */; };
 		41A182911E6D7F510003ADA6 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
@@ -148,6 +150,7 @@
 		03D310A1CC98CD2857981562 /* Pods-SHMTableView_Example_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		0F57B1451A24137B4BCEEABA /* Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS_Tests/Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SHMTableViewTests+ScrollDelegate.swift"; sourceTree = "<group>"; };
+		34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTextCase+Waiting.swift"; sourceTree = "<group>"; };
 		3B8770D195A5676F92D18B11 /* Pods-SHMTableView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		41A182531E6D7DC70003ADA6 /* SHMTableView_Example_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHMTableView_Example_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A182631E6D7DC70003ADA6 /* SHMTableView_Example_tvOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMTableView_Example_tvOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				41A182771E6D7F510003ADA6 /* Mocking Support */,
+				34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */,
 				41A182761E6D7F510003ADA6 /* JFDiffTests.swift */,
 				41A182801E6D7F510003ADA6 /* SHMDiffableTests.swift */,
 				41A182811E6D7F510003ADA6 /* SHMTableChangesFinderTests+ChangingRows.swift */,
@@ -998,6 +1002,7 @@
 				41B3C3051E76B90C00CF4257 /* SHMTableRowTests.swift in Sources */,
 				41B3C2F81E76B6AB00CF4257 /* SHMDiffableTests.swift in Sources */,
 				41B3C3031E76B79A00CF4257 /* LoggingSHMTableView.swift in Sources */,
+				34DAAE121EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */,
 				41B3C30C1E76B92700CF4257 /* MainControllerHeaderCell.swift in Sources */,
 				41B3C2FB1E76B6AB00CF4257 /* SHMTableChangesFinderTests.swift in Sources */,
 			);
@@ -1038,6 +1043,7 @@
 				41A182F91E6D80690003ADA6 /* InteractionTableViewCell.swift in Sources */,
 				41A182F51E6D80690003ADA6 /* CategoryCollectionViewCell.swift in Sources */,
 				41A182A71E6D7F510003ADA6 /* SHMTableChangesFinderTests+ChangingSections.swift in Sources */,
+				34DAAE111EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */,
 				41A182971E6D7F510003ADA6 /* LoggingTableTestCase.swift in Sources */,
 				340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */,
 				41A182B11E6D7F510003ADA6 /* SHMTableViewControllerTests.swift in Sources */,

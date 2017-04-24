@@ -46,6 +46,36 @@ class SHMTableRowProtocolTests: LoggingTableTestCase
         }
     }
     
+    func test__cellHides__configureOnHideIsCalled()
+    {
+        let rows = (0..<100).map({ SHMTableRow<LoggingTableViewCell>(model: "\($0)", reusableIdentifier: LoggingTableViewCell.reusableIdentifier) })
+        
+        let sections = [SHMTableSection(rows: rows)]
+        ensureTableWillDisplay(sections)
+        
+        let contentSize = self.viewController?.tableView.contentSize ?? CGSize(width: 100.0, height: 2048.0)
+        let scrollFrame = CGRect(x: 0.0, y: contentSize.height - 3.0, width: 1.0, height: 1.0)
+        viewController?.tableView.scrollRectToVisible(scrollFrame, animated: false)
+        
+        shmwait(action: { done in
+            
+            for cell in self.viewController?.tableView.visibleCells ?? []
+            {
+                guard let cell = cell as? LoggingTableViewCell else
+                {
+                    XCTFail("Only LoggingTableViewCell can be at this table")
+                    return
+                }
+                
+                if cell.configureOnHideMethodWasCalled
+                {
+                    done()
+                    return
+                }
+            }
+        })
+    }
+    
     func test__action__isCalledOnRowSelection()
     {
         var actionWasCalled: Bool = false
