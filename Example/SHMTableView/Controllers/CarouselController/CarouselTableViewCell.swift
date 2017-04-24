@@ -88,6 +88,10 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
         }
     }
     
+    func configureOnHide(_ model: T)
+    {
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return imgData.count

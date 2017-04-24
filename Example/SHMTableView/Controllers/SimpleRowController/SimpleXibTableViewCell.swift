@@ -29,4 +29,8 @@ class SimpleXibTableViewCell: UITableViewCell, SHMConfigurableRow
     {
         label.text = model
     }
+    
+    func configureOnHide(_ model: T)
+    {
+    }
 }

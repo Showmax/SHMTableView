@@ -41,4 +41,8 @@ class LoggingTableViewCell: UITableViewCell, SHMConfigurableRow
         
         configureAtWillDisplayMethodWasCalled = true
     }
+    
+    func configureOnHide(_ model: T)
+    {
+    }
 }

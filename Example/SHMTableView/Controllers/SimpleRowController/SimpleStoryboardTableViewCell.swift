@@ -32,4 +32,8 @@ class SimpleStoryboardTableViewCell: UITableViewCell, SHMConfigurableRow
         // this will ensure that cell height is refreshed (another option, is remove this line and move text label setup inside configure() method)
         layoutIfNeeded()
     }
+    
+    func configureOnHide(_ model: T)
+    {
+    }
 }

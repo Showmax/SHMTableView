@@ -22,4 +22,5 @@ class MissingNIBTableViewCell: UITableViewCell, SHMConfigurableRow
     
     func configure(_ model: T) {}
     func configureAtWillDisplay(_ model: T) {}
+    func configureOnHide(_ model: T) {}
 }

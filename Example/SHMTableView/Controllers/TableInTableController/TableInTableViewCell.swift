@@ -61,4 +61,8 @@ class TableInTableViewCell: UITableViewCell, SHMConfigurableRow
     {
         
     }
+    
+    func configureOnHide(_ model: T)
+    {
+    }
 }

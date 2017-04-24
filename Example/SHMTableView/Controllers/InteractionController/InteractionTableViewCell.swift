@@ -45,6 +45,10 @@ class InteractionTableViewCell: UITableViewCell, SHMConfigurableRow
     {
     }
     
+    func configureOnHide(_ model: T)
+    {
+    }
+    
     @IBAction func buttonPressed(sender: UIButton)
     {
         // the magic is happening here

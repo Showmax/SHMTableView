@@ -59,6 +59,10 @@ class CategoriesTableViewCell: UITableViewCell, SHMConfigurableRow, UICollection
     {
     }
     
+    func configureOnHide(_ model: T)
+    {
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         if let categories = categoriesModel?.categories
