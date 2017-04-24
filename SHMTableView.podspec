@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SHMTableView'
-  s.version          = '1.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'SHMTableView is a wrapper around UITableView datasource, that helps you define table contents by mapping view types to model instances.'
 
   s.description      = <<-DESC

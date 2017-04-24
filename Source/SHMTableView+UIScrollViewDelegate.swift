@@ -9,8 +9,6 @@
 import Foundation
 
 /// This extension only forward all method calls for `UIScrollViewDelegate` protocol which come from table view.
-/// 
-/// I really don't know why method calls from `scrollDelegate` are handled as closures by swift.
 extension SHMTableView: UIScrollViewDelegate
 {
     public func scrollViewDidScroll(_ scrollView: UIScrollView)
