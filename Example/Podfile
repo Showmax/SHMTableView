@@ -5,19 +5,27 @@ def shmtableview_dev
 end
 
 target 'SHMTableView_Example' do
+    platform :ios, '9.3'
+
     shmtableview_dev
 end
 
 target 'SHMTableView_Tests' do
+    platform :ios, '9.3'
+
     shmtableview_dev
     pod 'Nimble'
 end
 
 target 'SHMTableView_Example_tvOS' do
+    platform :tvos, '9.2'
+
     shmtableview_dev
 end
 
 target 'SHMTableView_Example_tvOS_Tests' do
+    platform :tvos, '9.2'
+
     shmtableview_dev
     pod 'Nimble'
 end
