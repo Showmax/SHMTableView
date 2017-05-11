@@ -1,6 +1,6 @@
 PODS:
-  - Nimble (6.1.0)
-  - SHMTableView (1.0.1)
+  - Nimble (7.0.0)
+  - SHMTableView (2.0.0)
 
 DEPENDENCIES:
   - Nimble
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
-  SHMTableView: a65b46f0d9b9dff0584b03110c2a184b8264dfd1
+  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
+  SHMTableView: 1b8dc5e716f4980820032741d3a99c8e0bae6ac9
 
 PODFILE CHECKSUM: fe0cf72b7bc12b369e2d5cf4a5a902d2c776e956
 

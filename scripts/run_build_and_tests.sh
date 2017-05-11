@@ -8,6 +8,7 @@ scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Update Fastlane
 cd "$scriptDir"
+bash update_tools.sh
 
 source ./prepare_reports.sh
 
@@ -15,13 +16,13 @@ source ./prepare_reports.sh
 fastlane ios tests_distrib_ios
 ciIOSBasicResultCode=$?
 
-backup_reports "../../../reports/" "fastlane" "ios"
+backup_reports "../reports/" "fastlane" "ios"
 clean_reports "fastlane"
 
 fastlane ios tests_distrib_tvos
 ciTVOSBasicResultCode=$?
 
-backup_reports "../../../reports/" "fastlane" "tvos"
+backup_reports "../reports/" "fastlane" "tvos"
 
 echo "Done."
 

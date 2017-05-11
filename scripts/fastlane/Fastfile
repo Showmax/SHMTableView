@@ -1,8 +1,9 @@
 # Constants
 
-APP_PATH = "../../Example"
+PROJECT_PATH = "../Example"
+APP_PATH = "../#{PROJECT_PATH}"
 
-XCODE_WORKSPACE = "#{APP_PATH}/SHMTableView.workspace"
+XCODE_WORKSPACE = "#{PROJECT_PATH}/SHMTableView.xcworkspace"
 
 platform :ios do
 
@@ -24,7 +25,7 @@ platform :ios do
         prepare_project
 
         tests_scan(
-            scheme: "SHMTableView_Example",
+            scheme: "SHMTableView_Example_iOS",
             platform: "iOS"
         )
 
