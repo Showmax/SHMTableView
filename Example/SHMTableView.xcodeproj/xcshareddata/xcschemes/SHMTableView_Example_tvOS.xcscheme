@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "SHMTableView_Example.app"
-               BlueprintName = "SHMTableView_Example"
-               ReferencedContainer = "container:SHMTableView.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SHMTableView_Tests.xctest"
-               BlueprintName = "SHMTableView_Tests"
+               BlueprintIdentifier = "41A182521E6D7DC70003ADA6"
+               BuildableName = "SHMTableView_Example_tvOS.app"
+               BlueprintName = "SHMTableView_Example_tvOS"
                ReferencedContainer = "container:SHMTableView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,16 +26,15 @@
       buildConfiguration = "Tests"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SHMTableView_Tests.xctest"
-               BlueprintName = "SHMTableView_Tests"
+               BlueprintIdentifier = "41A182621E6D7DC70003ADA6"
+               BuildableName = "SHMTableView_Example_tvOS_Tests.xctest"
+               BlueprintName = "SHMTableView_Example_tvOS_Tests"
                ReferencedContainer = "container:SHMTableView.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SHMTableView_Example.app"
-            BlueprintName = "SHMTableView_Example"
+            BlueprintIdentifier = "41A182521E6D7DC70003ADA6"
+            BuildableName = "SHMTableView_Example_tvOS.app"
+            BlueprintName = "SHMTableView_Example_tvOS"
             ReferencedContainer = "container:SHMTableView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,9 +65,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SHMTableView_Example.app"
-            BlueprintName = "SHMTableView_Example"
+            BlueprintIdentifier = "41A182521E6D7DC70003ADA6"
+            BuildableName = "SHMTableView_Example_tvOS.app"
+            BlueprintName = "SHMTableView_Example_tvOS"
             ReferencedContainer = "container:SHMTableView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -99,9 +84,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SHMTableView_Example.app"
-            BlueprintName = "SHMTableView_Example"
+            BlueprintIdentifier = "41A182521E6D7DC70003ADA6"
+            BuildableName = "SHMTableView_Example_tvOS.app"
+            BlueprintName = "SHMTableView_Example_tvOS"
             ReferencedContainer = "container:SHMTableView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
