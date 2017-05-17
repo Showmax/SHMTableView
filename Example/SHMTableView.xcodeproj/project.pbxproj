@@ -12,6 +12,22 @@
 		340365641EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */; };
 		34DAAE111EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */; };
 		34DAAE121EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */; };
+		411696331ECC7781000A1B8B /* ComparisonSHMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696291ECC7781000A1B8B /* ComparisonSHMTableViewController.swift */; };
+		411696341ECC7781000A1B8B /* ComparisonSHMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696291ECC7781000A1B8B /* ComparisonSHMTableViewController.swift */; };
+		411696351ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962A1ECC7781000A1B8B /* ComparisonUITableViewController.swift */; };
+		411696361ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962A1ECC7781000A1B8B /* ComparisonUITableViewController.swift */; };
+		411696371ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962C1ECC7781000A1B8B /* EpisodeTableViewCell.swift */; };
+		411696381ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962C1ECC7781000A1B8B /* EpisodeTableViewCell.swift */; };
+		411696391ECC7781000A1B8B /* EpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4116962D1ECC7781000A1B8B /* EpisodeTableViewCell.xib */; };
+		4116963A1ECC7781000A1B8B /* EpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4116962D1ECC7781000A1B8B /* EpisodeTableViewCell.xib */; };
+		4116963B1ECC7781000A1B8B /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962E1ECC7781000A1B8B /* VideoTableViewCell.swift */; };
+		4116963C1ECC7781000A1B8B /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4116962E1ECC7781000A1B8B /* VideoTableViewCell.swift */; };
+		4116963D1ECC7781000A1B8B /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4116962F1ECC7781000A1B8B /* VideoTableViewCell.xib */; };
+		4116963E1ECC7781000A1B8B /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4116962F1ECC7781000A1B8B /* VideoTableViewCell.xib */; };
+		4116963F1ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696311ECC7781000A1B8B /* EpisodeCellViewModel.swift */; };
+		411696401ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696311ECC7781000A1B8B /* EpisodeCellViewModel.swift */; };
+		411696411ECC7781000A1B8B /* VideoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696321ECC7781000A1B8B /* VideoCellViewModel.swift */; };
+		411696421ECC7781000A1B8B /* VideoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411696321ECC7781000A1B8B /* VideoCellViewModel.swift */; };
 		4120BA891E76958200C9A1F0 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
 		4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182E01E6D80690003ADA6 /* SimpleXibTableViewCell.swift */; };
 		41A182911E6D7F510003ADA6 /* JFDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182761E6D7F510003ADA6 /* JFDiffTests.swift */; };
@@ -152,6 +168,14 @@
 		340365621EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SHMTableViewTests+ScrollDelegate.swift"; sourceTree = "<group>"; };
 		34DAAE101EAE1C12001EBCC3 /* XCTextCase+Waiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTextCase+Waiting.swift"; sourceTree = "<group>"; };
 		3B8770D195A5676F92D18B11 /* Pods-SHMTableView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		411696291ECC7781000A1B8B /* ComparisonSHMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonSHMTableViewController.swift; sourceTree = "<group>"; };
+		4116962A1ECC7781000A1B8B /* ComparisonUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonUITableViewController.swift; sourceTree = "<group>"; };
+		4116962C1ECC7781000A1B8B /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		4116962D1ECC7781000A1B8B /* EpisodeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeTableViewCell.xib; sourceTree = "<group>"; };
+		4116962E1ECC7781000A1B8B /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		4116962F1ECC7781000A1B8B /* VideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		411696311ECC7781000A1B8B /* EpisodeCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCellViewModel.swift; sourceTree = "<group>"; };
+		411696321ECC7781000A1B8B /* VideoCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCellViewModel.swift; sourceTree = "<group>"; };
 		41A182531E6D7DC70003ADA6 /* SHMTableView_Example_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHMTableView_Example_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A182631E6D7DC70003ADA6 /* SHMTableView_Example_tvOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMTableView_Example_tvOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A182721E6D7F510003ADA6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -276,6 +300,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		411696281ECC7781000A1B8B /* ComparisonController */ = {
+			isa = PBXGroup;
+			children = (
+				411696291ECC7781000A1B8B /* ComparisonSHMTableViewController.swift */,
+				4116962A1ECC7781000A1B8B /* ComparisonUITableViewController.swift */,
+				4116962B1ECC7781000A1B8B /* View */,
+				411696301ECC7781000A1B8B /* ViewModel */,
+			);
+			path = ComparisonController;
+			sourceTree = "<group>";
+		};
+		4116962B1ECC7781000A1B8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4116962C1ECC7781000A1B8B /* EpisodeTableViewCell.swift */,
+				4116962D1ECC7781000A1B8B /* EpisodeTableViewCell.xib */,
+				4116962E1ECC7781000A1B8B /* VideoTableViewCell.swift */,
+				4116962F1ECC7781000A1B8B /* VideoTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		411696301ECC7781000A1B8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				411696311ECC7781000A1B8B /* EpisodeCellViewModel.swift */,
+				411696321ECC7781000A1B8B /* VideoCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		41A182701E6D7F510003ADA6 /* plists */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +436,7 @@
 				41A182E21E6D80690003ADA6 /* TableInTableController */,
 				41A182E51E6D80690003ADA6 /* UpdatingController */,
 				41A182D21E6D80690003ADA6 /* EditingController */,
+				411696281ECC7781000A1B8B /* ComparisonController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -663,10 +719,12 @@
 					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = C226648446;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = C226648446;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -721,7 +779,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4116963D1ECC7781000A1B8B /* VideoTableViewCell.xib in Resources */,
 				41A182C51E6D7FF70003ADA6 /* LaunchScreen.storyboard in Resources */,
+				411696391ECC7781000A1B8B /* EpisodeTableViewCell.xib in Resources */,
 				41A183021E6D80690003ADA6 /* ShowMaxHeader.xib in Resources */,
 				41A1830C1E6D80690003ADA6 /* SimpleXibTableViewCell.xib in Resources */,
 				41A182C31E6D7FF70003ADA6 /* Assets.xcassets in Resources */,
@@ -738,8 +798,10 @@
 				41A182951E6D7F510003ADA6 /* LoggingStoryboard.storyboard in Resources */,
 				41A182C41E6D7FF70003ADA6 /* Assets.xcassets in Resources */,
 				41A183031E6D80690003ADA6 /* ShowMaxHeader.xib in Resources */,
+				4116963A1ECC7781000A1B8B /* EpisodeTableViewCell.xib in Resources */,
 				41A1829B1E6D7F510003ADA6 /* LoggingTableViewCell.xib in Resources */,
 				41A1830D1E6D80690003ADA6 /* SimpleXibTableViewCell.xib in Resources */,
+				4116963E1ECC7781000A1B8B /* VideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,14 +1085,20 @@
 				41A1830A1E6D80690003ADA6 /* SimpleXibTableViewCell.swift in Sources */,
 				41A183121E6D80690003ADA6 /* UpdatingSimpleController.swift in Sources */,
 				41A183081E6D80690003ADA6 /* SimpleStoryboardTableViewCell.swift in Sources */,
+				411696411ECC7781000A1B8B /* VideoCellViewModel.swift in Sources */,
 				41A183161E6D80690003ADA6 /* VideoListModel.swift in Sources */,
+				4116963B1ECC7781000A1B8B /* VideoTableViewCell.swift in Sources */,
 				41A182F01E6D80690003ADA6 /* CarouselViewController.swift in Sources */,
 				41A182EC1E6D80690003ADA6 /* CarouselCollectionViewCell.swift in Sources */,
 				41A182FE1E6D80690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
+				4116963F1ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */,
 				41A183001E6D80690003ADA6 /* MainViewController.swift in Sources */,
+				411696351ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */,
+				411696371ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */,
 				41A183101E6D80690003ADA6 /* TableInTableViewController.swift in Sources */,
 				41A182FA1E6D80690003ADA6 /* InteractionViewController.swift in Sources */,
 				41A1830E1E6D80690003ADA6 /* TableInTableViewCell.swift in Sources */,
+				411696331ECC7781000A1B8B /* ComparisonSHMTableViewController.swift in Sources */,
 				41A183061E6D80690003ADA6 /* SimpleRowViewController.swift in Sources */,
 				41A182EE1E6D80690003ADA6 /* CarouselTableViewCell.swift in Sources */,
 				41A183141E6D80690003ADA6 /* UpdatingViewModelController.swift in Sources */,
@@ -1055,11 +1123,14 @@
 				41A182971E6D7F510003ADA6 /* LoggingTableTestCase.swift in Sources */,
 				340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */,
 				41A182B11E6D7F510003ADA6 /* SHMTableViewControllerTests.swift in Sources */,
+				411696381ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */,
+				411696401ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */,
 				41A182911E6D7F510003ADA6 /* JFDiffTests.swift in Sources */,
 				41A182EF1E6D80690003ADA6 /* CarouselTableViewCell.swift in Sources */,
 				41A182AB1E6D7F510003ADA6 /* SHMTableOperatorsTests.swift in Sources */,
 				41A1832B1E6D82D40003ADA6 /* AppDelegate.swift in Sources */,
 				41A182FB1E6D80690003ADA6 /* InteractionViewController.swift in Sources */,
+				411696361ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */,
 				41A183111E6D80690003ADA6 /* TableInTableViewController.swift in Sources */,
 				41A182AF1E6D7F510003ADA6 /* SHMTableRowTests.swift in Sources */,
 				41A183151E6D80690003ADA6 /* UpdatingViewModelController.swift in Sources */,
@@ -1073,16 +1144,19 @@
 				41A183091E6D80690003ADA6 /* SimpleStoryboardTableViewCell.swift in Sources */,
 				41A183011E6D80690003ADA6 /* MainViewController.swift in Sources */,
 				41A182B91E6D7F510003ADA6 /* SHMTableViewTests.swift in Sources */,
+				4116963C1ECC7781000A1B8B /* VideoTableViewCell.swift in Sources */,
 				41A182A31E6D7F510003ADA6 /* SHMDiffableTests.swift in Sources */,
 				41A183171E6D80690003ADA6 /* VideoListModel.swift in Sources */,
 				41A1829D1E6D7F510003ADA6 /* LoggingViewController.swift in Sources */,
 				41A182A91E6D7F510003ADA6 /* SHMTableChangesFinderTests.swift in Sources */,
 				41A182FD1E6D80690003ADA6 /* MainControllerCell.swift in Sources */,
 				41A182A51E6D7F510003ADA6 /* SHMTableChangesFinderTests+ChangingRows.swift in Sources */,
+				411696341ECC7781000A1B8B /* ComparisonSHMTableViewController.swift in Sources */,
 				41A1830F1E6D80690003ADA6 /* TableInTableViewCell.swift in Sources */,
 				41A1830B1E6D80690003ADA6 /* SimpleXibTableViewCell.swift in Sources */,
 				41A183131E6D80690003ADA6 /* UpdatingSimpleController.swift in Sources */,
 				41A182F31E6D80690003ADA6 /* CategoriesTableViewCell.swift in Sources */,
+				411696421ECC7781000A1B8B /* VideoCellViewModel.swift in Sources */,
 				41A183071E6D80690003ADA6 /* SimpleRowViewController.swift in Sources */,
 				41A182AD1E6D7F510003ADA6 /* SHMTableRowProtocolTests.swift in Sources */,
 				41A182A11E6D7F510003ADA6 /* XCTestCase+Helpers.swift in Sources */,
@@ -1329,6 +1403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C226648446;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1346,6 +1421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C226648446;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

@@ -44,7 +44,10 @@ class MainViewController: SHMTableViewController
             // the approach is exaclty the same as for rows
             section.headerView = SHMTableHeader<MainControllerHeaderCell>(model: nil, view: view)
         }
-
+        
+    #if os(tvOS)
+        section += createUpdatingSimpleRow()
+    #else
         section += createSimpleRowsRow()
         section += createTableInTableRow()
         section += createInteractionsRow()
@@ -52,7 +55,10 @@ class MainViewController: SHMTableViewController
         section += createUpdatingSimpleRow()
         section += createUpdatingViewModelRow()
         section += createEditingRow()
-        
+        section += createComparisonUITableViewRow()
+        section += createComparisonSHMTableViewRow()
+    #endif
+
         shmTable += section
     }
     
@@ -70,8 +76,8 @@ class MainViewController: SHMTableViewController
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    // MARK: - Create rows
     
+    // MARK: - Create rows
     
     func createSimpleRowsRow() -> SHMTableRow<MainControllerCell>
     {
@@ -195,6 +201,40 @@ class MainViewController: SHMTableViewController
                     me.showUnsupportedTVOSExampleAlert()
                 #else
                     me.performSegue(withIdentifier: "EditingSegue", sender: self)
+                #endif
+            }
+        )
+    }
+    
+    func createComparisonUITableViewRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(title: "Comparison - using UITableView", desc: "Simple list using classic UITableView."),
+            action: { [weak self] _ in
+                
+                guard let me = self else { return }
+                
+                #if os(tvOS)
+                    me.showUnsupportedTVOSExampleAlert()
+                #else
+                    me.performSegue(withIdentifier: "ComparisonUITableViewSegue", sender: self)
+                #endif
+            }
+        )
+    }
+    
+    func createComparisonSHMTableViewRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(title: "Comparison - using SHMTableView", desc: "Simple list using SHMTableView."),
+            action: { [weak self] _ in
+                
+                guard let me = self else { return }
+                
+                #if os(tvOS)
+                    me.showUnsupportedTVOSExampleAlert()
+                #else
+                    me.performSegue(withIdentifier: "ComparisonSHMTableViewSegue", sender: self)
                 #endif
             }
         )
