@@ -1,0 +1,60 @@
+# Constants
+
+PROJECT_PATH = "../Example"
+APP_PATH = "../#{PROJECT_PATH}"
+
+XCODE_WORKSPACE = "#{PROJECT_PATH}/SHMTableView.xcworkspace"
+
+platform :ios do
+
+    ##### Setup ##############################################################
+
+    desc "Prepare project with all dependencies, so it is buildable, also clean preventively"
+    lane :prepare_project do
+
+        clear_derived_data
+        sh "cd '#{APP_PATH}' && rm -rf Pods && pod install"
+    end
+
+
+    ##### Testing ############################################################
+
+    lane :tests_distrib_ios do
+
+        ENV["APP_IDENTIFIER"] = "com.showmax.shtambleview-example"
+        prepare_project
+
+        tests_scan(
+            scheme: "SHMTableView_Example_iOS",
+            platform: "iOS"
+        )
+
+    end
+
+    lane :tests_distrib_tvos do
+
+        ENV["APP_IDENTIFIER"] = "com.showmax.shtambleview-example"
+        prepare_project
+
+        tests_scan(
+            scheme: "SHMTableView_Example_tvOS",
+            platform: "tvOS"
+        )
+
+    end
+
+    private_lane :tests_scan do |options|
+
+        scheme = options[:scheme]
+
+        scan(
+            workspace: XCODE_WORKSPACE,
+            scheme: scheme,
+            clean: true,
+            skip_build: true,
+            output_style: "rspec",
+            output_types: "junit"
+        )
+
+    end
+end

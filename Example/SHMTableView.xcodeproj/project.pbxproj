@@ -211,6 +211,7 @@
 		41A1833A1E6D98C50003ADA6 /* SimpleXibTableViewCell+tvOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SimpleXibTableViewCell+tvOS.xib"; sourceTree = "<group>"; };
 		41B3C2FF1E76B77600CF4257 /* LoggingStoryboard+tvOS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LoggingStoryboard+tvOS.storyboard"; sourceTree = "<group>"; };
 		41B3C30E1E76BB2400CF4257 /* LoggingTableViewCell+tvOS.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LoggingTableViewCell+tvOS.xib"; sourceTree = "<group>"; };
+		4A8DD0FB825A38FCE80A6EC1 /* Pods-SHMTableView_Example.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example/Pods-SHMTableView_Example.tests.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SHMTableView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHMTableView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* SHMTableView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMTableView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		632806C9CF3E85914D691479 /* Pods-SHMTableView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example/Pods-SHMTableView_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,11 +219,14 @@
 		7550D60C7962AC845F744DC2 /* Pods-SHMTableView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example/Pods-SHMTableView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		805AB95191D3B229DAFD826A /* SHMTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SHMTableView.podspec; path = ../SHMTableView.podspec; sourceTree = "<group>"; };
 		89ADD639DDD18D22FD3D5767 /* Pods-SHMTableView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E67E6B26319429F4CF05D99 /* Pods-SHMTableView_Example_tvOS_Tests.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS_Tests.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS_Tests/Pods-SHMTableView_Example_tvOS_Tests.tests.xcconfig"; sourceTree = "<group>"; };
+		974F26456DD081BCCA930F41 /* Pods-SHMTableView_Tests.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Tests.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Tests/Pods-SHMTableView_Tests.tests.xcconfig"; sourceTree = "<group>"; };
 		A5C7EE8D246261A2B220CB2F /* Pods_SHMTableView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A704A4D27DC408145B779B0D /* Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS_Tests/Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADDA7B7F81B344ECBB52ABCA /* Pods_SHMTableView_Example_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332A5844D35AC27BCA72296 /* Pods-SHMTableView_Example_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF3B634FF0687CB62081425 /* Pods_SHMTableView_Example_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33661A99DA748B7CEB45DA1 /* Pods-SHMTableView_Example_tvOS.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.tests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +493,10 @@
 				03D310A1CC98CD2857981562 /* Pods-SHMTableView_Example_tvOS.release.xcconfig */,
 				A704A4D27DC408145B779B0D /* Pods-SHMTableView_Example_tvOS_Tests.debug.xcconfig */,
 				0F57B1451A24137B4BCEEABA /* Pods-SHMTableView_Example_tvOS_Tests.release.xcconfig */,
+				4A8DD0FB825A38FCE80A6EC1 /* Pods-SHMTableView_Example.tests.xcconfig */,
+				E33661A99DA748B7CEB45DA1 /* Pods-SHMTableView_Example_tvOS.tests.xcconfig */,
+				8E67E6B26319429F4CF05D99 /* Pods-SHMTableView_Example_tvOS_Tests.tests.xcconfig */,
+				974F26456DD081BCCA930F41 /* Pods-SHMTableView_Tests.tests.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1144,13 +1152,13 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/tvos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShowMax.SHMTableView-Example-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.showmax.shtambleview-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Debug;
 		};
@@ -1168,13 +1176,13 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/tvos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShowMax.SHMTableView-Example-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.showmax.shtambleview-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
 		};
@@ -1323,9 +1331,10 @@
 				DEFINES_MODULE = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.showmax.shtambleview-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1339,9 +1348,10 @@
 				DEFINES_MODULE = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = SHMTableView/Resources/ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.showmax.shtambleview-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
