@@ -23,9 +23,6 @@ class TextFieldTableViewCell: UITableViewCell
 {
     
     @IBOutlet var textField: UITextField!
-    
-    var model: TextViewCellModel!
-    
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -34,7 +31,7 @@ class TextFieldTableViewCell: UITableViewCell
     
     override func setSelected(_ selected: Bool, animated: Bool) 
     {
-
+        
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
@@ -52,13 +49,13 @@ extension TextFieldTableViewCell: SHMConfigurableRow
         self.textField.delegate = self
         self.selectionStyle = .gray
         self.textField.placeholder = model.placeholder
-    
+        
     }
     
     func configureAtWillDisplay(_ model: T)
     {
-    
-
+        
+        
     }
     
     func configureOnHide(_ model: T)

@@ -30,30 +30,34 @@ class TextFieldSHMTableViewController: SHMTableViewController
     
     override func viewDidLoad() 
     {
-     super.viewDidLoad()
+        super.viewDidLoad()
         
         keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
-    
-        let section = SHMTableSection()
-    
-    
-        for i in 0...20
-        {
-            let cell = SHMTableRow<TextFieldTableViewCell>(
-                model: TextViewCellModel(placeholder: "\(i)")
-            )
-
-            section += cell
-        }
         
-        shmTable += section
+        addTableViewSectionWithCell()
+        
     }
-    
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(true)
         keyboardHandler.stop()
     }
-   
+    
+    fileprivate func addTableViewSectionWithCell()
+    {
+        let section = SHMTableSection()
+        
+        for i in 0...20
+        {
+            let cell = SHMTableRow<TextFieldTableViewCell>(
+                model: TextViewCellModel(placeholder: "\(i)")
+            )
+            
+            section += cell
+        }
+        
+        shmTable += section
+    }
+    
 }

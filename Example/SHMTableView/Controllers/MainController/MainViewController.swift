@@ -244,7 +244,10 @@ class MainViewController: SHMTableViewController
     func createTextFieldTestingSHMTableViewRow() -> SHMTableRow<MainControllerCell>
     {
         return SHMTableRow<MainControllerCell>(
-            model: MainControllerModel(title: "UITextField with keyboard test", desc: "Test for UITextfield and keyboard displaying well."),
+            model: MainControllerModel(
+                title: "UITextField with keyboard test",
+                desc: "Test for UITextfield and keyboard displaying well."
+            ),
             action: { [weak self] _ in
                 
                 guard let me = self else { return }
