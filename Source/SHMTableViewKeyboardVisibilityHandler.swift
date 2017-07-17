@@ -12,39 +12,55 @@ import UIKit
 // swiftlint:disable trailing_whitespace
 
 
-
+///
+/// This class basically handles keyboard appearance in ViewController with UITableView. 
+/// It contains very basic methods: start() and stop()
+/// You should initialize this class in viewDidLoad and call the main method
+/// start() on viewWillAppear(_:) and stop() on viewWillDisappear(_:)
+/// This ensures that the keyboard notifications observing will occur only once and 
+/// not multiple times.
+/// 
 public class SHMTableViewKeyboardVisibilityHandler
 { 
+    /// TableView 
     weak var tableView: UITableView?
     
+    public init(tableView: UITableView?)
+    {
+        self.tableView = tableView        
+    }
     
-   public init(tableView: UITableView?)
-   {
+    /// This function should be always called in viewDidAppear(_ animated: Bool). 
+    /// This function handles registering notifications for showing and hiding keyboard, 
+    //specifically NSNotification.Name.UIKeyboardWillShow and NSNotification.Name.UIKeyboardWillHide
+    public func start()
+    {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow), 
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
         
-        self.tableView = tableView
-      
-    }
-    
-   public func start()
-   {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardWillShow), 
-                                               name: NSNotification.Name.UIKeyboardWillShow,
-                                               object: nil
-        )
-    
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.handleKeyboardDisappear),
-                                               name: NSNotification.Name.UIKeyboardWillHide, 
-                                               object: nil
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.handleKeyboardDisappear),
+            name: NSNotification.Name.UIKeyboardWillHide, 
+            object: nil
         )
     }
     
-   public func stop()
-   {
-       NotificationCenter.default.removeObserver(self)
-   }
+    // This function should be called on deinit and viewWillDisappear(_ animated: Bool)
+    // This function removes subscribing for keyboard notifications mentioned in start() func
+    public func stop()
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
     
+    /// Sets the bottom property of contentInset in the tableView to keyboard height value on
+    /// notification of showing  keyboard
+    ///
+    /// - Parameter notification: NSNofification.Name.UIKeyboardWillShow
     @objc fileprivate func keyboardWillShow(notification: NSNotification) 
     {
         
@@ -60,6 +76,10 @@ public class SHMTableViewKeyboardVisibilityHandler
         }
     }
     
+    /// Sets the bottom property of contentInset in the tableView to zero on
+    /// notification of hiding keyboard
+    ///
+    /// - Parameter notification: NSNofification.Name.UIKeyboardWillHide
     @objc fileprivate func handleKeyboardDisappear(notification: NSNotification)
     {
         guard let tableView = tableView else { return }

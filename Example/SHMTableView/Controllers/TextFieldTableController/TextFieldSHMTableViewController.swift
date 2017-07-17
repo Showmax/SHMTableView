@@ -20,30 +20,22 @@ class TextFieldSHMTableViewController: SHMTableViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        self.edgesForExtendedLayout = []
-        
-        if keyboardHandler == nil
-        {
-        self.keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
-        }
+        keyboardHandler.start()
     }
-    
-    
     
     @IBAction func donePressed(_ sender: Any)
     {
         self.view.endEditing(true)
     }
     
-    
     override func viewDidLoad() 
     {
      super.viewDidLoad()
         
         keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
-        keyboardHandler.start()
+    
         let section = SHMTableSection()
-        
+    
     
         for i in 0...20
         {
@@ -54,8 +46,6 @@ class TextFieldSHMTableViewController: SHMTableViewController
             section += cell
         }
         
-
-
         shmTable += section
     }
     
