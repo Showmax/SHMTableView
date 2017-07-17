@@ -42,6 +42,8 @@ import Foundation
 // algorithms: http://www.xmailserver.org/diff2.pdf
 //
 
+// swiftlint:disable identifier_name
+
 internal struct JFDiff<T>
 {
     internal let results: [JFDiffStep<T>]

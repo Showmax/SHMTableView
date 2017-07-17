@@ -23,7 +23,7 @@ import UIKit
 public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Cell: UITableViewCell
 {
     /// Holds model paired with view type
-    var model: Cell.T
+    public var model: Cell.T
  
     /// Optional. If specified, bundle will be used for loading NIBs in SHMTableView.register(row:)
     public var bundle: Bundle?

@@ -57,6 +57,7 @@ class MainViewController: SHMTableViewController
         section += createEditingRow()
         section += createComparisonUITableViewRow()
         section += createComparisonSHMTableViewRow()
+        section += createTextFieldTestingSHMTableViewRow()
     #endif
 
         shmTable += section
@@ -239,6 +240,24 @@ class MainViewController: SHMTableViewController
             }
         )
     }
+    
+    func createTextFieldTestingSHMTableViewRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(title: "UITextField with keyboard test", desc: "Test for UITextfield and keyboard displaying well."),
+            action: { [weak self] _ in
+                
+                guard let me = self else { return }
+                
+                #if os(tvOS)
+                    me.showUnsupportedTVOSExampleAlert()
+                #else
+                    me.performSegue(withIdentifier: "UITextFieldTestSegue", sender: self)
+                #endif
+            }
+        )
+    }
+    
     
     
     // MARK: - Helpers

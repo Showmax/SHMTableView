@@ -19,8 +19,6 @@ import UIKit
  Protocols for the SHMTableView.
  
  */
-
-
 /**
  
  You don't need this protocol too much often. This is mostly handled by SHMTableView.
