@@ -16,8 +16,6 @@ import SHMTableView
 struct TextViewCellModel
 {
     let placeholder: String
-    let didTapTextfieldOnCell: (UITableViewCell) -> Void 
-
 }
 
 
@@ -34,14 +32,9 @@ class TextFieldTableViewCell: UITableViewCell
         // Initialization code
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIButton) 
-    {
-      
-        self.endEditing(true)
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) 
     {
+
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
@@ -56,7 +49,6 @@ extension TextFieldTableViewCell: SHMConfigurableRow
     
     func configure(_ model: T)
     {
-        self.model = model
         self.textField.delegate = self
         self.selectionStyle = .gray
         self.textField.placeholder = model.placeholder
@@ -80,7 +72,6 @@ extension TextFieldTableViewCell: UITextFieldDelegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) 
     {
-        self.model.didTapTextfieldOnCell(self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool 

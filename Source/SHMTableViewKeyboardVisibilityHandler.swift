@@ -11,22 +11,18 @@ import UIKit
 
 // swiftlint:disable trailing_whitespace
 
-public protocol SHMScrollingDelegate: class
-{
-
-func setActive(indexPath: IndexPath)
-
-}
 
 
-public class SHMTableViewKeyboardVisibilityHandler: SHMScrollingDelegate
+public class SHMTableViewKeyboardVisibilityHandler
 { 
-    var tableView: UITableView
+    weak var tableView: UITableView?
     
-   public init(tableView: UITableView)
+    
+   public init(tableView: UITableView?)
    {
         
         self.tableView = tableView
+      
     }
     
    public func start()
@@ -35,25 +31,19 @@ public class SHMTableViewKeyboardVisibilityHandler: SHMScrollingDelegate
                                                selector: #selector(self.keyboardWillShow), 
                                                name: NSNotification.Name.UIKeyboardWillShow,
                                                object: nil
-            )
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(self.handleKeyboardDisappear),
-                                                   name: NSNotification.Name.UIKeyboardWillHide, 
-                                                   object: nil
+        )
+    
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.handleKeyboardDisappear),
+                                               name: NSNotification.Name.UIKeyboardWillHide, 
+                                               object: nil
         )
     }
     
    public func stop()
    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    public func setActive(indexPath: IndexPath){
-        
-        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        
-        
-    }
+       NotificationCenter.default.removeObserver(self)
+   }
     
     @objc fileprivate func keyboardWillShow(notification: NSNotification) 
     {
@@ -61,21 +51,27 @@ public class SHMTableViewKeyboardVisibilityHandler: SHMScrollingDelegate
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue 
         {
             let keyboardHeight = keyboardSize.height
-            let insets = UIEdgeInsetsMake(0.0, 0.0, keyboardHeight, 0.0)
+            
+            guard let tableView = tableView else { return }
+            
+            var insets = tableView.contentInset 
+            insets.bottom = keyboardHeight
             tableView.contentInset =  insets
-            tableView.scrollIndicatorInsets = insets
         }
     }
     
-    @objc fileprivate func handleKeyboardDisappear(notification: NSNotification){
+    @objc fileprivate func handleKeyboardDisappear(notification: NSNotification)
+    {
+        guard let tableView = tableView else { return }
         
-        tableView.contentInset = .zero
-        tableView.scrollIndicatorInsets = .zero
+        var insets = tableView.contentInset 
+        insets.bottom = 0
+        tableView.contentInset =  insets
         
     }
     
-    
-    deinit{
+    deinit
+    {
         stop()
     }
 }

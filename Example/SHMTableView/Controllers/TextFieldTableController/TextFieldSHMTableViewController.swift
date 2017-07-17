@@ -16,6 +16,26 @@ class TextFieldSHMTableViewController: SHMTableViewController
     
     var keyboardHandler: SHMTableViewKeyboardVisibilityHandler!
     
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        self.edgesForExtendedLayout = []
+        
+        if keyboardHandler == nil
+        {
+        self.keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
+        }
+    }
+    
+    
+    
+    @IBAction func donePressed(_ sender: Any)
+    {
+        self.view.endEditing(true)
+    }
+    
+    
     override func viewDidLoad() 
     {
      super.viewDidLoad()
@@ -25,15 +45,12 @@ class TextFieldSHMTableViewController: SHMTableViewController
         let section = SHMTableSection()
         
     
-        for i in 0...50
+        for i in 0...20
         {
             let cell = SHMTableRow<TextFieldTableViewCell>(
-                model: TextViewCellModel(placeholder: "\(i)", didTapTextfieldOnCell: { print($0) })
+                model: TextViewCellModel(placeholder: "\(i)")
             )
-            
-                cell.action = {
-                    self.keyboardHandler.setActive(indexPath: $0) 
-            }
+
             section += cell
         }
         
