@@ -9,6 +9,7 @@ disabled_rules: # rule identifiers to exclude from running
  - sorted_imports
  - missing_docs #for now because this can't work with Xcode 8 doc strings.
  - shorthand_operator
+ - notification_center_detachement
 
 opt_in_rules:
  - closure_spacing
@@ -60,7 +61,7 @@ legacy_cggeometry_functions: error
 legacy_constant: error
 legacy_constructor: error
 legacy_nsgeometry_functions: error
-    
+
 mark: error
 nesting: error
 operator_whitespace: error
@@ -140,4 +141,3 @@ custom_rules:
     regex: "((func|var|class|struct|enum|if|switch|guard|protocol|extension|else)[^\n]*\\{$)"
     message: "Opening bracket MUST be on new line."
     severity: error
-  

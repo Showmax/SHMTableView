@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-// swiftlint:disable trailing_whitespace
-
-
 ///
 /// This class basically handles keyboard appearance in ViewController with UITableView. 
 /// It contains very basic methods: start() and stop()
@@ -28,6 +25,11 @@ public class SHMTableViewKeyboardVisibilityHandler
     public init(tableView: UITableView?)
     {
         self.tableView = tableView        
+    }
+    
+    deinit
+    {
+        stop()
     }
     
     /// This function should be always called in viewDidAppear(_ animated: Bool). 
@@ -61,37 +63,34 @@ public class SHMTableViewKeyboardVisibilityHandler
     /// notification of showing  keyboard
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillShow
-    @objc fileprivate func keyboardWillShow(notification: NSNotification) 
+    @objc
+    fileprivate func keyboardWillShow(notification: NSNotification) 
     {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue 
-        {
-            let keyboardHeight = keyboardSize.height
-            
-            guard let tableView = tableView else { return }
-            
-            var insets = tableView.contentInset 
-            insets.bottom = keyboardHeight
-            tableView.contentInset =  insets
-        }
+        guard   let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
+                let tableView = tableView
+            else { return }
+        
+        let keyboardHeight = keyboardSize.height
+        
+        var insets = tableView.contentInset 
+        insets.bottom = keyboardHeight
+        tableView.contentInset = insets
+        
     }
     
     /// Sets the bottom property of contentInset in the tableView to zero on
     /// notification of hiding keyboard
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillHide
-    @objc fileprivate func handleKeyboardDisappear(notification: NSNotification)
+    @objc
+    fileprivate func handleKeyboardDisappear(notification: NSNotification)
     {
         guard let tableView = tableView else { return }
         
         var insets = tableView.contentInset 
         insets.bottom = 0
-        tableView.contentInset =  insets
+        tableView.contentInset = insets
         
-    }
-    
-    deinit
-    {
-        stop()
     }
 }

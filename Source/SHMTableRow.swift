@@ -48,7 +48,7 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     /// - Parameter model: instance of model
     /// - Parameter reusableIdentifier: optional, custom reusable identifier key
     /// - Parameter action: optional, primary row action used when tapped on row
-    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> ())? = nil)
+    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> Void)? = nil)
     {
         self.init(model: model)
         
