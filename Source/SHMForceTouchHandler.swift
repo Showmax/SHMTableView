@@ -34,10 +34,10 @@ public class SHMForceTouchHandler: NSObject
     /// Dependencies 
     public var dependencies: ForceTouchDependencies
     
-    
+  
     
     /// Custom closure determining action on peeking event
-    public var didPeek: ((IndexPath, Any?) -> UIViewController?)?
+    public var didPeek: ((IndexPath) -> UIViewController?)?
     
     /// Closure determining pop (the hard force touch) when peeking
     public var didPop: ((UIViewController) -> Void)?
@@ -82,21 +82,11 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
         {
             let cellRect = tableView.rectForRow(at: indexPath)
             let sourceRect = previewingContext.sourceView.convert(cellRect, from: tableView)
-    
             previewingContext.sourceRect = sourceRect
         }
         
-        if let section = dependencies.shmTableView?.sections[indexPath.section]
-        {
         
-        let row = section.rows[indexPath.row] 
-            
-        }
-        
-        
-            let model: Any? = nil // search shmtable view for model for corresponding indexpath  
-        
-        return didPeek?(indexPath, model)
+        return didPeek?(indexPath)
         
     }
     
