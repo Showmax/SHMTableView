@@ -27,12 +27,16 @@ import SHMTableView
  
  */
 
+
+
 class MainViewController: SHMTableViewController
 {
+
+    
     override func viewDidLoad()
-    {
+    {   
         super.viewDidLoad()
-        
+            
         // instantiate default section
         let section = SHMTableSection()
         
@@ -45,21 +49,22 @@ class MainViewController: SHMTableViewController
             section.headerView = SHMTableHeader<MainControllerHeaderCell>(model: nil, view: view)
         }
         
-    #if os(tvOS)
-        section += createUpdatingSimpleRow()
-    #else
-        section += createSimpleRowsRow()
-        section += createTableInTableRow()
-        section += createInteractionsRow()
-        section += createCarouselRow()
-        section += createUpdatingSimpleRow()
-        section += createUpdatingViewModelRow()
-        section += createEditingRow()
-        section += createComparisonUITableViewRow()
-        section += createComparisonSHMTableViewRow()
-        section += createTextFieldTestingSHMTableViewRow()
-    #endif
-
+        #if os(tvOS)
+            section += createUpdatingSimpleRow()
+        #else
+            section += createSimpleRowsRow()
+            section += createTableInTableRow()
+            section += createInteractionsRow()
+            section += createCarouselRow()
+            section += createUpdatingSimpleRow()
+            section += createUpdatingViewModelRow()
+            section += createEditingRow()
+            section += createComparisonUITableViewRow()
+            section += createComparisonSHMTableViewRow()
+            section += createTextFieldTestingSHMTableViewRow()
+            section += createNumbersSHMTableViewRow()
+        #endif
+        
         shmTable += section
     }
     
@@ -137,7 +142,7 @@ class MainViewController: SHMTableViewController
                 #endif
             }
         )
-
+        
     }
     
     func createCarouselRow() -> SHMTableRow<MainControllerCell>
@@ -261,6 +266,26 @@ class MainViewController: SHMTableViewController
         )
     }
     
+    func createNumbersSHMTableViewRow() -> SHMTableRow<MainControllerCell>
+    {
+        return SHMTableRow<MainControllerCell>(
+            model: MainControllerModel(
+                title: "Peek and pop preview",
+                desc: "Preview Peek & Pop with Fibonacci numbers"
+            ),
+            action: { [weak self] _ in
+                
+                guard let me = self else { return }
+                
+                #if os(tvOS)
+                    me.showUnsupportedTVOSExampleAlert()
+                #else
+                    me.performSegue(withIdentifier: "NumbersSegue", sender: self)
+                #endif
+            }
+        )
+    }
+    
     
     
     // MARK: - Helpers
@@ -273,7 +298,7 @@ class MainViewController: SHMTableViewController
             return Bundle.main.loadNibNamed("ShowMaxHeader", owner: nil, options: nil)?[0] as? UIView
         #endif
     }
-
+    
     func showUnsupportedTVOSExampleAlert()
     {
         let alert = UIAlertController(title: "Example not ported for tvOS. Please see iOS example.", message: nil, preferredStyle: .alert)
