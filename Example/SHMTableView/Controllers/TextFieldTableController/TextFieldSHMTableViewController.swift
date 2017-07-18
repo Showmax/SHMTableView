@@ -14,19 +14,7 @@ import SHMTableView
 class TextFieldSHMTableViewController: SHMTableViewController
 {
     
-    var keyboardHandler: SHMTableViewKeyboardVisibilityHandler!
-    
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        keyboardHandler.start()
-    }
-    
-    @IBAction func donePressed(_ sender: Any)
-    {
-        self.view.endEditing(true)
-    }
+    var keyboardHandler: SHMTableViewKeyboardVisibilityHandler?
     
     override func viewDidLoad() 
     {
@@ -38,13 +26,24 @@ class TextFieldSHMTableViewController: SHMTableViewController
         
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        keyboardHandler?.start()
+    }
+    
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(true)
-        keyboardHandler.stop()
+        keyboardHandler?.stop()
     }
     
-    fileprivate func addTableViewSectionWithCell()
+    @IBAction func donePressed(_ sender: Any)
+    {
+        self.view.endEditing(true)
+    }
+    
+    private func addTableViewSectionWithCell()
     {
         let section = SHMTableSection()
         
@@ -59,5 +58,5 @@ class TextFieldSHMTableViewController: SHMTableViewController
         
         shmTable += section
     }
-    
+
 }

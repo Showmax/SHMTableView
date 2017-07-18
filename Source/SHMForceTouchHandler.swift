@@ -13,17 +13,47 @@ import UIKit
  SHMForceTouchHandler is class that easily handles 3DTouch events for you.
  It consists of dependencies and 2 closures - didPeek and didPop.
  
- To use this feature, simply 
+ To use this feature, simply create some function like `setupForceTouches()`,
+ which will handle the whole thing for you. In the example application, you can see 
+ that we are setting forceTouchHandle?.didPeek and forceTouchHandle?.didPop closures. 
  
+ for instance you set this function
  
+ ````
+ 
+ private func setupForceTouches()
+ {
+        //setup peek action
+    forceTouchHandle?.didPeek = { (indexPath) in
+
+    guard  let model = self.findModel(indexPath: indexPath),
+            let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
+        else { return nil }
+ 
+    previewVC.textToShow = model.labelTitle
+ 
+    return previewVC
+    }
+ 
+        //setup pop action
+    forceTouchHandle?.didPop = { viewController in 
+    self.navigationController?.pushViewController(viewController, animated: true)
+    }
+ 
+ }
+````
+ Because the viewController is already registrated to receiving 3DTouch events, all
+ you need to do is just se these two closures as you like and you are ready to adapt 
+ 3D touch in SHMTableView. 
  */
 public class SHMForceTouchHandler: NSObject
 {
     
     /// Dependencies of our ForceTouchHandler,
     /// 
-    public struct ForceTouchDependencies
+    public struct Dependencies
     {
+        /// Parent controller on which we are registring the 3DTouch actions
         public weak var parentViewController: UIViewController?
         
         /// SHMTableView for getting cells indexPaths
@@ -32,7 +62,7 @@ public class SHMForceTouchHandler: NSObject
     
     
     /// Dependencies 
-    public var dependencies: ForceTouchDependencies
+    public var dependencies: Dependencies
     
   
     
@@ -42,7 +72,7 @@ public class SHMForceTouchHandler: NSObject
     /// Closure determining pop (the hard force touch) when peeking
     public var didPop: ((UIViewController) -> Void)?
     
-    public init(dependencies: ForceTouchDependencies)
+    public init(dependencies: Dependencies)
     {
         self.dependencies = dependencies
     }

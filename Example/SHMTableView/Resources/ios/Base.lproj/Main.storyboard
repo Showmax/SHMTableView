@@ -855,7 +855,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="p1k-fe-fif" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6ig-Xa-nWk" secondAttribute="topMargin" constant="5" id="LOd-3r-XAi"/>
+                                                <constraint firstItem="p1k-fe-fif" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ig-Xa-nWk" secondAttribute="leadingMargin" constant="5" id="SOC-Qp-2aq"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="p1k-fe-fif" secondAttribute="bottom" constant="5" id="c7d-qH-elu"/>
                                                 <constraint firstItem="p1k-fe-fif" firstAttribute="centerX" secondItem="6ig-Xa-nWk" secondAttribute="centerX" id="dfX-fr-F5c"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="p1k-fe-fif" secondAttribute="trailing" constant="5" id="dgK-bT-2sz"/>
                                                 <constraint firstItem="p1k-fe-fif" firstAttribute="centerY" secondItem="6ig-Xa-nWk" secondAttribute="centerY" id="uaC-gV-P4N"/>
                                             </constraints>
                                         </tableViewCellContentView>

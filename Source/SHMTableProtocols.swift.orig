@@ -32,6 +32,10 @@ public protocol SHMTableRowProtocol: class, SHMDiffable
     func configureAtWillDisplay(tableViewCell: UITableViewCell)
     func configureOnHide(tableViewCell: UITableViewCell)
     
+<<<<<<< HEAD
+   
+=======
+>>>>>>> T24593_keyboard_resizing
     var reusableIdentifier: String { get }
     var action: ((IndexPath) -> Void)? { get set }
     var bundle: Bundle? { get set }

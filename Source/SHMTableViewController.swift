@@ -48,7 +48,7 @@ open class SHMTableViewController: UIViewController
         {
         
             forceTouchHandle = SHMForceTouchHandler(
-                dependencies: SHMForceTouchHandler.ForceTouchDependencies(
+                dependencies: SHMForceTouchHandler.Dependencies(
                 parentViewController: self,
                 shmTableView: shmTable
                 )

@@ -153,6 +153,9 @@
 		E73358281F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
 		E73358291F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
 		E733582A1F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
+		E75784A71F1E5A630079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
+		E75784A81F1E5A640079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
+		E75784AA1F1E5A730079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
 		E77F62FE1F18F1B10041EADB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */; };
 		E783FC381F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift */; };
 		EB828BDA8A2895241D5F7312 /* Pods_SHMTableView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FFB9C82D6253BF7BF11C045 /* Pods_SHMTableView_Example.framework */; };
@@ -269,6 +272,7 @@
 		E733581F1F1CEFE2007640FE /* FibonacciNumbersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciNumbersTableViewController.swift; sourceTree = "<group>"; };
 		E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciTableViewCell.swift; sourceTree = "<group>"; };
 		E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberDetailViewController.swift; sourceTree = "<group>"; };
+		E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeIndex.swift"; sourceTree = "<group>"; };
 		E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		E783FC371F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldSHMTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -605,6 +609,7 @@
 		607FACD21AFB9204008FA782 /* Example for SHMTableView */ = {
 			isa = PBXGroup;
 			children = (
+				E75784A31F1E5A1D0079CB1C /* Extensions */,
 				41A183281E6D82D40003ADA6 /* Init */,
 				41A182CB1E6D80690003ADA6 /* Controllers */,
 				41A182BA1E6D7FF70003ADA6 /* Resources */,
@@ -638,6 +643,14 @@
 				E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */,
 			);
 			path = PopAndPeakTableController;
+			sourceTree = "<group>";
+		};
+		E75784A31F1E5A1D0079CB1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E77F62FC1F18F1A00041EADB /* View */ = {
@@ -1092,6 +1105,7 @@
 				E733581D1F1CE9BA007640FE /* TextFieldTableViewCell.swift in Sources */,
 				4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */,
 				41A183351E6D8B5F0003ADA6 /* MainControllerCell.swift in Sources */,
+				E75784A81F1E5A640079CB1C /* Collection+SafeIndex.swift in Sources */,
 				E73358221F1CEFE2007640FE /* FibonacciNumbersTableViewController.swift in Sources */,
 				E733581B1F1CE980007640FE /* TextFieldSHMTableViewController.swift in Sources */,
 				41A183361E6D8B690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
@@ -1164,6 +1178,7 @@
 				41A182F61E6D80690003ADA6 /* EditingViewController.swift in Sources */,
 				41A182F81E6D80690003ADA6 /* InteractionTableViewCell.swift in Sources */,
 				E73358241F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */,
+				E75784A71F1E5A630079CB1C /* Collection+SafeIndex.swift in Sources */,
 				41A183181E6D80690003ADA6 /* VideoListViewModel.swift in Sources */,
 				41A1832A1E6D82D40003ADA6 /* AppDelegate.swift in Sources */,
 				41A182F41E6D80690003ADA6 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1224,6 +1239,7 @@
 				41A182AD1E6D7F510003ADA6 /* SHMTableRowProtocolTests.swift in Sources */,
 				41A182A11E6D7F510003ADA6 /* XCTestCase+Helpers.swift in Sources */,
 				41A182991E6D7F510003ADA6 /* LoggingTableViewCell.swift in Sources */,
+				E75784AA1F1E5A730079CB1C /* Collection+SafeIndex.swift in Sources */,
 				41A182B71E6D7F510003ADA6 /* SHMTableViewTests+ReloadingData.swift in Sources */,
 				41A182B31E6D7F510003ADA6 /* SHMTableViewTests+Editing.swift in Sources */,
 				E733581A1F1CE97F007640FE /* TextFieldSHMTableViewController.swift in Sources */,
