@@ -24,8 +24,13 @@ import UIKit
 
 open class SHMTableViewController: UIViewController
 {
+    /// SHMTableView, which is always available in our Controller
     public var shmTable: SHMTableView!
     
+    /// Force touch handler, that registers any SHMTableView for 3D touch events.
+    public var forceTouchHandle: SHMForceTouchHandler?
+    
+    /// TableView to use to init for SHMTableView
     @IBOutlet open weak var tableView: UITableView!
     {
         didSet
@@ -34,4 +39,23 @@ open class SHMTableViewController: UIViewController
             shmTable = SHMTableView(tableView: tableView)
         }
     }
+    
+    open override func viewDidLoad() 
+    {
+        
+     // We register our controller for 3D Touch events only if 3DTouch is available.
+        if self.traitCollection.forceTouchCapability == .available
+        {
+        
+            forceTouchHandle = SHMForceTouchHandler(
+                dependencies: SHMForceTouchHandler.ForceTouchDependencies(
+                parentViewController: self,
+                shmTableView: shmTable
+                )
+            )
+            
+            forceTouchHandle?.register()
+        }
+    }
+    
 }
