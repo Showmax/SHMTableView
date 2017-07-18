@@ -61,7 +61,8 @@ public class SHMTableViewKeyboardVisibilityHandler
     /// notification of showing  keyboard
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillShow
-    @objc fileprivate func keyboardWillShow(notification: NSNotification) 
+    @objc 
+    fileprivate func keyboardWillShow(notification: NSNotification) 
     {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue 
@@ -72,7 +73,7 @@ public class SHMTableViewKeyboardVisibilityHandler
             
             var insets = tableView.contentInset 
             insets.bottom = keyboardHeight
-            tableView.contentInset =  insets
+            tableView.contentInset = insets
         }
     }
     
@@ -80,13 +81,14 @@ public class SHMTableViewKeyboardVisibilityHandler
     /// notification of hiding keyboard
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillHide
-    @objc fileprivate func handleKeyboardDisappear(notification: NSNotification)
+    @objc 
+    fileprivate func handleKeyboardDisappear(notification: NSNotification)
     {
         guard let tableView = tableView else { return }
         
         var insets = tableView.contentInset 
         insets.bottom = 0
-        tableView.contentInset =  insets
+        tableView.contentInset = insets
         
     }
     

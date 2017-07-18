@@ -86,6 +86,14 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
             previewingContext.sourceRect = sourceRect
         }
         
+        if let section = dependencies.shmTableView?.sections[indexPath.section]
+        {
+        
+        let row = section.rows[indexPath.row] 
+            
+        }
+        
+        
             let model: Any? = nil // search shmtable view for model for corresponding indexpath  
         
         return didPeek?(indexPath, model)

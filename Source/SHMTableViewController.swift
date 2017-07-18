@@ -42,7 +42,7 @@ open class SHMTableViewController: UIViewController
     
     open override func viewDidLoad() 
     {
-        
+        super.viewDidLoad()
      // We register our controller for 3D Touch events only if 3DTouch is available.
         if self.traitCollection.forceTouchCapability == .available
         {
@@ -55,6 +55,7 @@ open class SHMTableViewController: UIViewController
             )
             
             forceTouchHandle?.register()
+            
         }
     }
     
