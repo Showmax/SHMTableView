@@ -26,6 +26,7 @@ open class SHMTableViewController: UIViewController
 {
     /// SHMTableView, which is always available in our Controller
     public var shmTable: SHMTableView!
+    public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
     
     /// Force touch handler, that registers any SHMTableView for 3D touch events.
     public var forceTouchHandle: SHMForceTouchHandler?
@@ -35,28 +36,45 @@ open class SHMTableViewController: UIViewController
     {
         didSet
         {
-            // here is the meat
+            // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
+            
+            // Create SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is shown.
+            shmTableKeyboardVisibilityHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
         }
     }
     
-    open override func viewDidLoad() 
+    // MARK: - View Controller Lifecycle
+    
+    override open func viewDidLoad()
     {
         super.viewDidLoad()
-     // We register our controller for 3D Touch events only if 3DTouch is available.
+        
+        // We register our controller for 3D Touch events only if 3DTouch is available.
         if self.traitCollection.forceTouchCapability == .available
         {
-        
             forceTouchHandle = SHMForceTouchHandler(
                 dependencies: SHMForceTouchHandler.Dependencies(
-                parentViewController: self,
-                shmTableView: shmTable
+                    parentViewController: self,
+                    shmTableView: shmTable
                 )
             )
             
             forceTouchHandle?.register()
-            
         }
     }
     
+    override open func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        shmTableKeyboardVisibilityHandler?.start()
+    }
+    
+    override open func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        shmTableKeyboardVisibilityHandler?.stop()
+    }
 }

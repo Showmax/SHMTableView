@@ -9,7 +9,7 @@ disabled_rules: # rule identifiers to exclude from running
  - sorted_imports
  - missing_docs #for now because this can't work with Xcode 8 doc strings.
  - shorthand_operator
- - notification_center_detachement
+ - notification_center_detachment
 
 opt_in_rules:
  - closure_spacing
