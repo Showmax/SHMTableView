@@ -10,10 +10,8 @@ import Foundation
 import UIKit
 import SHMTableView
 
-
 class TextFieldSHMTableViewController: SHMTableViewController
 {
-    
     var keyboardHandler: SHMTableViewKeyboardVisibilityHandler?
     
     override func viewDidLoad() 
@@ -23,7 +21,6 @@ class TextFieldSHMTableViewController: SHMTableViewController
         keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
         
         addTableViewSectionWithCell()
-        
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -40,7 +37,7 @@ class TextFieldSHMTableViewController: SHMTableViewController
     
     @IBAction func donePressed(_ sender: Any)
     {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     private func addTableViewSectionWithCell()
@@ -58,5 +55,4 @@ class TextFieldSHMTableViewController: SHMTableViewController
         
         shmTable += section
     }
-
 }

@@ -19,7 +19,6 @@ import UIKit
 /// 
 public class SHMTableViewKeyboardVisibilityHandler
 { 
-    /// TableView 
     weak var tableView: UITableView?
     
     public init(tableView: UITableView?)
@@ -34,7 +33,7 @@ public class SHMTableViewKeyboardVisibilityHandler
     
     /// This function should be always called in viewDidAppear(_ animated: Bool). 
     /// This function handles registering notifications for showing and hiding keyboard, 
-    //specifically NSNotification.Name.UIKeyboardWillShow and NSNotification.Name.UIKeyboardWillHide
+    /// specifically NSNotification.Name.UIKeyboardWillShow and NSNotification.Name.UIKeyboardWillHide
     public func start()
     {
         NotificationCenter.default.addObserver(
@@ -52,8 +51,8 @@ public class SHMTableViewKeyboardVisibilityHandler
         )
     }
     
-    // This function should be called on deinit and viewWillDisappear(_ animated: Bool)
-    // This function removes subscribing for keyboard notifications mentioned in start() func
+    /// This function should be called on deinit and viewWillDisappear(_ animated: Bool)
+    /// This function removes subscribing for keyboard notifications mentioned in start() func
     public func stop()
     {
         NotificationCenter.default.removeObserver(self)
@@ -64,19 +63,17 @@ public class SHMTableViewKeyboardVisibilityHandler
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillShow
     @objc
-    fileprivate func keyboardWillShow(notification: NSNotification) 
+    private func keyboardWillShow(notification: NSNotification)
     {
-        
         guard   let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
                 let tableView = tableView
-            else { return }
+        else { return }
         
         let keyboardHeight = keyboardSize.height
         
         var insets = tableView.contentInset 
         insets.bottom = keyboardHeight
         tableView.contentInset = insets
-        
     }
     
     /// Sets the bottom property of contentInset in the tableView to zero on
@@ -91,6 +88,5 @@ public class SHMTableViewKeyboardVisibilityHandler
         var insets = tableView.contentInset 
         insets.bottom = 0
         tableView.contentInset = insets
-        
     }
 }
