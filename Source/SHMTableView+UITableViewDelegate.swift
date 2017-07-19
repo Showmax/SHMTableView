@@ -11,11 +11,9 @@ import UIKit
 
 extension SHMTableView: UITableViewDelegate
 {
-    
     /// Forward call to editingDelegate
     public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
     {
-       
         return editingDelegate?.tableView(tableView, editingStyleForRowAt: indexPath) ?? .none
     }
     
@@ -58,7 +56,7 @@ extension SHMTableView: UITableViewDelegate
         {
             return
         }
-    
+        
         let row = sections[indexPath.section].rows[indexPath.item]
         
         row.configureAtWillDisplay(tableViewCell: cell)
