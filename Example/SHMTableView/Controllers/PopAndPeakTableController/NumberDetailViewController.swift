@@ -10,41 +10,29 @@ import UIKit
 
 class NumberDetailViewController: UIViewController 
 {
+    var textToShow: String?
+ 
+    /// Label showing the number in the center of view
+    @IBOutlet var label: UILabel!
     
-    
-    
-    ///Override this var to show action items in 3DTouch action
+    /// Override this var to show action items in 3DTouch action
     override var previewActionItems: [UIPreviewActionItem] 
     {
         return previewActions()
-        
     }
     
-    /// Label showing the number in the center of view
-    var textToShow: String?
-    
-    @IBOutlet var label: UILabel!
-
     override func viewDidLoad() 
     {
         super.viewDidLoad()
-        self.label.text = textToShow
-        // Do any additional setup after loading the view.
+        
+        label.text = textToShow
     }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
 
-    // MARK: Adding preview actions
+// MARK: - Adding preview actions
 
 extension NumberDetailViewController
 {
-
     func previewActions() -> [UIPreviewAction]
     {
         let googleSearch = UIPreviewAction(title: "Search me with google",
