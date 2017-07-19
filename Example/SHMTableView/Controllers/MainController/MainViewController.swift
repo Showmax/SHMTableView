@@ -16,23 +16,19 @@ import UIKit
 import SHMTableView
 
 /**
-
+ 
  This is the main controller of the app. It builds a list of examples.
-
+ 
  There is no surprise it uses our generic table SHMTableView as well.
-
+ 
  Please start with SimpleRowViewController and go through all other controllers in order to study the main one.
-
+ 
  All you've learned into this point is here as well plus one more thing - custom header view for a section.
 
  */
 
-
-
 class MainViewController: SHMTableViewController
 {
-
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -81,7 +77,6 @@ class MainViewController: SHMTableViewController
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
 
     // MARK: - Create rows
 
