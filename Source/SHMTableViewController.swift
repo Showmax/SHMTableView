@@ -24,11 +24,13 @@ import UIKit
 
 open class SHMTableViewController: UIViewController
 {
-    /// SHMTableView, which is always available in our Controller
+    /// SHMTableView will manage mapping of models to certain view type (model to UITableViewCell subclass types).
     public var shmTable: SHMTableView!
+    
+    /// SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is visible.
     public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
     
-    /// Force touch handler, that registers any SHMTableView for 3D touch events.
+    /// SHMForceTouchHandler that registers force touch handlers for given tableView.
     public var forceTouchHandle: SHMForceTouchHandler?
     
     /// TableView to use to init for SHMTableView

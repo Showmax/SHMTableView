@@ -1,5 +1,5 @@
 //
-//  SHMForceTouchHandler.swift
+//  SHMTableViewForceTouchHandler.swift
 //  Pods
 //
 //  Created by Dominik Bucher on 18/07/2017.
@@ -9,43 +9,50 @@
 import Foundation
 import UIKit
 
-/**
- SHMForceTouchHandler is class that easily handles 3DTouch events for you.
- It consists of dependencies and 2 closures - didPeek and didPop.
- 
- To use this feature, simply create some function like `setupForceTouches()`,
- which will handle the whole thing for you. In the example application, you can see 
- that we are setting forceTouchHandle?.didPeek and forceTouchHandle?.didPop closures. 
- 
- for instance you set this function
- 
- ````
- 
- private func setupForceTouches()
- {
-        //setup peek action
-    forceTouchHandle?.didPeek = { (indexPath) in
-
-    guard  let model = self.findModel(indexPath: indexPath),
-           let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "AnyViewController") as? AnyViewController
-        else { return nil }
- 
-     previewVC.property = self.property
- 
-    return previewVC
-    }
- 
-        //setup pop action
-    forceTouchHandle?.didPop = { viewController in 
-    self.navigationController?.pushViewController(viewController, animated: true)
-    }
- 
- }
-````
- Because the viewController is already registrated to receiving 3DTouch events, all
- you need to do is just se these two closures as you like and you are ready to adapt 
- 3D touch in SHMTableView. 
- */
+/// SHMTableViewForceTouchHandler is class that handles 3DTouch events for you.
+/// It consists of dependencies and 2 closures - didPeek and didPop.
+///
+/// ## Example of usage
+/// 
+/// 1) Create instance
+///
+/// ````
+/// let handler = SHMTableViewForceTouchHandler(
+///     viewController: viewController,
+///     tableView: tableView
+/// )
+/// ````
+///
+/// 2) Setup `didPeek` abd `didPop` closures.
+///
+/// ````
+/// handler?.didPeek = { (indexPath) in
+///
+///     guard  let model = self.findModel(indexPath: indexPath),
+///           let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "AnyViewController") as? AnyViewController
+///     else { return nil }
+///
+///     previewVC.property = self.property
+///
+///     return previewVC
+/// }
+///
+/// handler?.didPop = { viewController in
+///     self.navigationController?.pushViewController(viewController, animated: true)
+/// }
+/// ````
+///
+/// 3) In view controller's viewDidLoad call `register()` method for receiving force touch events
+///
+/// ````
+/// override open func viewDidLoad()
+/// {
+///     super.viewDidLoad()
+///
+///     handler?.register()
+/// }
+/// ````
+///
 public class SHMForceTouchHandler: NSObject
 {
     
