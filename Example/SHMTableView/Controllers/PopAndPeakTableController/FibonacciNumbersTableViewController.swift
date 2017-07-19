@@ -30,10 +30,10 @@ class FibonacciNumbersTableViewController: SHMTableViewController
     
     private func setupForceTouches()
     {
-        forceTouchHandle?.didPeek = { (indexPath) in
+        didPeek = { [weak self] (indexPath) in
             
-            guard   let model = self.findModel(indexPath: indexPath),
-                    let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
+            guard   let model = self?.findModel(indexPath: indexPath),
+                    let previewVC = self?.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
             else { return nil }
             
             previewVC.textToShow = model.labelTitle
@@ -41,8 +41,9 @@ class FibonacciNumbersTableViewController: SHMTableViewController
             return previewVC
         }
         
-        forceTouchHandle?.didPop = { viewController in
-            self.navigationController?.pushViewController(viewController, animated: true)
+        didPop = { [weak self] viewController in
+            
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 
@@ -70,8 +71,8 @@ class FibonacciNumbersTableViewController: SHMTableViewController
         var a = 0
         var final = 1
         
-        for _ in 0 ..< 20 {
-            
+        for _ in 0 ..< 20
+        {
             let b = a + final
             a = final
             final = b

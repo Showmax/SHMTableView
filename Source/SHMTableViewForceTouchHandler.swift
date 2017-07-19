@@ -53,25 +53,13 @@ import UIKit
 /// }
 /// ````
 ///
-public class SHMForceTouchHandler: NSObject
+public class SHMTableViewForceTouchHandler: NSObject
 {
-    
-    /// Dependencies of our ForceTouchHandler,
-    /// 
-    public struct Dependencies
-    {
-        /// Parent controller on which we are registring the 3DTouch actions
-        public weak var parentViewController: UIViewController?
+    /// Parent controller on which we are registring the 3DTouch actions
+    public weak var parentViewController: UIViewController?
         
-        /// SHMTableView for getting cells indexPaths
-        public var shmTableView: SHMTableView?
-    }
-    
-    
-    /// Dependencies 
-    public var dependencies: Dependencies
-    
-  
+    /// UITableView for getting cells indexPaths
+    public weak var tableView: UITableView?
     
     /// Custom closure determining action on peeking event
     public var didPeek: ((IndexPath) -> UIViewController?)?
@@ -79,28 +67,27 @@ public class SHMForceTouchHandler: NSObject
     /// Closure determining pop (the hard force touch) when peeking
     public var didPop: ((UIViewController) -> Void)?
     
-    public init(dependencies: Dependencies)
+    public init(parentViewController: UIViewController?, tableView: UITableView?)
     {
-        self.dependencies = dependencies
+        self.parentViewController = parentViewController
+        self.tableView = tableView
     }
     
     /// Fuction that registers viewController from dependencies for receiving 3DTouch events
    public func register()
     {
-        guard let view = dependencies.parentViewController?.view else { return }
+        guard let view = parentViewController?.view else { return }
     
-        dependencies.parentViewController?.registerForPreviewing(with: self, sourceView: view)
+        parentViewController?.registerForPreviewing(with: self, sourceView: view)
     }
 }
 
-extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
+extension SHMTableViewForceTouchHandler: UIViewControllerPreviewingDelegate
 {
-
     /// Find the indexPath of cell according to position of touch, when found, cast the cell to Custom Cell and take label
     /// from it and carry it to viewController we wanna present. Then, return the viewController to present with given label.
     /// The label mustn't be set directly, because we instantiate it later, so the app would crash, so we set String attribute
     /// And in viewDidLoad we set this attribute to the label, where it already is instantiated...
-    ///
     ///
     /// - Parameters:
     ///   - previewingContext: previewing context on this viewController
@@ -108,14 +95,11 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
     /// - Returns: ViewController to peak
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? 
     {
-        guard   let cellPostion = dependencies.shmTableView?.tableView?.convert(location, from: dependencies.parentViewController?.view),
-                let  indexPath = dependencies.shmTableView?.tableView?.indexPathForRow(at: cellPostion) 
-        else 
-        {
-            return nil 
-        }
+        guard   let cellPostion = tableView?.convert(location, from: parentViewController?.view),
+                let indexPath = tableView?.indexPathForRow(at: cellPostion)
+        else { return nil }
         
-        if let tableView = dependencies.shmTableView?.tableView
+        if let tableView = tableView
         {
             let cellRect = tableView.rectForRow(at: indexPath)
             let sourceRect = previewingContext.sourceView.convert(cellRect, from: tableView)
@@ -125,7 +109,6 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
         return didPeek?(indexPath)
     }
     
-    
     /// This is action to occur on force taping the display. Instead of this, you can implement your custom action,
     /// not just push or show the previewed viewController
     ///
@@ -134,7 +117,6 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
     ///   - viewControllerToCommit: the viewController received from peaking so no need to instantiate it again...
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
     {
-        
         didPop?(viewControllerToCommit)
     }
 }

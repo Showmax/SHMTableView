@@ -30,8 +30,27 @@ open class SHMTableViewController: UIViewController
     /// SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is visible.
     public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
     
-    /// SHMForceTouchHandler that registers force touch handlers for given tableView.
-    public var forceTouchHandle: SHMForceTouchHandler?
+    /// SHMTableViewForceTouchHandler that registers force touch handlers for given tableView.
+    public var shmTableViewForceTouchHandler: SHMTableViewForceTouchHandler?
+    
+    /// Custom closure determining action on peeking event
+    public var didPeek: ((IndexPath) -> UIViewController?)?
+    {
+        didSet
+        {
+            shmTableViewForceTouchHandler?.didPeek = didPeek
+        }
+    }
+    
+    /// Closure determining pop (the hard force touch) when peeking
+    public var didPop: ((UIViewController) -> Void)?
+    {
+        didSet
+        {
+            shmTableViewForceTouchHandler?.didPop = didPop
+        }
+    }
+    
     
     /// TableView to use to init for SHMTableView
     @IBOutlet open weak var tableView: UITableView!
@@ -55,14 +74,12 @@ open class SHMTableViewController: UIViewController
         // We register our controller for 3D Touch events only if 3DTouch is available.
         if self.traitCollection.forceTouchCapability == .available
         {
-            forceTouchHandle = SHMForceTouchHandler(
-                dependencies: SHMForceTouchHandler.Dependencies(
-                    parentViewController: self,
-                    shmTableView: shmTable
-                )
+            shmTableViewForceTouchHandler = SHMTableViewForceTouchHandler(
+                parentViewController: self,
+                tableView: tableView
             )
             
-            forceTouchHandle?.register()
+            shmTableViewForceTouchHandler?.register()
         }
     }
     
