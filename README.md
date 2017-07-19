@@ -293,6 +293,10 @@ section += [
 
 See example in `Example/SHMTableView/Controllers/EditingController`
 
+### Using with UITextField inside rows and resizing table with respect to shown keyboard
+
+See example in `Example/SHMTableView/Controllers/TextFieldKeyboardController`.
+
 ### Using in view controller
 
 You can map `SHMTableView` instance to `UITableView` in outlet variable `didSet` handler. Alternatively you can use `SHMTableViewController`, which does exactly that.
@@ -313,10 +317,6 @@ class MyViewController: UIViewController
     }
 }
 ```
-
-### Resize UITableView with respect to shown keyboard
-
-See example in `Example/SHMTableView/Controllers/TextFieldKeyboardController`
 
 ## Example code
 
