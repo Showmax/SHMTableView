@@ -12,33 +12,15 @@ import SHMTableView
 
 class TextFieldKeyboardViewController: SHMTableViewController
 {
-    var keyboardHandler: SHMTableViewKeyboardVisibilityHandler?
-    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() 
     {
         super.viewDidLoad()
         
-        keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
-        
         fillModelIntoTable()
     }
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        keyboardHandler?.start()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool)
-    {
-        super.viewWillDisappear(animated)
-        
-        keyboardHandler?.stop()
-    }
-    
+
     // MARK: - IB Outlets
     
     @IBAction func donePressed(_ sender: Any)
