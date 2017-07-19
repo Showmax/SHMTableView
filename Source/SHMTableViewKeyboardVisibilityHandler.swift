@@ -8,18 +8,24 @@
 import Foundation
 import UIKit
 
+/// Class is responsible for resizing bottom contentInset of given UITableView when keyboard appears.
 ///
-/// This class basically handles keyboard appearance in ViewController with UITableView.
-/// You should initialize this class in viewDidLoad and call the main method start() on viewWillAppear(_:) and stop() on viewWillDisappear(_:)
-/// This ensures that the keyboard notifications observing will occur only once and not multiple times.
+/// Usually this class is created in UIViewController where we assign to it certain UITableView.
+/// To start receiving keyboard notifications call method start() - usually inside viewDidAppear(_:)
+/// To stop receiving keyboard notification scall method stop() - usually inside viewDidDisappear(_:)
 /// 
 public class SHMTableViewKeyboardVisibilityHandler
 { 
+    /// Table view which bottom contentInset we will update in case keyboard is shown/hidden
     weak var tableView: UITableView?
+    
+    /// Flag guarding that we won't subscribe multiple times to receiving keyboard notifications
+    private var isSubscribed: Bool
     
     public init(tableView: UITableView?)
     {
-        self.tableView = tableView        
+        self.tableView = tableView
+        self.isSubscribed = false
     }
     
     deinit
@@ -27,11 +33,16 @@ public class SHMTableViewKeyboardVisibilityHandler
         stop()
     }
     
-    /// Should be called in viewDidAppear(_ animated: Bool). 
-    /// Handles registering notifications for showing and hiding keyboard,
+    /// Register for receiving notificions related to showing and hiding keyboard,
     /// specifically NSNotification.Name.UIKeyboardWillShow and NSNotification.Name.UIKeyboardWillHide
+    /// 
+    /// Should be called in viewDidAppear(_ animated: Bool).
+    ///
+    /// If method is called multiple times, we won't subscribe to notifications again when we are already subscribed.
     public func start()
     {
+        guard !isSubscribed else { return }
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillShow), 
@@ -45,13 +56,18 @@ public class SHMTableViewKeyboardVisibilityHandler
             name: NSNotification.Name.UIKeyboardWillHide, 
             object: nil
         )
+        
+        isSubscribed = true
     }
     
+    /// Remove previously subscribed observer for keyboard notifications.
+    ///
     /// Should be called on deinit and viewWillDisappear(_ animated: Bool)
-    /// This method removes previously subscribed observer for keyboard notifications.
     public func stop()
     {
         NotificationCenter.default.removeObserver(self)
+        
+        isSubscribed = false
     }
     
     /// Sets the bottom property of contentInset in the tableView to keyboard height value on
