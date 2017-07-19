@@ -9,7 +9,6 @@
 import UIKit
 import SHMTableView
 
-
 class FibonacciNumbersTableViewController: SHMTableViewController
 {
     var textToPass: String?
@@ -27,30 +26,24 @@ class FibonacciNumbersTableViewController: SHMTableViewController
         
     // MARK: - Helpers
     
-    
-    /// Sets up action for 
     private func setupForceTouches()
     {
-        
         forceTouchHandle?.didPeek = { (indexPath) in
             
-            guard  let model = self.findModel(indexPath: indexPath),
-                let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
-                else { return nil }
+            guard   let model = self.findModel(indexPath: indexPath),
+                    let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
+            else { return nil }
             
             previewVC.textToShow = model.labelTitle
             
             return previewVC
         }
         
-        forceTouchHandle?.didPop = { viewController in 
+        forceTouchHandle?.didPop = { viewController in
             self.navigationController?.pushViewController(viewController, animated: true)
         }
-        
     }
 
-    
-    
     private func fillModelToView()
     {
         guard let modelList = modelList else { return }
@@ -65,12 +58,8 @@ class FibonacciNumbersTableViewController: SHMTableViewController
         shmTable += section
     }
     
-    
     private func createModel()
     {
-        
-        // Create model 
-        
         modelList = [
             FibonacciCellModel(labelTitle: "0"),
             FibonacciCellModel(labelTitle: "1")
@@ -86,13 +75,10 @@ class FibonacciNumbersTableViewController: SHMTableViewController
             final = b
             modelList?.append(FibonacciCellModel(labelTitle: "\(final)"))
         }
-        
     }
     
     private func findModel(indexPath: IndexPath) -> FibonacciCellModel?
     {
-        
         return modelList?[safe: indexPath.row]
     }
-    
 }
