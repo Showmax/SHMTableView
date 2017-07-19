@@ -27,10 +27,10 @@ import UIKit
     forceTouchHandle?.didPeek = { (indexPath) in
 
     guard  let model = self.findModel(indexPath: indexPath),
-            let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "NumberController") as? NumberDetailViewController
+            let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "AnyViewController") as? AnyViewController
         else { return nil }
  
-    previewVC.textToShow = model.labelTitle
+     previewVC.property = self.property
  
     return previewVC
     }
@@ -115,9 +115,7 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
             previewingContext.sourceRect = sourceRect
         }
         
-        
         return didPeek?(indexPath)
-        
     }
     
     
@@ -129,7 +127,7 @@ extension SHMForceTouchHandler: UIViewControllerPreviewingDelegate
     ///   - viewControllerToCommit: the viewController received from peaking so no need to instantiate it again...
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
     {
-        didPop?(viewControllerToCommit)
         
+        didPop?(viewControllerToCommit)
     }
 }
