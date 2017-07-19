@@ -8,11 +8,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   SHMTableView:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
-  SHMTableView: 1b8dc5e716f4980820032741d3a99c8e0bae6ac9
+  SHMTableView: b659e4070af453add7f3de3124aa8626c71653fb
 
 PODFILE CHECKSUM: 64ce0ec7736b3b033dda348d5208edf6e1df4b37
 

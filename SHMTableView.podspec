@@ -35,4 +35,5 @@ SHMTableView creates and configures all UITableViewCell instances to be displaye
   s.frameworks = 'UIKit'
 
   s.source_files = ['Source/*.swift']
+  s.tvos.exclude_files = 'Source/SHMTableViewKeyboardVisibilityHandler.swift'
 end
