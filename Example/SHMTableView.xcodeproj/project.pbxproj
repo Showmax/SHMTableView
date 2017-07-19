@@ -141,7 +141,7 @@
 		41B3C30F1E76BB2400CF4257 /* LoggingTableViewCell+tvOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B3C30E1E76BB2400CF4257 /* LoggingTableViewCell+tvOS.xib */; };
 		41B3C3101E76C83F00CF4257 /* SHMTableOperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182841E6D7F510003ADA6 /* SHMTableOperatorsTests.swift */; };
 		E77F62FE1F18F1B10041EADB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */; };
-		E783FC381F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift */; };
+		E783FC381F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */; };
 		EB828BDA8A2895241D5F7312 /* Pods_SHMTableView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FFB9C82D6253BF7BF11C045 /* Pods_SHMTableView_Example.framework */; };
 		ED879D563A4666F9BB1A5BA4 /* Pods_SHMTableView_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDA7B7F81B344ECBB52ABCA /* Pods_SHMTableView_Example_tvOS.framework */; };
 		F7BD1B74703A7906616CE6CE /* Pods_SHMTableView_Example_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF3B634FF0687CB62081425 /* Pods_SHMTableView_Example_tvOS_Tests.framework */; };
@@ -254,7 +254,7 @@
 		CEF3B634FF0687CB62081425 /* Pods_SHMTableView_Example_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33661A99DA748B7CEB45DA1 /* Pods-SHMTableView_Example_tvOS.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.tests.xcconfig"; sourceTree = "<group>"; };
 		E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		E783FC371F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldSHMTableViewController.swift; sourceTree = "<group>"; };
+		E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldKeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,7 +441,7 @@
 				41A182E51E6D80690003ADA6 /* UpdatingController */,
 				41A182D21E6D80690003ADA6 /* EditingController */,
 				411696281ECC7781000A1B8B /* ComparisonController */,
-				E783FC361F18EF2500A3BBBF /* TextFieldTableController */,
+				E783FC361F18EF2500A3BBBF /* TextFieldKeyboardController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -621,13 +621,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E783FC361F18EF2500A3BBBF /* TextFieldTableController */ = {
+		E783FC361F18EF2500A3BBBF /* TextFieldKeyboardController */ = {
 			isa = PBXGroup;
 			children = (
 				E77F62FC1F18F1A00041EADB /* View */,
-				E783FC371F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift */,
+				E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */,
 			);
-			path = TextFieldTableController;
+			path = TextFieldKeyboardController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1116,7 +1116,7 @@
 				4116963F1ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */,
 				41A183001E6D80690003ADA6 /* MainViewController.swift in Sources */,
 				411696351ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */,
-				E783FC381F18EF8500A3BBBF /* TextFieldSHMTableViewController.swift in Sources */,
+				E783FC381F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift in Sources */,
 				411696371ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */,
 				41A183101E6D80690003ADA6 /* TableInTableViewController.swift in Sources */,
 				41A182FA1E6D80690003ADA6 /* InteractionViewController.swift in Sources */,

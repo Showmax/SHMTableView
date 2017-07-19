@@ -757,7 +757,7 @@
         <!--TextFields-->
         <scene sceneID="CEJ-3p-fgd">
             <objects>
-                <viewController id="sjY-pk-PLv" customClass="TextFieldSHMTableViewController" customModule="SHMTableView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sjY-pk-PLv" customClass="TextFieldKeyboardViewController" customModule="SHMTableView_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="daK-pu-b9G"/>
                         <viewControllerLayoutGuide type="bottom" id="Szg-WU-Oay"/>

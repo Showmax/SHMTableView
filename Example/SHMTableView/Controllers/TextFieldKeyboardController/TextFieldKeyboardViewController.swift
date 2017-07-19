@@ -1,5 +1,5 @@
 //
-//  TextFieldSHMTableViewController.swift
+//  TextFieldKeyboardViewController.swift
 //  SHMTableView
 //
 //  Created by Dominik Bucher on 14/07/2017.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class TextFieldSHMTableViewController: SHMTableViewController
+class TextFieldKeyboardViewController: SHMTableViewController
 {
     var keyboardHandler: SHMTableViewKeyboardVisibilityHandler?
     
@@ -34,7 +34,7 @@ class TextFieldSHMTableViewController: SHMTableViewController
     
     override func viewWillDisappear(_ animated: Bool)
     {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         
         keyboardHandler?.stop()
     }
