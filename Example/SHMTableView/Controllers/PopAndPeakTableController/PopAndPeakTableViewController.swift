@@ -1,5 +1,5 @@
 //
-//  FibonacciNumbersTableViewController.swift
+//  PopAndPeakTableViewController.swift
 //  SHMTableView
 //
 //  Created by Dominik Bucher on 17/07/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import SHMTableView
 
-class FibonacciNumbersTableViewController: SHMTableViewController
+class PopAndPeakTableViewController: SHMTableViewController
 {
     var textToPass: String?
     
