@@ -4,18 +4,14 @@
 //
 //  Created by Dominik Bucher on 14/07/2017.
 //
-//
 
 import Foundation
 import UIKit
 
 ///
-/// This class basically handles keyboard appearance in ViewController with UITableView. 
-/// It contains very basic methods: start() and stop()
-/// You should initialize this class in viewDidLoad and call the main method
-/// start() on viewWillAppear(_:) and stop() on viewWillDisappear(_:)
-/// This ensures that the keyboard notifications observing will occur only once and 
-/// not multiple times.
+/// This class basically handles keyboard appearance in ViewController with UITableView.
+/// You should initialize this class in viewDidLoad and call the main method start() on viewWillAppear(_:) and stop() on viewWillDisappear(_:)
+/// This ensures that the keyboard notifications observing will occur only once and not multiple times.
 /// 
 public class SHMTableViewKeyboardVisibilityHandler
 { 
@@ -31,8 +27,8 @@ public class SHMTableViewKeyboardVisibilityHandler
         stop()
     }
     
-    /// This function should be always called in viewDidAppear(_ animated: Bool). 
-    /// This function handles registering notifications for showing and hiding keyboard, 
+    /// Should be called in viewDidAppear(_ animated: Bool). 
+    /// Handles registering notifications for showing and hiding keyboard,
     /// specifically NSNotification.Name.UIKeyboardWillShow and NSNotification.Name.UIKeyboardWillHide
     public func start()
     {
@@ -51,8 +47,8 @@ public class SHMTableViewKeyboardVisibilityHandler
         )
     }
     
-    /// This function should be called on deinit and viewWillDisappear(_ animated: Bool)
-    /// This function removes subscribing for keyboard notifications mentioned in start() func
+    /// Should be called on deinit and viewWillDisappear(_ animated: Bool)
+    /// This method removes previously subscribed observer for keyboard notifications.
     public func stop()
     {
         NotificationCenter.default.removeObserver(self)
@@ -81,7 +77,7 @@ public class SHMTableViewKeyboardVisibilityHandler
     ///
     /// - Parameter notification: NSNofification.Name.UIKeyboardWillHide
     @objc
-    fileprivate func handleKeyboardDisappear(notification: NSNotification)
+    private func handleKeyboardDisappear(notification: NSNotification)
     {
         guard let tableView = tableView else { return }
         

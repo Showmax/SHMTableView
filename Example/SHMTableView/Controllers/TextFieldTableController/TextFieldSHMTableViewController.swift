@@ -14,33 +14,41 @@ class TextFieldSHMTableViewController: SHMTableViewController
 {
     var keyboardHandler: SHMTableViewKeyboardVisibilityHandler?
     
+    // MARK: - View Controller Lifecycle
+    
     override func viewDidLoad() 
     {
         super.viewDidLoad()
         
         keyboardHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
         
-        addTableViewSectionWithCell()
+        fillModelIntoTable()
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        
         keyboardHandler?.start()
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(true)
+        
         keyboardHandler?.stop()
     }
+    
+    // MARK: - IB Outlets
     
     @IBAction func donePressed(_ sender: Any)
     {
         view.endEditing(true)
     }
     
-    private func addTableViewSectionWithCell()
+    // MARK: - Helpers
+    
+    private func fillModelIntoTable()
     {
         let section = SHMTableSection()
         

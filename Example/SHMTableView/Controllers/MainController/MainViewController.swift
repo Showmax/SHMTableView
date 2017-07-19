@@ -57,7 +57,7 @@ class MainViewController: SHMTableViewController
         section += createEditingRow()
         section += createComparisonUITableViewRow()
         section += createComparisonSHMTableViewRow()
-        section += createTextFieldTestingSHMTableViewRow()
+        section += createTextFieldKeyboardRow()
     #endif
 
         shmTable += section
@@ -241,12 +241,12 @@ class MainViewController: SHMTableViewController
         )
     }
     
-    func createTextFieldTestingSHMTableViewRow() -> SHMTableRow<MainControllerCell>
+    func createTextFieldKeyboardRow() -> SHMTableRow<MainControllerCell>
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
-                title: "UITextField with keyboard test",
-                desc: "Test for UITextfield and keyboard displaying well."
+                title: "UITextField + Keyboard",
+                desc: "Demonstrating that keyboard is not hiding table view content."
             ),
             action: { [weak self] _ in
                 
@@ -260,8 +260,6 @@ class MainViewController: SHMTableViewController
             }
         )
     }
-    
-    
     
     // MARK: - Helpers
     
