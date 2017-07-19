@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wNi-0n-yfw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wNi-0n-yfw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,6 +88,7 @@
                         <segue destination="5po-Mh-6r2" kind="show" identifier="EditingSegue" id="fxn-1c-lw2"/>
                         <segue destination="qaf-q5-nk3" kind="show" identifier="ComparisonSHMTableViewSegue" id="stw-Eq-cFI"/>
                         <segue destination="djI-eo-CdM" kind="show" identifier="ComparisonUITableViewSegue" id="XLD-k4-jeI"/>
+                        <segue destination="sjY-pk-PLv" kind="show" identifier="UITextFieldTestSegue" id="ldG-Yf-K0h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -752,6 +753,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWV-XC-EEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1028" y="2365"/>
+        </scene>
+        <!--TextFields-->
+        <scene sceneID="CEJ-3p-fgd">
+            <objects>
+                <viewController id="sjY-pk-PLv" customClass="TextFieldKeyboardViewController" customModule="SHMTableView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="daK-pu-b9G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Szg-WU-Oay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a72-ql-Ves">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1m9-eV-7Ct">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="64" id="9JV-lt-OS0" customClass="TextFieldTableViewCell" customModule="SHMTableView_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9JV-lt-OS0" id="NVf-wl-Fns">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type some beautiful text in here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ytu-EE-WwF">
+                                                    <rect key="frame" x="16" y="16" width="343" height="32"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ytu-EE-WwF" firstAttribute="leading" secondItem="NVf-wl-Fns" secondAttribute="leadingMargin" constant="8" id="DGH-vx-AJz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ytu-EE-WwF" secondAttribute="bottom" constant="8" id="E18-Dz-BVb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ytu-EE-WwF" secondAttribute="trailing" constant="8" id="Rhv-yQ-X8T"/>
+                                                <constraint firstItem="Ytu-EE-WwF" firstAttribute="top" secondItem="NVf-wl-Fns" secondAttribute="topMargin" constant="8" id="oNy-BT-t90"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="Ytu-EE-WwF" id="Q6U-ef-i9o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1m9-eV-7Ct" secondAttribute="trailing" id="DiY-AU-FCZ"/>
+                            <constraint firstItem="1m9-eV-7Ct" firstAttribute="leading" secondItem="a72-ql-Ves" secondAttribute="leading" id="X88-us-fwf"/>
+                            <constraint firstItem="1m9-eV-7Ct" firstAttribute="top" secondItem="a72-ql-Ves" secondAttribute="top" id="sOF-OU-Dvm"/>
+                            <constraint firstItem="Szg-WU-Oay" firstAttribute="top" secondItem="1m9-eV-7Ct" secondAttribute="bottom" id="zgc-67-KpU"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="TextFields" id="Df2-Ob-tLh">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="DvA-B3-by6">
+                            <connections>
+                                <action selector="donePressed:" destination="sjY-pk-PLv" id="Vw5-bE-yvN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="1m9-eV-7Ct" id="WLc-kl-7f9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JhE-QD-6WA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1888.8" y="2362.6686656671668"/>
         </scene>
     </scenes>
 </document>

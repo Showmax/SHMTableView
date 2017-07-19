@@ -23,7 +23,7 @@ import UIKit
 public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Cell: UITableViewCell
 {
     /// Holds model paired with view type
-    var model: Cell.T
+    public var model: Cell.T
  
     /// Optional. If specified, bundle will be used for loading NIBs in SHMTableView.register(row:)
     public var bundle: Bundle?
@@ -48,7 +48,7 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     /// - Parameter model: instance of model
     /// - Parameter reusableIdentifier: optional, custom reusable identifier key
     /// - Parameter action: optional, primary row action used when tapped on row
-    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> (Void))? = nil)
+    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> Void)? = nil)
     {
         self.init(model: model)
         

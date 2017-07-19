@@ -25,13 +25,33 @@ import UIKit
 open class SHMTableViewController: UIViewController
 {
     public var shmTable: SHMTableView!
+    public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
     
     @IBOutlet open weak var tableView: UITableView!
     {
         didSet
         {
-            // here is the meat
+            // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
+            
+            // Create SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is shown.
+            shmTableKeyboardVisibilityHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
         }
+    }
+    
+    // MARK: - View Controller Lifecycle
+    
+    override open func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        shmTableKeyboardVisibilityHandler?.start()
+    }
+    
+    override open func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        shmTableKeyboardVisibilityHandler?.stop()
     }
 }

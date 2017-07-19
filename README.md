@@ -291,7 +291,11 @@ section += [
 
 ### Using UITableView in editing mode
 
-See example in `Example/SHMTableView/EditingController`
+See example in `Example/SHMTableView/Controllers/EditingController`
+
+### Using with UITextField inside rows and resizing table with respect to shown keyboard
+
+See example in `Example/SHMTableView/Controllers/TextFieldKeyboardController`.
 
 ### Using in view controller
 
