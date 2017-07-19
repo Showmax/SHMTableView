@@ -87,7 +87,7 @@ class MainViewController: SHMTableViewController
                 title: "Simple rows",
                 desc: "This example demonstrates some basics. It uses just one type of cell, no sections at all."
             ),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -96,6 +96,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "SimpleRowSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -107,7 +109,7 @@ class MainViewController: SHMTableViewController
                 title: "Table in Table",
                 desc: "This example demonstrates how to SHMTableView in a row of another SHMTableView."
             ),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 #if os(tvOS)
@@ -115,6 +117,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "TableInTableSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -126,7 +130,7 @@ class MainViewController: SHMTableViewController
                 title: "Interactions",
                 desc: "This example demonstrates how to connect things together and get an action."
             ),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -135,6 +139,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "InteractionSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
 
@@ -144,7 +150,7 @@ class MainViewController: SHMTableViewController
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Carousel", desc: "This example is desmonstration complex use of SHMTableViews."),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -153,6 +159,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "CarouselSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -161,11 +169,13 @@ class MainViewController: SHMTableViewController
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Updating (simple)", desc: "Switch between two lists and watch how table rows gets updated."),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
                 me.performSegue(withIdentifier: "UpdatingSimpleSegue", sender: self)
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -177,7 +187,7 @@ class MainViewController: SHMTableViewController
                 title: "Updating (using view model)",
                 desc: "Switch between two lists and shuffle rows. Demonstration of view model usage."
             ),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -186,6 +196,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "UpdatingViewModelSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -194,7 +206,7 @@ class MainViewController: SHMTableViewController
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Editing", desc: "Demonstration of table in editing mode."),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -203,6 +215,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "EditingSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -211,7 +225,7 @@ class MainViewController: SHMTableViewController
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Comparison - using UITableView", desc: "Simple list using classic UITableView."),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -220,6 +234,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "ComparisonUITableViewSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -228,7 +244,7 @@ class MainViewController: SHMTableViewController
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Comparison - using SHMTableView", desc: "Simple list using SHMTableView."),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -237,6 +253,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "ComparisonSHMTableViewSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
@@ -248,7 +266,7 @@ class MainViewController: SHMTableViewController
                 title: "UITextField + Keyboard",
                 desc: "Demonstrating that keyboard is not hiding table view content."
             ),
-            action: { [weak self] _ in
+            action: { [weak self] indexPath in
                 
                 guard let me = self else { return }
                 
@@ -257,6 +275,8 @@ class MainViewController: SHMTableViewController
                 #else
                     me.performSegue(withIdentifier: "UITextFieldTestSegue", sender: self)
                 #endif
+                
+                me.tableView.deselectRow(at: indexPath, animated: true)
             }
         )
     }
