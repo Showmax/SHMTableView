@@ -140,6 +140,22 @@
 		41B3C30C1E76B92700CF4257 /* MainControllerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182D91E6D80690003ADA6 /* MainControllerHeaderCell.swift */; };
 		41B3C30F1E76BB2400CF4257 /* LoggingTableViewCell+tvOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B3C30E1E76BB2400CF4257 /* LoggingTableViewCell+tvOS.xib */; };
 		41B3C3101E76C83F00CF4257 /* SHMTableOperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A182841E6D7F510003ADA6 /* SHMTableOperatorsTests.swift */; };
+		E733581A1F1CE97F007640FE /* TextFieldKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */; };
+		E733581B1F1CE980007640FE /* TextFieldKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */; };
+		E733581C1F1CE9BA007640FE /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */; };
+		E733581D1F1CE9BA007640FE /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */; };
+		E73358201F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733581F1F1CEFE2007640FE /* PopAndPeakTableViewController.swift */; };
+		E73358211F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733581F1F1CEFE2007640FE /* PopAndPeakTableViewController.swift */; };
+		E73358221F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733581F1F1CEFE2007640FE /* PopAndPeakTableViewController.swift */; };
+		E73358241F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */; };
+		E73358251F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */; };
+		E73358261F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */; };
+		E73358281F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
+		E73358291F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
+		E733582A1F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */; };
+		E75784A71F1E5A630079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
+		E75784A81F1E5A640079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
+		E75784AA1F1E5A730079CB1C /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */; };
 		E77F62FE1F18F1B10041EADB /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */; };
 		E783FC381F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */; };
 		EB828BDA8A2895241D5F7312 /* Pods_SHMTableView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FFB9C82D6253BF7BF11C045 /* Pods_SHMTableView_Example.framework */; };
@@ -253,6 +269,10 @@
 		B332A5844D35AC27BCA72296 /* Pods-SHMTableView_Example_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CEF3B634FF0687CB62081425 /* Pods_SHMTableView_Example_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHMTableView_Example_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33661A99DA748B7CEB45DA1 /* Pods-SHMTableView_Example_tvOS.tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHMTableView_Example_tvOS.tests.xcconfig"; path = "Pods/Target Support Files/Pods-SHMTableView_Example_tvOS/Pods-SHMTableView_Example_tvOS.tests.xcconfig"; sourceTree = "<group>"; };
+		E733581F1F1CEFE2007640FE /* PopAndPeakTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAndPeakTableViewController.swift; sourceTree = "<group>"; };
+		E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciTableViewCell.swift; sourceTree = "<group>"; };
+		E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberDetailViewController.swift; sourceTree = "<group>"; };
+		E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeIndex.swift"; sourceTree = "<group>"; };
 		E77F62FD1F18F1B10041EADB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		E783FC371F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldKeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -433,6 +453,7 @@
 		41A182CB1E6D80690003ADA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E733581E1F1CEE08007640FE /* PopAndPeakTableController */,
 				41A182D71E6D80690003ADA6 /* MainController */,
 				41A182DD1E6D80690003ADA6 /* SimpleRowController */,
 				41A182CC1E6D80690003ADA6 /* CarouselController */,
@@ -588,6 +609,7 @@
 		607FACD21AFB9204008FA782 /* Example for SHMTableView */ = {
 			isa = PBXGroup;
 			children = (
+				E75784A31F1E5A1D0079CB1C /* Extensions */,
 				41A183281E6D82D40003ADA6 /* Init */,
 				41A182CB1E6D80690003ADA6 /* Controllers */,
 				41A182BA1E6D7FF70003ADA6 /* Resources */,
@@ -611,6 +633,24 @@
 				805AB95191D3B229DAFD826A /* SHMTableView.podspec */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		E733581E1F1CEE08007640FE /* PopAndPeakTableController */ = {
+			isa = PBXGroup;
+			children = (
+				E733581F1F1CEFE2007640FE /* PopAndPeakTableViewController.swift */,
+				E73358271F1CF2F7007640FE /* NumberDetailViewController.swift */,
+				E73358231F1CF09A007640FE /* FibonacciTableViewCell.swift */,
+			);
+			path = PopAndPeakTableController;
+			sourceTree = "<group>";
+		};
+		E75784A31F1E5A1D0079CB1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E75784A41F1E5A300079CB1C /* Collection+SafeIndex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E77F62FC1F18F1A00041EADB /* View */ = {
@@ -1058,12 +1098,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73358261F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */,
 				41A1833E1E6D994D0003ADA6 /* UpdatingSimpleController.swift in Sources */,
 				41A1832C1E6D82D40003ADA6 /* AppDelegate.swift in Sources */,
 				41A183341E6D8B550003ADA6 /* MainViewController.swift in Sources */,
+				E733581D1F1CE9BA007640FE /* TextFieldTableViewCell.swift in Sources */,
 				4120BA901E76974300C9A1F0 /* SimpleXibTableViewCell.swift in Sources */,
 				41A183351E6D8B5F0003ADA6 /* MainControllerCell.swift in Sources */,
+				E75784A81F1E5A640079CB1C /* Collection+SafeIndex.swift in Sources */,
+				E73358221F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */,
+				E733581B1F1CE980007640FE /* TextFieldKeyboardViewController.swift in Sources */,
 				41A183361E6D8B690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
+				E733582A1F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,8 +1159,10 @@
 				41A182F01E6D80690003ADA6 /* CarouselViewController.swift in Sources */,
 				41A182EC1E6D80690003ADA6 /* CarouselCollectionViewCell.swift in Sources */,
 				41A182FE1E6D80690003ADA6 /* MainControllerHeaderCell.swift in Sources */,
+				E73358201F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */,
 				4116963F1ECC7781000A1B8B /* EpisodeCellViewModel.swift in Sources */,
 				41A183001E6D80690003ADA6 /* MainViewController.swift in Sources */,
+				E73358281F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */,
 				411696351ECC7781000A1B8B /* ComparisonUITableViewController.swift in Sources */,
 				E783FC381F18EF8500A3BBBF /* TextFieldKeyboardViewController.swift in Sources */,
 				411696371ECC7781000A1B8B /* EpisodeTableViewCell.swift in Sources */,
@@ -1129,6 +1177,8 @@
 				41A182FC1E6D80690003ADA6 /* MainControllerCell.swift in Sources */,
 				41A182F61E6D80690003ADA6 /* EditingViewController.swift in Sources */,
 				41A182F81E6D80690003ADA6 /* InteractionTableViewCell.swift in Sources */,
+				E73358241F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */,
+				E75784A71F1E5A630079CB1C /* Collection+SafeIndex.swift in Sources */,
 				41A183181E6D80690003ADA6 /* VideoListViewModel.swift in Sources */,
 				41A1832A1E6D82D40003ADA6 /* AppDelegate.swift in Sources */,
 				41A182F41E6D80690003ADA6 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1144,6 +1194,8 @@
 				41A182F51E6D80690003ADA6 /* CategoryCollectionViewCell.swift in Sources */,
 				41A182A71E6D7F510003ADA6 /* SHMTableChangesFinderTests+ChangingSections.swift in Sources */,
 				34DAAE111EAE1C12001EBCC3 /* XCTextCase+Waiting.swift in Sources */,
+				E73358251F1CF09A007640FE /* FibonacciTableViewCell.swift in Sources */,
+				E73358291F1CF2F7007640FE /* NumberDetailViewController.swift in Sources */,
 				41A182971E6D7F510003ADA6 /* LoggingTableTestCase.swift in Sources */,
 				340365631EA9EFC90078BDC9 /* SHMTableViewTests+ScrollDelegate.swift in Sources */,
 				41A182B11E6D7F510003ADA6 /* SHMTableViewControllerTests.swift in Sources */,
@@ -1167,8 +1219,10 @@
 				41A182F71E6D80690003ADA6 /* EditingViewController.swift in Sources */,
 				41A183091E6D80690003ADA6 /* SimpleStoryboardTableViewCell.swift in Sources */,
 				41A183011E6D80690003ADA6 /* MainViewController.swift in Sources */,
+				E73358211F1CEFE2007640FE /* PopAndPeakTableViewController.swift in Sources */,
 				41A182B91E6D7F510003ADA6 /* SHMTableViewTests.swift in Sources */,
 				4116963C1ECC7781000A1B8B /* VideoTableViewCell.swift in Sources */,
+				E733581C1F1CE9BA007640FE /* TextFieldTableViewCell.swift in Sources */,
 				41A182A31E6D7F510003ADA6 /* SHMDiffableTests.swift in Sources */,
 				41A183171E6D80690003ADA6 /* VideoListModel.swift in Sources */,
 				41A1829D1E6D7F510003ADA6 /* LoggingViewController.swift in Sources */,
@@ -1185,8 +1239,10 @@
 				41A182AD1E6D7F510003ADA6 /* SHMTableRowProtocolTests.swift in Sources */,
 				41A182A11E6D7F510003ADA6 /* XCTestCase+Helpers.swift in Sources */,
 				41A182991E6D7F510003ADA6 /* LoggingTableViewCell.swift in Sources */,
+				E75784AA1F1E5A730079CB1C /* Collection+SafeIndex.swift in Sources */,
 				41A182B71E6D7F510003ADA6 /* SHMTableViewTests+ReloadingData.swift in Sources */,
 				41A182B31E6D7F510003ADA6 /* SHMTableViewTests+Editing.swift in Sources */,
+				E733581A1F1CE97F007640FE /* TextFieldKeyboardViewController.swift in Sources */,
 				41A1829F1E6D7F510003ADA6 /* MissingNIBTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

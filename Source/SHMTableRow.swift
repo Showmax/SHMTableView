@@ -30,7 +30,7 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     
     /// Optional. Primary row action used when tapped on row
     public var action: ((IndexPath) -> Void)?
- 
+    
     /// Reusable identifier indentifies view Cell after it is registered to SHMTableView or UITableView
     public private(set) var reusableIdentifier: String
     

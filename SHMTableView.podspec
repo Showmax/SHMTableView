@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SHMTableView'
-  s.version          = '2.0.0'
+  s.version          = '3.0.0'
   s.summary          = 'SHMTableView is a wrapper around UITableView datasource, that helps you define table contents by mapping view types to model instances.'
 
   s.description      = <<-DESC
@@ -35,4 +35,5 @@ SHMTableView creates and configures all UITableViewCell instances to be displaye
   s.frameworks = 'UIKit'
 
   s.source_files = ['Source/*.swift']
+  s.tvos.exclude_files = 'Source/SHMTableViewKeyboardVisibilityHandler.swift'
 end

@@ -297,6 +297,10 @@ See example in `Example/SHMTableView/Controllers/EditingController`
 
 See example in `Example/SHMTableView/Controllers/TextFieldKeyboardController`.
 
+### Using force touch for table rows
+
+See example in `Example/SHMTableView/Controllers/PopAndPeakTableController`.
+
 ### Using in view controller
 
 You can map `SHMTableView` instance to `UITableView` in outlet variable `didSet` handler. Alternatively you can use `SHMTableViewController`, which does exactly that.

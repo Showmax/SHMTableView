@@ -24,34 +24,84 @@ import UIKit
 
 open class SHMTableViewController: UIViewController
 {
+    /// SHMTableView will manage mapping of models to certain view type (model to UITableViewCell subclass types).
     public var shmTable: SHMTableView!
-    public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
     
+#if os(iOS)
+    /// SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is visible.
+    public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
+#endif
+    
+    /// SHMTableViewForceTouchHandler that registers force touch handlers for given tableView.
+    public var shmTableViewForceTouchHandler: SHMTableViewForceTouchHandler?
+    
+    /// Custom closure determining action on peeking event
+    public var didPeek: ((IndexPath) -> UIViewController?)?
+    {
+        didSet
+        {
+            shmTableViewForceTouchHandler?.didPeek = didPeek
+        }
+    }
+    
+    /// Closure determining pop (the hard force touch) when peeking
+    public var didPop: ((UIViewController) -> Void)?
+    {
+        didSet
+        {
+            shmTableViewForceTouchHandler?.didPop = didPop
+        }
+    }
+    
+    
+    /// TableView to use to init for SHMTableView
     @IBOutlet open weak var tableView: UITableView!
     {
         didSet
         {
             // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
-            
+        
+        #if os(iOS)
             // Create SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is shown.
             shmTableKeyboardVisibilityHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
+        #endif
         }
     }
     
     // MARK: - View Controller Lifecycle
     
+    override open func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        // We register our controller for 3D Touch events only if 3DTouch is available.
+        if self.traitCollection.forceTouchCapability == .available
+        {
+            shmTableViewForceTouchHandler = SHMTableViewForceTouchHandler(
+                parentViewController: self,
+                tableView: tableView
+            )
+            
+            shmTableViewForceTouchHandler?.register()
+        }
+    }
+    
     override open func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        
+    
+    #if os(iOS)
         shmTableKeyboardVisibilityHandler?.start()
+    #endif
     }
     
     override open func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
+    #if os(iOS)
         shmTableKeyboardVisibilityHandler?.stop()
+    #endif
     }
 }
