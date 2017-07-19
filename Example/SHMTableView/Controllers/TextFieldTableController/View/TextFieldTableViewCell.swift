@@ -17,6 +17,16 @@ struct TextViewCellModel
 class TextFieldTableViewCell: UITableViewCell
 {
     @IBOutlet var textField: UITextField!
+    
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
+        super.setSelected(selected, animated: animated)
+        
+        if selected
+        {
+            textField.becomeFirstResponder()
+        }
+    }
 }
 
 extension TextFieldTableViewCell: SHMConfigurableRow
@@ -25,8 +35,6 @@ extension TextFieldTableViewCell: SHMConfigurableRow
     
     func configure(_ model: T)
     {
-        selectionStyle = .gray
-        
         textField.delegate = self
         textField.placeholder = model.placeholder
     }
