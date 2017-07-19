@@ -49,6 +49,8 @@ class FibonacciNumbersTableViewController: SHMTableViewController
         
     }
 
+    
+    
     private func fillModelToView()
     {
         guard let modelList = modelList else { return }
@@ -90,6 +92,7 @@ class FibonacciNumbersTableViewController: SHMTableViewController
     private func findModel(indexPath: IndexPath) -> FibonacciCellModel?
     {
         
-        return modelList?[safe: 30]
+        return modelList?[safe: indexPath.row]
     }
+    
 }

@@ -27,7 +27,7 @@ import UIKit
     forceTouchHandle?.didPeek = { (indexPath) in
 
     guard  let model = self.findModel(indexPath: indexPath),
-            let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "AnyViewController") as? AnyViewController
+           let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "AnyViewController") as? AnyViewController
         else { return nil }
  
      previewVC.property = self.property
