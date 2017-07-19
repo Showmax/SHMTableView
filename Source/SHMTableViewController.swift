@@ -27,8 +27,10 @@ open class SHMTableViewController: UIViewController
     /// SHMTableView will manage mapping of models to certain view type (model to UITableViewCell subclass types).
     public var shmTable: SHMTableView!
     
+#if os(iOS)
     /// SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is visible.
     public var shmTableKeyboardVisibilityHandler: SHMTableViewKeyboardVisibilityHandler?
+#endif
     
     /// SHMTableViewForceTouchHandler that registers force touch handlers for given tableView.
     public var shmTableViewForceTouchHandler: SHMTableViewForceTouchHandler?
@@ -59,9 +61,11 @@ open class SHMTableViewController: UIViewController
         {
             // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
-            
+        
+        #if os(iOS)
             // Create SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is shown.
             shmTableKeyboardVisibilityHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
+        #endif
         }
     }
     
@@ -86,14 +90,18 @@ open class SHMTableViewController: UIViewController
     override open func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        
+    
+    #if os(iOS)
         shmTableKeyboardVisibilityHandler?.start()
+    #endif
     }
     
     override open func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
+    #if os(iOS)
         shmTableKeyboardVisibilityHandler?.stop()
+    #endif
     }
 }
