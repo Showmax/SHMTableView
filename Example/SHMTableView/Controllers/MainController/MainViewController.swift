@@ -58,7 +58,7 @@ class MainViewController: SHMTableViewController
             section += createComparisonUITableViewRow()
             section += createComparisonSHMTableViewRow()
             section += createTextFieldKeyboardRow()
-            section += createNumbersSHMTableViewRow()
+            section += createPeekAndPopRow()
         #endif
 
         shmTable += section
@@ -281,7 +281,7 @@ class MainViewController: SHMTableViewController
         )
     }
 
-    func createNumbersSHMTableViewRow() -> SHMTableRow<MainControllerCell>
+    func createPeekAndPopRow() -> SHMTableRow<MainControllerCell>
     {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
