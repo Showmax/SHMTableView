@@ -291,7 +291,7 @@ section += [
 
 ### Using UITableView in editing mode
 
-See example in `Example/SHMTableView/EditingController`
+See example in `Example/SHMTableView/Controllers/EditingController`
 
 ### Using in view controller
 
@@ -313,6 +313,10 @@ class MyViewController: UIViewController
     }
 }
 ```
+
+### Resize UITableView with respect to shown keyboard
+
+See example in `Example/SHMTableView/Controllers/TextFieldKeyboardController`
 
 ## Example code
 
