@@ -15,6 +15,8 @@ class FibonacciNumbersTableViewController: SHMTableViewController
     
     var modelList: [FibonacciCellModel]?
     
+    // MARK: - View controller lifecycle
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

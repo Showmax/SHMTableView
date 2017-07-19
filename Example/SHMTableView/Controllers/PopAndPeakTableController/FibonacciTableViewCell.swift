@@ -14,26 +14,9 @@ struct FibonacciCellModel
     let labelTitle: String
 }
 
-
-
 class FibonacciTableViewCell: UITableViewCell
 {
-
     @IBOutlet var label: UILabel!
-    
-    override func awakeFromNib() 
-    {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 extension FibonacciTableViewCell: SHMConfigurableRow
@@ -42,19 +25,15 @@ extension FibonacciTableViewCell: SHMConfigurableRow
     
     func configure(_ model: T)
     {
-        self.selectionStyle = .gray
-        self.label.text = model.labelTitle
-        
+        selectionStyle = .gray
+        label.text = model.labelTitle
     }
     
     func configureAtWillDisplay(_ model: T)
     {
-        
-        
     }
     
     func configureOnHide(_ model: T)
     {
-        
     }
 }
