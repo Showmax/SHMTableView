@@ -897,7 +897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=\"/usr/local/bin:${PATH}\"\nif which swiftlint >/dev/null; then\n    cd ..\n    swiftlint lint --config ../.swiftlint.yml --path Example/\n    swiftlint lint --config ../.swiftlint.yml --path Source/\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    exit 1\nfi";
+			shellScript = "PATH=\"/usr/local/bin:${PATH}\"\nif which swiftlint >/dev/null; then\n    cd ..\n    swiftlint lint --config ../.swiftlint.yml --path Example/\n    swiftlint lint --config ../.swiftlint.yml --path Source/\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		3447942D1E7B0A37002C9188 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -911,7 +911,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=\"/usr/local/bin:${PATH}\"\nif which swiftlint >/dev/null; then\n    cd ..\n    swiftlint lint --config ../.swiftlint.yml --path Example/\n    swiftlint lint --config ../.swiftlint.yml --path Source/\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    exit 1\nfi";
+			shellScript = "PATH=\"/usr/local/bin:${PATH}\"\nif which swiftlint >/dev/null; then\n    cd ..\n    swiftlint lint --config ../.swiftlint.yml --path Example/\n    swiftlint lint --config ../.swiftlint.yml --path Source/\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		41196ACF1E55C58F00BF4153 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
