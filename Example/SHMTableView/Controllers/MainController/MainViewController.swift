@@ -33,7 +33,7 @@ class MainViewController: SHMTableViewController {
 
         // instantiate default section
         let section = SHMTableSection()
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
         }
         // our section is not title/string based, so we need to set the view and model to it

@@ -771,11 +771,13 @@
 					41A182521E6D7DC70003ADA6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = C226648446;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					41A182621E6D7DC70003ADA6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = C226648446;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 41A182521E6D7DC70003ADA6;
 					};
@@ -1338,6 +1340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1362,6 +1365,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1390,6 +1394,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SHMTableView_Example_tvOS.app/SHMTableView_Example_tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -1417,6 +1422,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SHMTableView_Example_tvOS.app/SHMTableView_Example_tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
