@@ -194,12 +194,14 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="OLW-DR-SVd" firstAttribute="leading" secondItem="PCE-lg-OBk" secondAttribute="leadingMargin" constant="252" id="01e-1D-P1y"/>
                                                 <constraint firstItem="OLW-DR-SVd" firstAttribute="top" secondItem="PCE-lg-OBk" secondAttribute="topMargin" constant="25" id="M6A-2x-1kM"/>
                                                 <constraint firstItem="u5E-Kb-LSC" firstAttribute="top" secondItem="PCE-lg-OBk" secondAttribute="topMargin" constant="30" id="cVG-xM-Gaw"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="OLW-DR-SVd" secondAttribute="bottom" constant="25" id="jeL-YO-h61"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u5E-Kb-LSC" secondAttribute="trailingMargin" id="mTg-T7-88D"/>
                                                 <constraint firstItem="u5E-Kb-LSC" firstAttribute="leading" secondItem="PCE-lg-OBk" secondAttribute="leadingMargin" constant="8" id="pSv-Cs-XTg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="u5E-Kb-LSC" secondAttribute="bottom" constant="29" id="rjX-gk-RHd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="OLW-DR-SVd" secondAttribute="trailing" constant="40" id="ziC-bd-mad"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="OLW-DR-SVd" secondAttribute="trailing" id="ziC-bd-mad"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

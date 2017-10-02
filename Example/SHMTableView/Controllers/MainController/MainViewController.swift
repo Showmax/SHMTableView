@@ -33,7 +33,9 @@ class MainViewController: SHMTableViewController {
 
         // instantiate default section
         let section = SHMTableSection()
-
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         // our section is not title/string based, so we need to set the view and model to it
         // so instead of section.headerTitle you need to use section.headerView and assign to it a generic SHMTableHeader.
         if let view = createLogoHeaderView() {

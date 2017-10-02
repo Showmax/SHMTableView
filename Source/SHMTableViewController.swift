@@ -56,9 +56,6 @@ open class SHMTableViewController: UIViewController {
             // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
 
-            if #available(iOS 11.0, *) {
-                tableView.contentInsetAdjustmentBehavior = .never
-            }
         #if os(iOS)
             // Create SHMTableViewKeyboardVisibilityHandler that will resize tableView's bottom contentInset when keyboard is shown.
             shmTableKeyboardVisibilityHandler = SHMTableViewKeyboardVisibilityHandler(tableView: tableView)
