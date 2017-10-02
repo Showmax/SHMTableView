@@ -63,8 +63,7 @@ class MainViewController: SHMTableViewController {
         shmTable += section
     }
 
-    override func viewWillDisappear(_ animated: Bool)
-    {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -99,8 +98,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createTableInTableRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createTableInTableRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "Table in Table",
@@ -120,8 +118,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createInteractionsRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createInteractionsRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "Interactions",
@@ -143,8 +140,7 @@ class MainViewController: SHMTableViewController {
 
     }
 
-    func createCarouselRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createCarouselRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Carousel", desc: "This example is desmonstration complex use of SHMTableViews."),
             action: { [weak self] indexPath in
@@ -162,8 +158,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createUpdatingSimpleRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createUpdatingSimpleRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Updating (simple)", desc: "Switch between two lists and watch how table rows gets updated."),
             action: { [weak self] indexPath in
@@ -198,8 +193,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createEditingRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createEditingRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Editing", desc: "Demonstration of table in editing mode."),
             action: { [weak self] indexPath in
@@ -217,8 +211,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createComparisonUITableViewRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createComparisonUITableViewRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Comparison - using UITableView", desc: "Simple list using classic UITableView."),
             action: { [weak self] indexPath in
@@ -236,8 +229,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createComparisonSHMTableViewRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createComparisonSHMTableViewRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(title: "Comparison - using SHMTableView", desc: "Simple list using SHMTableView."),
             action: { [weak self] indexPath in
@@ -255,8 +247,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createTextFieldKeyboardRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createTextFieldKeyboardRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "UITextField + Keyboard",
@@ -277,8 +268,7 @@ class MainViewController: SHMTableViewController {
         )
     }
 
-    func createPeekAndPopRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createPeekAndPopRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "Peek and pop preview",
@@ -301,8 +291,7 @@ class MainViewController: SHMTableViewController {
 
     // MARK: - Helpers
 
-    func createLogoHeaderView() -> UIView?
-    {
+    func createLogoHeaderView() -> UIView? {
         #if os(tvOS)
             return Bundle.main.loadNibNamed("ShowMaxHeader+tvOS", owner: nil, options: nil)?[0] as? UIView
         #else
@@ -310,8 +299,7 @@ class MainViewController: SHMTableViewController {
         #endif
     }
 
-    func showUnsupportedTVOSExampleAlert()
-    {
+    func showUnsupportedTVOSExampleAlert() {
         let alert = UIAlertController(title: "Example not ported for tvOS. Please see iOS example.", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in }))
         present(alert, animated: true, completion: nil)

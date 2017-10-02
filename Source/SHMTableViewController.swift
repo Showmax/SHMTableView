@@ -35,8 +35,7 @@ open class SHMTableViewController: UIViewController {
     public var shmTableViewForceTouchHandler: SHMTableViewForceTouchHandler?
     
     /// Custom closure determining action on peeking event
-    public var didPeek: ((IndexPath) -> UIViewController?)?
-    {
+    public var didPeek: ((IndexPath) -> UIViewController?)? {
         didSet {
             shmTableViewForceTouchHandler?.didPeek = didPeek
         }
@@ -65,8 +64,7 @@ open class SHMTableViewController: UIViewController {
     
     // MARK: - View Controller Lifecycle
     
-    override open func viewDidLoad()
-    {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         // We register our controller for 3D Touch events only if 3DTouch is available.
@@ -88,8 +86,7 @@ open class SHMTableViewController: UIViewController {
     #endif
     }
     
-    override open func viewWillDisappear(_ animated: Bool)
-    {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
     #if os(iOS)

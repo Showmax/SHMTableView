@@ -24,8 +24,7 @@ let testHeaderNIBName = "ShowMaxHeader"
 
 // MARK: - Headers and Footers
 
-extension SHMTableViewTests
-{
+extension SHMTableViewTests {
     func test__definedHeaderView__isUsedByTableView() {
         let section = createSection(name: "A", rowCount: 100)
         

@@ -30,8 +30,7 @@ class LoggingTableViewCell: UITableViewCell, SHMConfigurableRow {
     var configureAtWillDisplayMethodWasCalled: Bool = false
     var configureOnHideMethodWasCalled: Bool = false
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         configureMethodWasCalled = true
     }
     

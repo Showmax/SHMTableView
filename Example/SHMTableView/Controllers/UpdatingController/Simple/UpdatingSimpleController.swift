@@ -37,8 +37,7 @@ let simpleCellIdentifier = "SimpleXibTableViewCell+tvOS"
 let simpleCellIdentifier = "SimpleXibTableViewCell"
 #endif
 
-class UpdatingSimpleController: SHMTableViewController
-{
+class UpdatingSimpleController: SHMTableViewController {
     /// All movies divided into sections by category. Each section has category name as header title.
     /// Rows are created by mapping model (String with movie name) to the view type (SimpleXibTableViewCell) in which we want to show passed model.
     lazy var sectionsForAll: [SHMTableSection] = {
