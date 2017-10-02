@@ -15,33 +15,26 @@
 import XCTest
 import SHMTableView
 
-extension XCTestCase
-{
-    func createSection(name: String? = nil, rowPrefix: String? = nil, rowCount: Int? = nil, rows: [String]? = nil) -> SHMTableSection
-    {
+extension XCTestCase {
+    func createSection(name: String? = nil, rowPrefix: String? = nil, rowCount: Int? = nil, rows: [String]? = nil) -> SHMTableSection {
         let section = SHMTableSection()
         
-        if let name = name
-        {
+        if let name = name {
             section.identifier = name
             section.headerTitle = "Header \(name)"
         }
         
         if  let rowCount = rowCount,
-            rowCount > 0
-        {
-            for index in 0..<rowCount
-            {
+            rowCount > 0 {
+            for index in 0..<rowCount {
                 let rowPrefix = rowPrefix ?? name ?? ""
                 let row = SHMTableRow<LoggingTableViewCell>(model: "\(rowPrefix) #\(index)", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
                 
                 section.append(row: row)
             }
             
-        } else if let rows = rows
-        {
-            for rowContent in rows
-            {
+        } else if let rows = rows {
+            for rowContent in rows {
                 let row = SHMTableRow<LoggingTableViewCell>(model: rowContent, reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
                 section.append(row: row)
             }

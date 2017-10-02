@@ -15,8 +15,7 @@
 import Foundation
 @testable import SHMTableView
 
-class LoggingSHMTableView: SHMTableView
-{
+class LoggingSHMTableView: SHMTableView {
     var reloadDataAllWasCalled: Bool = false
     var reloadDataJustChangesWasCalled: Bool = false
     var loggedSectionHeaderTitles: [Int: String?] = [:]
@@ -26,22 +25,19 @@ class LoggingSHMTableView: SHMTableView
     var loggedNumberOfSections: Int = 0
     var loggedSectionsAndRows: [Int: Int?] = [:]
     
-    override func reloadDataAll()
-    {
+    override func reloadDataAll() {
         super.reloadDataAll()
         
         reloadDataAllWasCalled = true
     }
     
-    override func reloadDataJustChanges(_ changes: SHMTableChangesFinderChanges, rowAnimation: UITableViewRowAnimation)
-    {
+    override func reloadDataJustChanges(_ changes: SHMTableChangesFinderChanges, rowAnimation: UITableViewRowAnimation) {
         super.reloadDataJustChanges(changes, rowAnimation: rowAnimation)
         
         reloadDataJustChangesWasCalled = true
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let response = super.tableView(tableView, titleForHeaderInSection: section)
         
         loggedSectionHeaderTitles[section] = response
@@ -49,8 +45,7 @@ class LoggingSHMTableView: SHMTableView
         return response
     }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
-    {
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let response = super.tableView(tableView, titleForFooterInSection: section)
         
         loggedSectionFooterTitles[section] = response
@@ -58,8 +53,7 @@ class LoggingSHMTableView: SHMTableView
         return response
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let response = super.tableView(tableView, viewForHeaderInSection: section)
         
         loggedSectionHeaderViews[section] = response
@@ -67,8 +61,7 @@ class LoggingSHMTableView: SHMTableView
         return response
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let response = super.tableView(tableView, viewForFooterInSection: section)
         
         loggedSectionFooterViews[section] = response
@@ -76,8 +69,7 @@ class LoggingSHMTableView: SHMTableView
         return response
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         let response = super.numberOfSections(in: tableView)
         
         loggedNumberOfSections = response
@@ -85,8 +77,7 @@ class LoggingSHMTableView: SHMTableView
         return response
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let response = super.tableView(tableView, numberOfRowsInSection: section)
         
         loggedSectionsAndRows[section] = response

@@ -10,24 +10,20 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class VideoTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class VideoTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = VideoCellViewModel
     
     @IBOutlet var label: UILabel!
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         label.text = model.title
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         print("Will display Video Cell with title \(model.title)")
     }
     
-    func configureOnHide(_: T)
-    {
+    func configureOnHide(_: T) {
         
     }
 }

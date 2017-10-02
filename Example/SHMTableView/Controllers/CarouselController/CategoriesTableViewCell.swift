@@ -15,8 +15,7 @@
 import UIKit
 import SHMTableView
 
-enum Category: String
-{
+enum Category: String {
     case city
     case sports
     case food
@@ -26,65 +25,53 @@ enum Category: String
     case technics
 }
 
-class CategoriesViewModel
-{
+class CategoriesViewModel {
     let categories: [Category]
     let categoryAction: (Category) -> Void
     var selectedCategory: Category
     
-    init(categories: [Category], selectedCategory: Category, categoryAction: @escaping (Category) -> Void)
-    {
+    init(categories: [Category], selectedCategory: Category, categoryAction: @escaping (Category) -> Void) {
         self.categories = categories
         self.selectedCategory = selectedCategory
         self.categoryAction = categoryAction
     }
 }
 
-class CategoriesTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionViewDelegate, UICollectionViewDataSource
-{
+class CategoriesTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionViewDelegate, UICollectionViewDataSource {
     typealias T = CategoriesViewModel
     
     var categoriesModel: CategoriesViewModel? = nil
     
     @IBOutlet var colView: UICollectionView!
     
-    func configure(_ categoriesModel: T)
-    {
+    func configure(_ categoriesModel: T) {
         self.categoriesModel = categoriesModel
         
         colView.reloadData()
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
-        if let categories = categoriesModel?.categories
-        {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let categories = categoriesModel?.categories {
             return categories.count
         }
         
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath)
 
-        if let carouselCell = cell as? CategoryCollectionViewCell, let categories = categoriesModel?.categories
-        {
-            if categories[indexPath.row] == categoriesModel?.selectedCategory
-            {
+        if let carouselCell = cell as? CategoryCollectionViewCell, let categories = categoriesModel?.categories {
+            if categories[indexPath.row] == categoriesModel?.selectedCategory {
                 carouselCell.label.textColor = UIColor.red
                 
-            } else
-            {
+            } else {
                 carouselCell.label.textColor = UIColor.black
             }
         }
@@ -92,18 +79,14 @@ class CategoriesTableViewCell: UITableViewCell, SHMConfigurableRow, UICollection
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
-    {
-        if let carouselCell = cell as? CategoryCollectionViewCell, let categories = categoriesModel?.categories
-        {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let carouselCell = cell as? CategoryCollectionViewCell, let categories = categoriesModel?.categories {
             carouselCell.label.text = categories[indexPath.row].rawValue
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
-    {
-        if let categories = categoriesModel?.categories
-        {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let categories = categoriesModel?.categories {
             categoriesModel?.categoryAction(categories[indexPath.row])
         }
     }

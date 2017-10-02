@@ -42,25 +42,20 @@ import Foundation
 // algorithms: http://www.xmailserver.org/diff2.pdf
 //
 
-internal struct JFDiff<T>
-{
+internal struct JFDiff<T> {
     internal let results: [JFDiffStep<T>]
     
-    internal var insertions: [JFDiffStep<T>]
-    {
+    internal var insertions: [JFDiffStep<T>] {
         return results.filter({ $0.isInsertion }).sorted { $0.idx < $1.idx }
     }
     
-    internal var deletions: [JFDiffStep<T>]
-    {
+    internal var deletions: [JFDiffStep<T>] {
         return results.filter({ !$0.isInsertion }).sorted { $0.idx > $1.idx }
     }
     
-    public func reversed() -> JFDiff<T>
-    {
+    public func reversed() -> JFDiff<T> {
         let reversedResults = self.results.reversed().map { (result: JFDiffStep<T>) -> JFDiffStep<T> in
-            switch result
-            {
+            switch result {
             case .insert(let i, let j):
                 return .delete(i, j)
             case .delete(let i, let j):
@@ -71,8 +66,7 @@ internal struct JFDiff<T>
     }
 }
 
-internal func +<T> (left: JFDiff<T>, right: JFDiffStep<T>) -> JFDiff<T>
-{
+internal func +<T> (left: JFDiff<T>, right: JFDiffStep<T>) -> JFDiff<T> {
     return JFDiff<T>(results: left.results + [right])
 }
 
@@ -80,15 +74,12 @@ internal func +<T> (left: JFDiff<T>, right: JFDiffStep<T>) -> JFDiff<T>
 /// These get returned from calls to Array.diff(). They represent insertions or deletions that need to happen to transform array 
 /// a into array b.
 ///
-internal enum JFDiffStep<T>: CustomDebugStringConvertible
-{
+internal enum JFDiffStep<T>: CustomDebugStringConvertible {
     case insert(Int, T)
     case delete(Int, T)
     
-    var isInsertion: Bool
-    {
-        switch self
-        {
+    var isInsertion: Bool {
+        switch self {
         case .insert:
             return true
         case .delete:
@@ -96,10 +87,8 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
         }
     }
     
-    var debugDescription: String
-    {
-        switch self
-        {
+    var debugDescription: String {
+        switch self {
         case .insert(let i, let j):
             return "+\(j)@\(i)"
         case .delete(let i, let j):
@@ -107,10 +96,8 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
         }
     }
     
-    var idx: Int
-    {
-        switch self
-        {
+    var idx: Int {
+        switch self {
         case .insert(let i, _):
             return i
         case .delete(let i, _):
@@ -118,10 +105,8 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
         }
     }
     
-    var value: T
-    {
-        switch self
-        {
+    var value: T {
+        switch self {
         case .insert(let j):
             return j.1
         case .delete(let j):
@@ -130,50 +115,39 @@ internal enum JFDiffStep<T>: CustomDebugStringConvertible
     }
 }
 
-internal struct JFLCSDiff
-{
-    static func diff(a: [SHMDiffable], b: [SHMDiffable]) -> JFDiff<SHMDiffable>
-    {
+internal struct JFLCSDiff {
+    static func diff(a: [SHMDiffable], b: [SHMDiffable]) -> JFDiff<SHMDiffable> {
         let table = buildTable(a, b, a.count, b.count)
         return backtrackDiffFromIndices(table, a, b, a.count, b.count)
     }
     
     /// Applies a generated diff to an array. The following should always be true:
     /// Given x: [T], y: [T], applyDiff(diff(x, y), to: x) == y
-    static func applyDiff(_ diff: JFDiff<SHMDiffable>, to initialList: [SHMDiffable]) -> [SHMDiffable]
-    {
+    static func applyDiff(_ diff: JFDiff<SHMDiffable>, to initialList: [SHMDiffable]) -> [SHMDiffable] {
         var result = initialList
         
-        for deletion in diff.deletions
-        {
+        for deletion in diff.deletions {
             result.remove(at: deletion.idx)
         }
         
-        for insertion in diff.insertions
-        {
+        for insertion in diff.insertions {
             result.insert(insertion.value, at: insertion.idx)
         }
         
         return result
     }
     
-    private static func buildTable(_ x: [SHMDiffable], _ y: [SHMDiffable], _ n: Int, _ m: Int) -> [[Int]]
-    {
+    private static func buildTable(_ x: [SHMDiffable], _ y: [SHMDiffable], _ n: Int, _ m: Int) -> [[Int]] {
         var table = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
-        for i in 0...n
-        {
-            for j in 0...m
-            {
-                if i == 0 || j == 0
-                {
+        for i in 0...n {
+            for j in 0...m {
+                if i == 0 || j == 0 {
                     table[i][j] = 0
                     
-                } else if x[i - 1].isEqual(to: y[j - 1])
-                {
+                } else if x[i - 1].isEqual(to: y[j - 1]) {
                     table[i][j] = table[i - 1][j - 1] + 1
                     
-                } else
-                {
+                } else {
                     table[i][j] = max(table[i - 1][j], table[i][j - 1])
                 }
             }
@@ -188,30 +162,23 @@ internal struct JFLCSDiff
         _ y: [SHMDiffable],
         _ i: Int,
         _ j: Int
-        ) -> JFDiff<SHMDiffable>
-    {
-        if i == 0 && j == 0
-        {
+        ) -> JFDiff<SHMDiffable> {
+        if i == 0 && j == 0 {
             return JFDiff<SHMDiffable>(results: [])
             
-        } else if i == 0
-        {
+        } else if i == 0 {
             return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
-        } else if j == 0
-        {
+        } else if j == 0 {
             return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
-        } else if table[i][j] == table[i][j - 1]
-        {
+        } else if table[i][j] == table[i][j - 1] {
             return backtrackDiffFromIndices(table, x, y, i, j - 1) + JFDiffStep.insert(j - 1, y[j - 1])
             
-        } else if table[i][j] == table[i - 1][j]
-        {
+        } else if table[i][j] == table[i - 1][j] {
             return backtrackDiffFromIndices(table, x, y, i - 1, j) + JFDiffStep.delete(i - 1, x[i - 1])
             
-        } else
-        {
+        } else {
             return backtrackDiffFromIndices(table, x, y, i - 1, j - 1)
         }
     }

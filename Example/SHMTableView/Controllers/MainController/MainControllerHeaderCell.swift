@@ -15,11 +15,9 @@
 import UIKit
 import SHMTableView
 
-class MainControllerHeaderCell: UIView, SHMConfigurable
-{
+class MainControllerHeaderCell: UIView, SHMConfigurable {
     typealias T = String?
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
     }
 }

@@ -13,12 +13,10 @@ import SHMTableView
 import Nimble
 
 
-class SHMTableViewTestsScrollDelegate: LoggingTableTestCase, UIScrollViewDelegate
-{
+class SHMTableViewTestsScrollDelegate: LoggingTableTestCase, UIScrollViewDelegate {
     var scrollDelegateDidReceivedCall = false
     
-    func test__whenSetScrollDelegate__scrollDelegateMethodCallsAreForwardedToScrollDelegate()
-    {
+    func test__whenSetScrollDelegate__scrollDelegateMethodCallsAreForwardedToScrollDelegate() {
         let rows = (0..<100).map({ SHMTableRow<LoggingTableViewCell>(model: "\($0)", reusableIdentifier: LoggingTableViewCell.reusableIdentifier) })
         
         let sections = [SHMTableSection(rows: rows)]
@@ -33,8 +31,7 @@ class SHMTableViewTestsScrollDelegate: LoggingTableTestCase, UIScrollViewDelegat
         expect(self.scrollDelegateDidReceivedCall) == true
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
-    {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollDelegateDidReceivedCall = true
     }
 }

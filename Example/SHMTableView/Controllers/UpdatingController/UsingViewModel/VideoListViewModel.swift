@@ -25,11 +25,9 @@ import SHMTableView
  Offers shuffle method which recreates content by tranforming shuffled videos from SHMTableView.
  
  */
-class VideoListViewModel
-{
+class VideoListViewModel {
     /// Types of managed lists
-    enum List: String
-    {
+    enum List: String {
         case all = "All"
         case kids = "Kids"
     }
@@ -47,8 +45,7 @@ class VideoListViewModel
     private let model: VideoListModel
     
     /// Creates lists content from given model
-    init(model: VideoListModel)
-    {
+    init(model: VideoListModel) {
         self.model = model
         
         createLists(from: model.categories)
@@ -57,10 +54,8 @@ class VideoListViewModel
     // MARK: - Actions
     
     /// Returns either all or kids list depending on what list is currently selected
-    func sectionsForSelectedList() -> [SHMTableSection]
-    {
-        switch selectedList
-        {
+    func sectionsForSelectedList() -> [SHMTableSection] {
+        switch selectedList {
             
         case .all:
             return all
@@ -72,32 +67,27 @@ class VideoListViewModel
     }
     
     /// Ask model for categories with shuffled videos and transform them into sections and rows
-    func shuffle()
-    {
+    func shuffle() {
         createLists(from: model.categoriesWithShuffledVideos)
     }
 
     // MARK: - Helpers
 
     /// Prepare list content to be displayed by transforming categories and videos to sections and rows
-    private func createLists(from categories: [VideoListModel.Category])
-    {
+    private func createLists(from categories: [VideoListModel.Category]) {
         all = []
         kids = []
-        for category in categories
-        {
+        for category in categories {
             let sectionForAll = SHMTableSection()
             sectionForAll.headerTitle = category.title
             
             let sectionForKids = SHMTableSection()
             sectionForKids.headerTitle = category.title
             
-            for video in category.videos
-            {
+            for video in category.videos {
                 let row = SHMTableRow<SimpleXibTableViewCell>(model: video.title)
                 
-                if video.isForKids
-                {
+                if video.isForKids {
                     sectionForKids.append(row: row)
                 }
                 

@@ -19,8 +19,7 @@ import Foundation
  Holding all changes information found by SHMTableChangesFinder while comparing two lists of sections.
  
  */
-public struct SHMTableChangesFinderChanges: Equatable
-{
+public struct SHMTableChangesFinderChanges: Equatable {
     public var sectionsToDelete = IndexSet()
     public var sectionsToInsert = IndexSet()
     public var sectionsToReload = IndexSet()
@@ -32,8 +31,7 @@ public struct SHMTableChangesFinderChanges: Equatable
     
     public init() {}
     
-    public static func == (lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool
-    {
+    public static func == (lhs: SHMTableChangesFinderChanges, rhs: SHMTableChangesFinderChanges) -> Bool {
         return  lhs.sectionsToDelete == rhs.sectionsToDelete &&
                 lhs.sectionsToInsert == rhs.sectionsToInsert &&
                 lhs.sectionsToReload == rhs.sectionsToReload &&
@@ -50,8 +48,7 @@ public struct SHMTableChangesFinderChanges: Equatable
  Method find will try to find changes between previous sections and new sections.
  
  */
-public class SHMTableChangesFinder
-{
+public class SHMTableChangesFinder {
     public init() {}
 
     /// Find changes between given old and new sections and theirs nested rows
@@ -63,8 +60,7 @@ public class SHMTableChangesFinder
     /// - Parameter oldSection: sections considered as old/initial
     /// - Parameter newSection: sections that will replace old sections
     /// - Returns: Changed rows and sections
-    public func find(betweenOld oldSections: [SHMTableSection], andNew newSections: [SHMTableSection]) -> SHMTableChangesFinderChanges
-    {
+    public func find(betweenOld oldSections: [SHMTableSection], andNew newSections: [SHMTableSection]) -> SHMTableChangesFinderChanges {
         var changes = SHMTableChangesFinderChanges()
         
         let sectionsDiff = JFLCSDiff.diff(a: oldSections, b: newSections)
@@ -77,12 +73,10 @@ public class SHMTableChangesFinder
         let candidateSectionsToReload = changes.sectionsToDelete.intersection(changes.sectionsToInsert)
         
         // rows updates for reloaded sections
-        for reloadIndex in candidateSectionsToReload
-        {
+        for reloadIndex in candidateSectionsToReload {
             guard   reloadIndex < oldSections.count,
                     reloadIndex < newSections.count
-                    else
-            {
+                    else {
                 continue
             }
             
@@ -98,8 +92,7 @@ public class SHMTableChangesFinder
                     newSection.footerTitle == oldSection.footerTitle,
                     newSection.headerView === oldSection.headerView,
                     newSection.footerView === oldSection.footerView
-                    else
-            {
+                    else {
                 continue
             }
             

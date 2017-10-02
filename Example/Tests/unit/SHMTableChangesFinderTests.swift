@@ -16,16 +16,13 @@ import XCTest
 import Nimble
 import SHMTableView
 
-class SHMTableChangesFinderTests: XCTestCase
-{
-    struct TestCase
-    {
+class SHMTableChangesFinderTests: XCTestCase {
+    struct TestCase {
         var old: [SHMTableSection]
         var new: [SHMTableSection]
         var expectedChanges: SHMTableChangesFinderChanges
 
-        init(old: [SHMTableSection] = [], new: [SHMTableSection] = [], expectedChanges: SHMTableChangesFinderChanges = SHMTableChangesFinderChanges())
-        {
+        init(old: [SHMTableSection] = [], new: [SHMTableSection] = [], expectedChanges: SHMTableChangesFinderChanges = SHMTableChangesFinderChanges()) {
             self.old = old
             self.new = new
             self.expectedChanges = expectedChanges
@@ -38,10 +35,8 @@ class SHMTableChangesFinderTests: XCTestCase
 
 // MARK: - Basic
 
-extension SHMTableChangesFinderTests
-{
-    func test__identicalLists__haveEmptyChanges()
-    {
+extension SHMTableChangesFinderTests {
+    func test__identicalLists__haveEmptyChanges() {
         let t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -58,8 +53,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__comparingDifferentChanges__willNotEqual()
-    {
+    func test__comparingDifferentChanges__willNotEqual() {
         let a = SHMTableChangesFinderChanges()
         var b = SHMTableChangesFinderChanges()
         b.sectionsToDelete.insert(1)
@@ -74,12 +68,9 @@ extension SHMTableChangesFinderTests
 
 // MARK: - Measuring performance
 
-extension SHMTableChangesFinderTests
-{
-    func test__measure__findingChangesWhenInsertingAndDeletingRows()
-    {
-        measure
-        {
+extension SHMTableChangesFinderTests {
+    func test__measure__findingChangesWhenInsertingAndDeletingRows() {
+        measure {
             self.test__rowsInsertedAndDeletedInList__areMentionedInChanges()
         }
     }
@@ -88,13 +79,9 @@ extension SHMTableChangesFinderTests
 
 // MARK: - Helpers
 
-extension SHMTableChangesFinderTests
-{
-    func assertExpectedChangesWereFound(_ testCase: TestCase)
-    {
+extension SHMTableChangesFinderTests {
+    func assertExpectedChangesWereFound(_ testCase: TestCase) {
         let foundChanges = finder.find(betweenOld: testCase.old, andNew: testCase.new)
         expect(foundChanges).to(equal(testCase.expectedChanges))
     }
 }
-
-

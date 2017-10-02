@@ -15,14 +15,11 @@
 import Foundation
 import UIKit
 
-class LoggingViewController: UIViewController
-{
+class LoggingViewController: UIViewController {
     var shmTable: LoggingSHMTableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    {
-        didSet
-        {
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
             shmTable = LoggingSHMTableView(tableView: tableView)
         }
     }

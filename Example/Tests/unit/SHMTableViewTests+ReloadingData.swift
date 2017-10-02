@@ -18,10 +18,8 @@ import Nimble
 
 // MARK: - Reloading data
 
-extension SHMTableViewTests
-{
-    func test__reloadData__isCalledWhenForcedReload()
-    {
+extension SHMTableViewTests {
+    func test__reloadData__isCalledWhenForcedReload() {
         let sections = [
             SHMTableSection(rows: [
                 SHMTableRow<LoggingTableViewCell>(model: "A", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
@@ -39,12 +37,11 @@ extension SHMTableViewTests
         expect(self.viewController?.shmTable.reloadDataAllWasCalled).to(beTrue())
     }
     
-    func test__reloadData__isCalledWhenRemovingAllVisibleSections()
-    {
+    func test__reloadData__isCalledWhenRemovingAllVisibleSections() {
         ensureTableWillDisplay([
             createSection(name: "A", rowCount: 100),
             createSection(name: "B", rowCount: 100),
-            createSection(name: "C", rowCount: 100),
+            createSection(name: "C", rowCount: 100)
         ])
         
         self.viewController?.shmTable.reloadDataAllWasCalled = false
@@ -53,19 +50,18 @@ extension SHMTableViewTests
         ensureTableWillDisplay([
             createSection(name: "B", rowCount: 110),
             createSection(name: "C", rowCount: 100),
-            createSection(name: "D", rowCount: 100),
+            createSection(name: "D", rowCount: 100)
         ])
         
         expect(self.viewController?.shmTable.reloadDataJustChangesWasCalled).to(beFalse())
         expect(self.viewController?.shmTable.reloadDataAllWasCalled).to(beTrue())
     }
     
-    func test__reloadDataDifferences__isCalledWhenAtLeastOneVisibleSectionIsUnchanged()
-    {
+    func test__reloadDataDifferences__isCalledWhenAtLeastOneVisibleSectionIsUnchanged() {
         ensureTableWillDisplay([
             createSection(name: "A", rowCount: 5), // five rows cannot fill whole screen, thus part of B section will be visible too
             createSection(name: "B", rowCount: 100),
-            createSection(name: "C", rowCount: 100),
+            createSection(name: "C", rowCount: 100)
         ])
         
         self.viewController?.shmTable.reloadDataAllWasCalled = false
@@ -74,17 +70,15 @@ extension SHMTableViewTests
         ensureTableWillDisplay([
             createSection(name: "B", rowCount: 100),
             createSection(name: "C", rowCount: 110),
-            createSection(name: "D", rowCount: 100),
+            createSection(name: "D", rowCount: 100)
         ])
         
         expect(self.viewController?.shmTable.reloadDataJustChangesWasCalled).to(beTrue())
         expect(self.viewController?.shmTable.reloadDataAllWasCalled).to(beFalse())
     }
     
-    func test__update__willInitiateDataReload()
-    {
-        guard let shmTable = self.viewController?.shmTable else
-        {
+    func test__update__willInitiateDataReload() {
+        guard let shmTable = self.viewController?.shmTable else {
             fail("Table must exist")
             return
         }
@@ -120,4 +114,3 @@ extension SHMTableViewTests
         expect(shmTable.reloadDataAllWasCalled || shmTable.reloadDataJustChangesWasCalled).to(beTrue())
     }
 }
-

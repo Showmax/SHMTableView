@@ -16,8 +16,7 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class MissingNIBTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class MissingNIBTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = String
     
     func configure(_ model: T) {}

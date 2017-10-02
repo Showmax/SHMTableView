@@ -10,8 +10,7 @@ import Foundation
 
 import XCTest
 
-extension XCTestCase
-{
+extension XCTestCase {
     /// This method can be used to wait for asynchronous operation in tests.
     ///
     /// - Parameters:
@@ -26,8 +25,7 @@ extension XCTestCase
         file: String = #file,
         function: String = #function,
         action: @escaping (_ done: @escaping () -> Void) -> Void
-        )
-    {
+        ) {
         let filename = file.components(separatedBy: "/").last ?? ""
         let expect = expectation(description: "\(filename): \(function)")
         

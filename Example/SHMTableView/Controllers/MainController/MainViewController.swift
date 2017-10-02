@@ -27,10 +27,8 @@ import SHMTableView
 
  */
 
-class MainViewController: SHMTableViewController
-{
-    override func viewDidLoad()
-    {
+class MainViewController: SHMTableViewController {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // instantiate default section
@@ -38,8 +36,7 @@ class MainViewController: SHMTableViewController
 
         // our section is not title/string based, so we need to set the view and model to it
         // so instead of section.headerTitle you need to use section.headerView and assign to it a generic SHMTableHeader.
-        if let view = createLogoHeaderView()
-        {
+        if let view = createLogoHeaderView() {
             // this header is also controled by a model
             // the approach is exaclty the same as for rows
             section.headerView = SHMTableHeader<MainControllerHeaderCell>(model: nil, view: view)
@@ -71,8 +68,7 @@ class MainViewController: SHMTableViewController
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
-    override func viewWillAppear(_ animated: Bool)
-    {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -80,8 +76,7 @@ class MainViewController: SHMTableViewController
 
     // MARK: - Create rows
 
-    func createSimpleRowsRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createSimpleRowsRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "Simple rows",
@@ -180,8 +175,7 @@ class MainViewController: SHMTableViewController
         )
     }
 
-    func createUpdatingViewModelRow() -> SHMTableRow<MainControllerCell>
-    {
+    func createUpdatingViewModelRow() -> SHMTableRow<MainControllerCell> {
         return SHMTableRow<MainControllerCell>(
             model: MainControllerModel(
                 title: "Updating (using view model)",

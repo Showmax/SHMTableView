@@ -22,8 +22,7 @@ import UIKit
  
  */
 
-public protocol SHMTableViewProtocol: class
-{
+public protocol SHMTableViewProtocol: class {
     func configure() -> UIView
     func associatedView() -> UIView
 }
@@ -33,30 +32,26 @@ public protocol SHMTableViewProtocol: class
  Class mapping section custom header view type with instances of model and custom view.
  
  */
-public class SHMTableHeader<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView
-{
+public class SHMTableHeader<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView {
     /// Holds instance of model
     var model: View.T
     
     /// Holds instance of view
     var view: UIView
     
-    public init(model: View.T, view: UIView)
-    {
+    public init(model: View.T, view: UIView) {
         self.model = model
         self.view = view
     }
     
     /// Will try to configure view with model
-    public func configure() -> UIView
-    {
+    public func configure() -> UIView {
         (view as? View)?.configure(model)
         
         return view
     }
 
-    public func associatedView() -> UIView
-    {
+    public func associatedView() -> UIView {
         return view
     }
 }
@@ -66,30 +61,26 @@ public class SHMTableHeader<View: SHMConfigurable>: SHMTableViewProtocol where V
  Class mapping section custom footer view type with instances of model and custom view.
  
  */
-public class SHMTableFooter<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView
-{
+public class SHMTableFooter<View: SHMConfigurable>: SHMTableViewProtocol where View: UIView {
     /// Holds instance of model
     var model: View.T
     
     /// Holds instance of view
     var view: UIView
     
-    public init(model: View.T, view: UIView)
-    {
+    public init(model: View.T, view: UIView) {
         self.model = model
         self.view = view
     }
     
     /// Will try to configure view with model
-    public func configure() -> UIView
-    {
+    public func configure() -> UIView {
         (view as? View)?.configure(model)
         
         return view
     }
     
-    public func associatedView() -> UIView
-    {
+    public func associatedView() -> UIView {
         return view
     }
 }
@@ -99,8 +90,7 @@ public class SHMTableFooter<View: SHMConfigurable>: SHMTableViewProtocol where V
  Defines section information including identifier, header, footer and all subordinate rows.
  
  */
-public class SHMTableSection
-{
+public class SHMTableSection {
     /// Optional. Used for better distinguishing between other sections. Specifying make diffing faster.
     public var identifier: String? = nil
     
@@ -119,30 +109,25 @@ public class SHMTableSection
     /// Subordinate rows
     public var rows: [SHMTableRowProtocol]
     
-    public init()
-    {
+    public init() {
         rows = []
     }
     
     /// Rows can be specified via constructor
-    public convenience init(rows: [SHMTableRowProtocol])
-    {
+    public convenience init(rows: [SHMTableRowProtocol]) {
         self.init()
         
         self.rows = rows
     }
 
     /// Appends row to current section row.
-    public func append(row: SHMTableRowProtocol)
-    {
+    public func append(row: SHMTableRowProtocol) {
         rows.append(row)
     }
 }
 
-extension SHMTableSection: SHMDiffable
-{
-    public func isEqual(to other: SHMDiffable) -> Bool
-    {
+extension SHMTableSection: SHMDiffable {
+    public func isEqual(to other: SHMDiffable) -> Bool {
         // not equal if other object is of different type
         guard let other = other as? SHMTableSection else { return false }
         
@@ -158,19 +143,16 @@ extension SHMTableSection: SHMDiffable
                 areRowsEqualTo(to: other.rows)
     }
     
-    private func areRowsEqualTo(to otherRows: [SHMTableRowProtocol]?) -> Bool
-    {
+    private func areRowsEqualTo(to otherRows: [SHMTableRowProtocol]?) -> Bool {
         // not equal if rows count is different
         guard   let otherRows = otherRows,
                 rows.count == otherRows.count
-                else
-        {
+                else {
             return false
         }
         
         // not equal if found at least one not equal row (or order changed)
-        for i in 0..<otherRows.count where !rows[i].isEqual(to: otherRows[i])
-        {
+        for i in 0..<otherRows.count where !rows[i].isEqual(to: otherRows[i]) {
             return false
         }
         

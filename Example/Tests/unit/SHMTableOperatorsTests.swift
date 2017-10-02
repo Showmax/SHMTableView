@@ -17,10 +17,8 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMTableOperatorsTests: LoggingTableTestCase
-{
-    func test__section__canBeAddedToTable()
-    {
+class SHMTableOperatorsTests: LoggingTableTestCase {
+    func test__section__canBeAddedToTable() {
         let section = SHMTableSection()
         
         viewController?.shmTable += section
@@ -28,8 +26,7 @@ class SHMTableOperatorsTests: LoggingTableTestCase
         expect(self.viewController?.shmTable.sections.last).to(beIdenticalTo(section))
     }
     
-    func test__rowAddedToEmptyTable__willBeAddedToAutomaticallyCreatedSection()
-    {
+    func test__rowAddedToEmptyTable__willBeAddedToAutomaticallyCreatedSection() {
         let row = SHMTableRow<LoggingTableViewCell>(model: "Test row", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
         
         viewController?.shmTable += row
@@ -37,8 +34,7 @@ class SHMTableOperatorsTests: LoggingTableTestCase
         expect(self.viewController?.shmTable.sections.first?.rows.last).to(beIdenticalTo(row))
     }
     
-    func test__rowAddedToNonEmptyTable__willBeAddedToFirstSection()
-    {
+    func test__rowAddedToNonEmptyTable__willBeAddedToFirstSection() {
         let firstSection = SHMTableSection()
         let secondSection = SHMTableSection()
         viewController?.shmTable += firstSection
@@ -51,8 +47,7 @@ class SHMTableOperatorsTests: LoggingTableTestCase
         expect(firstSection.rows.last).to(beIdenticalTo(row))
     }
     
-    func test__row__canBeAddedToSection()
-    {
+    func test__row__canBeAddedToSection() {
         let row = SHMTableRow<LoggingTableViewCell>(model: "Test row", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
         let section = SHMTableSection()
         
@@ -61,8 +56,7 @@ class SHMTableOperatorsTests: LoggingTableTestCase
         expect(section.rows.last).to(beIdenticalTo(row))
     }
     
-    func test__arrayOfRows__canBeAddedToSection()
-    {
+    func test__arrayOfRows__canBeAddedToSection() {
         let rows = [
             SHMTableRow<LoggingTableViewCell>(model: "Test row", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
             SHMTableRow<LoggingTableViewCell>(model: "Test row", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
@@ -74,8 +68,7 @@ class SHMTableOperatorsTests: LoggingTableTestCase
         
         section += rows
         
-        for (index, row) in rows.enumerated()
-        {
+        for (index, row) in rows.enumerated() {
             expect(section.rows[initialNumberOfRows + index]).to(beIdenticalTo(row))
         }
     }

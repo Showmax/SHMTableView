@@ -10,24 +10,20 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class EpisodeTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class EpisodeTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = EpisodeCellViewModel
     
     @IBOutlet var label: UILabel!
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         label.text = "Episode No. \(model.number): \(model.title)"
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         print("Will display Episode Cell with title \(model.title)")
     }
     
-    func configureOnHide(_: T)
-    {
+    func configureOnHide(_: T) {
         
     }
 }

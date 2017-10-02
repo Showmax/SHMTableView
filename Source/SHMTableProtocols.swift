@@ -28,8 +28,7 @@ import UIKit
  However it could be usefull as you can see at SimpleRowViewController.
  
  */
-public protocol SHMTableRowProtocol: class, SHMDiffable
-{
+public protocol SHMTableRowProtocol: class, SHMDiffable {
     func configure(tableViewCell: UITableViewCell)
     func configureAtWillDisplay(tableViewCell: UITableViewCell)
     func configureOnHide(tableViewCell: UITableViewCell)
@@ -45,8 +44,7 @@ public protocol SHMTableRowProtocol: class, SHMDiffable
  The implementation of the section has to use it.
  
  */
-public protocol SHMConfigurable
-{
+public protocol SHMConfigurable {
     associatedtype T
     
     func configure(_: T)
@@ -58,8 +56,7 @@ public protocol SHMConfigurable
  The implementation of a row has to use it.
  
  */
-public protocol SHMConfigurableRow: SHMConfigurable
-{
+public protocol SHMConfigurableRow: SHMConfigurable {
     func configureAtWillDisplay(_: T)
     func configureOnHide(_: T)
 }

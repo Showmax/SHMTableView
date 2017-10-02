@@ -16,10 +16,8 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMTableViewControllerTests: XCTestCase
-{
-    func test__afterSettingTableView__thenNewSHMTableIsCreated()
-    {
+class SHMTableViewControllerTests: XCTestCase {
+    func test__afterSettingTableView__thenNewSHMTableIsCreated() {
         let a = SHMTableViewController()
         a.tableView = UITableView()
         

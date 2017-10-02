@@ -14,7 +14,6 @@
 
 import UIKit
 
-class CarouselCollectionViewCell: UICollectionViewCell
-{
+class CarouselCollectionViewCell: UICollectionViewCell {
     @IBOutlet var image: UIImageView!
 }

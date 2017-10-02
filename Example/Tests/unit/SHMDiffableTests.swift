@@ -16,18 +16,15 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMDiffableTests: XCTestCase
-{
-    func test__comparingStringToDifferentType__willNotEqual()
-    {
+class SHMDiffableTests: XCTestCase {
+    func test__comparingStringToDifferentType__willNotEqual() {
         let a = "Test"
         let b = SHMTableSection()
         
         expect(a.isEqual(to: b)).to(beFalse())
     }
     
-    func test__sameStrings__willEqual()
-    {
+    func test__sameStrings__willEqual() {
         let a = "Test"
         let b = "Test"
         

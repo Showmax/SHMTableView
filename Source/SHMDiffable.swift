@@ -22,15 +22,12 @@ import Foundation
  You can optionally implement it in your own models to make diffing more faster and more accurate. 
  
  */
-public protocol SHMDiffable
-{
+public protocol SHMDiffable {
     func isEqual(to other: SHMDiffable) -> Bool
 }
 
-extension String: SHMDiffable
-{
-    public func isEqual(to other: SHMDiffable) -> Bool
-    {
+extension String: SHMDiffable {
+    public func isEqual(to other: SHMDiffable) -> Bool {
         guard let other = other as? String else { return false }
         
         return self == other

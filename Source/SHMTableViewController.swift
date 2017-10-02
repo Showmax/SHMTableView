@@ -22,8 +22,7 @@ import UIKit
  
  */
 
-open class SHMTableViewController: UIViewController
-{
+open class SHMTableViewController: UIViewController {
     /// SHMTableView will manage mapping of models to certain view type (model to UITableViewCell subclass types).
     public var shmTable: SHMTableView!
     
@@ -38,27 +37,22 @@ open class SHMTableViewController: UIViewController
     /// Custom closure determining action on peeking event
     public var didPeek: ((IndexPath) -> UIViewController?)?
     {
-        didSet
-        {
+        didSet {
             shmTableViewForceTouchHandler?.didPeek = didPeek
         }
     }
     
     /// Closure determining pop (the hard force touch) when peeking
-    public var didPop: ((UIViewController) -> Void)?
-    {
-        didSet
-        {
+    public var didPop: ((UIViewController) -> Void)? {
+        didSet {
             shmTableViewForceTouchHandler?.didPop = didPop
         }
     }
     
     
     /// TableView to use to init for SHMTableView
-    @IBOutlet open weak var tableView: UITableView!
-    {
-        didSet
-        {
+    @IBOutlet open weak var tableView: UITableView! {
+        didSet {
             // Create SHMTableView that will manage mapping of models to certain view type (model to UITableViewCell subclass types).
             shmTable = SHMTableView(tableView: tableView)
         
@@ -76,8 +70,7 @@ open class SHMTableViewController: UIViewController
         super.viewDidLoad()
         
         // We register our controller for 3D Touch events only if 3DTouch is available.
-        if self.traitCollection.forceTouchCapability == .available
-        {
+        if self.traitCollection.forceTouchCapability == .available {
             shmTableViewForceTouchHandler = SHMTableViewForceTouchHandler(
                 parentViewController: self,
                 tableView: tableView
@@ -87,8 +80,7 @@ open class SHMTableViewController: UIViewController
         }
     }
     
-    override open func viewDidAppear(_ animated: Bool)
-    {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
     #if os(iOS)

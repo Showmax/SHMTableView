@@ -41,8 +41,7 @@ class UpdatingSimpleController: SHMTableViewController
 {
     /// All movies divided into sections by category. Each section has category name as header title.
     /// Rows are created by mapping model (String with movie name) to the view type (SimpleXibTableViewCell) in which we want to show passed model.
-    lazy var sectionsForAll: [SHMTableSection] =
-    {
+    lazy var sectionsForAll: [SHMTableSection] = {
         let adventures = SHMTableSection()
         adventures.headerTitle = "Adventures"
         adventures.rows = [
@@ -90,8 +89,7 @@ class UpdatingSimpleController: SHMTableViewController
     
     /// Movies suitable mainly for kids are divided into sections by category. Each section has category name as header title.
     /// Rows are created by mapping model (String with movie name) to the view type (SimpleXibTableViewCell) in which we want to show passed model.
-    lazy var sectionsForKids: [SHMTableSection] =
-    {
+    lazy var sectionsForKids: [SHMTableSection] = {
         let adventures = SHMTableSection()
         adventures.headerTitle = "Adventures"
         adventures.rows = [
@@ -125,8 +123,7 @@ class UpdatingSimpleController: SHMTableViewController
     @IBOutlet weak var segmentedControl: UISegmentedControl?
     
     /// Table is initially filled with all movies when displayed for the first time.
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Updating Example"
@@ -136,16 +133,13 @@ class UpdatingSimpleController: SHMTableViewController
     
     /// Called when user selects certain item on the segmented control in a navigation bar.
     /// Update table with all movies if first item is selected, otherwise update with just kids movies.
-    @IBAction func selectedListChanged(_ sender: Any)
-    {
+    @IBAction func selectedListChanged(_ sender: Any) {
         guard let segmentedControl = sender as? UISegmentedControl else { return }
         
-        if segmentedControl.selectedSegmentIndex == 0
-        {
+        if segmentedControl.selectedSegmentIndex == 0 {
             shmTable.update(withNewSections: sectionsForAll)
             
-        } else
-        {
+        } else {
             shmTable.update(withNewSections: sectionsForKids)
         }
     }

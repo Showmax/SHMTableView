@@ -9,14 +9,12 @@
 import Foundation
 import UIKit
 
-class ComparisonUITableViewController: UIViewController
-{
+class ComparisonUITableViewController: UIViewController {
     @IBOutlet open weak var tableView: UITableView!
     
     var items: [Any] = []
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         items = [
@@ -37,31 +35,25 @@ class ComparisonUITableViewController: UIViewController
     }
 }
 
-extension ComparisonUITableViewController: UITableViewDataSource
-{
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+extension ComparisonUITableViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        guard indexPath.row < items.count else
-        {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row < items.count else {
             fatalError("Requesting cell on indexPath \(indexPath) out of bounds.")
         }
     
         let item = items[indexPath.row]
         
         if  let episode = item as? EpisodeCellViewModel,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell
-        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
             cell.configure(episode)
             return cell
             
         } else if   let video = item as? VideoCellViewModel,
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell
-        {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell {
             cell.configure(video)
             return cell
         }
@@ -70,44 +62,35 @@ extension ComparisonUITableViewController: UITableViewDataSource
     }
 }
 
-extension ComparisonUITableViewController: UITableViewDelegate
-{
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        guard indexPath.row < items.count else
-        {
+extension ComparisonUITableViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.row < items.count else {
             return
         }
         
         let item = items[indexPath.row]
         
         if  let episode = item as? EpisodeCellViewModel,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell
-        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
             cell.configureAtWillDisplay(episode)
             
         } else if   let video = item as? VideoCellViewModel,
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell
-        {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as? VideoTableViewCell {
             cell.configureAtWillDisplay(video)
         }
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        guard indexPath.row < items.count else
-        {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < items.count else {
             return
         }
         
         let item = items[indexPath.row]
         
-        if let episode = item as? EpisodeCellViewModel
-        {
+        if let episode = item as? EpisodeCellViewModel {
             episode.openDetail()
             
-        } else if let video = item as? VideoCellViewModel
-        {
+        } else if let video = item as? VideoCellViewModel {
             video.play()
         }
     }

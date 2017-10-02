@@ -16,10 +16,8 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMTableRowTests: XCTestCase
-{
-    func test__callingInitWithAction__willSetAction()
-    {
+class SHMTableRowTests: XCTestCase {
+    func test__callingInitWithAction__willSetAction() {
         var actionWasCalledWithIndexPath: IndexPath? = nil
         
         let row = SHMTableRow<LoggingTableViewCell>(model: "Test", action: { indexPath in
@@ -35,22 +33,19 @@ class SHMTableRowTests: XCTestCase
         expect(actionWasCalledWithIndexPath).to(equal(expectedIndexPath))
     }
     
-    func test__rowsOfSameInstances__willEqual()
-    {
+    func test__rowsOfSameInstances__willEqual() {
         let row = SHMTableRow<LoggingTableViewCell>(model: "Test")
         
         expect(row.isEqual(to: row)).to(beTrue())
     }
     
-    func test__rowsOfdifferentTypes__willNotEqual()
-    {
+    func test__rowsOfdifferentTypes__willNotEqual() {
         let row = SHMTableRow<LoggingTableViewCell>(model: "Test")
         
         expect(row.isEqual(to: "String is not of type SHMTableRow")).to(beFalse())
     }
     
-    func test__rowsWithDifferentReusableIdentifiers__willNotEqual()
-    {
+    func test__rowsWithDifferentReusableIdentifiers__willNotEqual() {
         let rowA = SHMTableRow<LoggingTableViewCell>(model: "Test")
         let rowB = SHMTableRow<LoggingTableViewCell>(model: "Test", reusableIdentifier: "LoggingTableViewCell2")
         

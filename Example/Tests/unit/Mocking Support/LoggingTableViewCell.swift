@@ -15,8 +15,7 @@
 import UIKit
 import SHMTableView
 
-class LoggingTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class LoggingTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = String
     
     #if os(tvOS)
@@ -36,15 +35,13 @@ class LoggingTableViewCell: UITableViewCell, SHMConfigurableRow
         configureMethodWasCalled = true
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         label.text = model
         
         configureAtWillDisplayMethodWasCalled = true
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
         configureOnHideMethodWasCalled = true
     }
 }

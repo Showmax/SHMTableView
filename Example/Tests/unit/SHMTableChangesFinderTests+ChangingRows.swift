@@ -18,10 +18,8 @@ import SHMTableView
 
 // MARK: - Rows
 
-extension SHMTableChangesFinderTests
-{
-    func test__rowsInsertedToList__areMentionedInChanges()
-    {
+extension SHMTableChangesFinderTests {
+    func test__rowsInsertedToList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -43,7 +41,7 @@ extension SHMTableChangesFinderTests
                     "4",
                     "new after former row 4"
                 ]),
-                createSection(name: "C", rowCount: 10),
+                createSection(name: "C", rowCount: 10)
             ]
         )
         t.expectedChanges.rowsToInsert.append(IndexPath(row: 3, section: 1))
@@ -52,8 +50,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__rowsDeletedFromList__areMentionedInChanges()
-    {
+    func test__rowsDeletedFromList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -80,7 +77,7 @@ extension SHMTableChangesFinderTests
                     "7",
                     "9"
                 ]),
-                createSection(name: "C", rowCount: 10),
+                createSection(name: "C", rowCount: 10)
             ]
         )
         t.expectedChanges.rowsToDelete.append(IndexPath(row: 1, section: 1))
@@ -89,8 +86,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__rowsInsertedAndDeletedInList__areMentionedInChanges()
-    {
+    func test__rowsInsertedAndDeletedInList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -133,8 +129,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__rowsWithIdenticalValuesDeletedInList__areMentionedInChanges()
-    {
+    func test__rowsWithIdenticalValuesDeletedInList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rows: [
@@ -143,15 +138,15 @@ extension SHMTableChangesFinderTests
                     "A row",
                     "A row", // will be deleted
                     "A row",
-                    "A row", // will be deleted
-                ]),
+                    "A row" // will be deleted
+                ])
             ],
             new: [
                 createSection(name: "A", rows: [
                     "A row",
                     "A row",
-                    "A row",
-                ]),
+                    "A row"
+                ])
             ]
         )
         t.expectedChanges.rowsToDelete.append(IndexPath(row: 3, section: 0))
@@ -161,8 +156,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__emptySectionThatIsFilledWithRows__isMentionedInChanges()
-    {
+    func test__emptySectionThatIsFilledWithRows__isMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -184,8 +178,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
 
-    func test__identicalInstances__notMentionedInChanges()
-    {
+    func test__identicalInstances__notMentionedInChanges() {
         let row = SHMTableRow<LoggingTableViewCell>(model: "A row")
         let section = createSection(name: "A")
         section.rows = [row, row, row, row]

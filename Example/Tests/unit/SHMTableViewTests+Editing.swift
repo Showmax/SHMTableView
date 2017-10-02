@@ -19,19 +19,16 @@ import UIKit
 
 // MARK: - Editing
 
-class SHMTableViewTestsEditing: LoggingTableTestCase
-{
+class SHMTableViewTestsEditing: LoggingTableTestCase {
     let logger = EditableTableViewCallLogger()
     
-    override func setUp()
-    {
+    override func setUp() {
         super.setUp()
       
         self.viewController?.shmTable.editingDelegate = logger
     }
     
-    func test__afterEnablingEditing__dataSourceMethodsAreCalled()
-    {
+    func test__afterEnablingEditing__dataSourceMethodsAreCalled() {
         ensureTableWillDisplay([
             createSection(name: "A", rowCount: 10),
             createSection(name: "B", rowCount: 10),
@@ -46,40 +43,34 @@ class SHMTableViewTestsEditing: LoggingTableTestCase
     }
 }
 
-class EditableTableViewCallLogger: SHMTableViewEditingDelegate
-{
+class EditableTableViewCallLogger: SHMTableViewEditingDelegate {
     var editingStyleForRowDidCall: Bool = false
     var commitEditingStyleDidCall: Bool = false
     var moveRowAtDidCall: Bool = false
     var canEditRowDidCall: Bool = false
     var canMoveRowDidCall: Bool = false
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
-    {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         editingStyleForRowDidCall = true
         
         return .none
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         commitEditingStyleDidCall = true
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         moveRowAtDidCall = true
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-    {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         canEditRowDidCall = true
         
         return true
     }
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
-    {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         canMoveRowDidCall = true
         
         return true

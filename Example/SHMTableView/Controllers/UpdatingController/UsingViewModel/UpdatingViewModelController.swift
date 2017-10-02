@@ -24,15 +24,13 @@ import SHMTableView
  Right button in navigationbar shuffles all defined rows.
  
  */
-class UpdatingViewModelController: SHMTableViewController
-{
+class UpdatingViewModelController: SHMTableViewController {
     /// Setting up view model that handle user actions and offer data to display.
     /// Remembers which list is currently selected.
     var viewModel: VideoListViewModel = VideoListViewModel(model: VideoListModel())
     
     /// Table is initially filled with movies in currently selected list.
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         shmTable.update(withNewSections: viewModel.sectionsForSelectedList())
@@ -40,8 +38,7 @@ class UpdatingViewModelController: SHMTableViewController
     
     /// Called when user selects certain item on the segmented control in a navigation bar.
     /// Update table with currently selected list. List structure is defined within separate viewmodel class. 
-    @IBAction func selectedListChanged(_ sender: Any)
-    {
+    @IBAction func selectedListChanged(_ sender: Any) {
         guard   let segmentedControl = sender as? UISegmentedControl,
                 let selectedTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex),
                 let selectedList = VideoListViewModel.List(rawValue: selectedTitle)
@@ -53,8 +50,7 @@ class UpdatingViewModelController: SHMTableViewController
     
     /// Called when user taps on right button in navigationbar.
     /// Ask view model to shuffle items. Finaly update table with new shuffled items.
-    @IBAction func shuffleTapped(_ sender: Any)
-    {
+    @IBAction func shuffleTapped(_ sender: Any) {
         viewModel.shuffle()
         shmTable.update(withNewSections: viewModel.sectionsForSelectedList())
     }

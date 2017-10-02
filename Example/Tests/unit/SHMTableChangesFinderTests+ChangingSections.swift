@@ -18,10 +18,8 @@ import SHMTableView
 
 // MARK: - Sections
 
-extension SHMTableChangesFinderTests
-{
-    func test__sectionAppendedToEndOfList__isMentionedInChanges()
-    {
+extension SHMTableChangesFinderTests {
+    func test__sectionAppendedToEndOfList__isMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -40,8 +38,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__sectionsAppendedToList__areMentionedInChanges()
-    {
+    func test__sectionsAppendedToList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -52,7 +49,7 @@ extension SHMTableChangesFinderTests
                 createSection(name: "A", rowCount: 10),
                 createSection(name: "B", rowCount: 10),
                 createSection(name: "new after section B", rowCount: 10),
-                createSection(name: "C",  rowCount: 10),
+                createSection(name: "C", rowCount: 10),
                 createSection(name: "new after section C", rowCount: 10)
             ]
         )
@@ -61,8 +58,7 @@ extension SHMTableChangesFinderTests
         assertExpectedChangesWereFound(t)
     }
     
-    func test__sectionsDeletedFromList__areMentionedInChanges()
-    {
+    func test__sectionsDeletedFromList__areMentionedInChanges() {
         var t1 = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10),
@@ -94,14 +90,12 @@ extension SHMTableChangesFinderTests
         )
         t2.expectedChanges.sectionsToDelete = IndexSet([0, 2, 4])
         
-        for t in [t1, t2]
-        {
+        for t in [t1, t2] {
             assertExpectedChangesWereFound(t)
         }
     }
     
-    func test__sectionsInsertedAndDeletedInList__areMentionedInChanges()
-    {
+    func test__sectionsInsertedAndDeletedInList__areMentionedInChanges() {
         var t = TestCase(
             old: [
                 createSection(name: "A", rowCount: 10), // will be deleted
@@ -109,7 +103,7 @@ extension SHMTableChangesFinderTests
                 createSection(name: "C", rowCount: 10), // will be deleted
                 createSection(name: "D", rowCount: 10),
                 createSection(name: "E", rowCount: 10), // will be deleted
-                createSection(name: "F", rowCount: 10),
+                createSection(name: "F", rowCount: 10)
             ],
             new: [
                 createSection(name: "new before section B", rowCount: 10),
@@ -118,7 +112,7 @@ extension SHMTableChangesFinderTests
                 createSection(name: "new before section D", rowCount: 10),
                 createSection(name: "D", rowCount: 10),
                 createSection(name: "F", rowCount: 10),
-                createSection(name: "new after section F", rowCount: 10),
+                createSection(name: "new after section F", rowCount: 10)
             ]
         )
         t.expectedChanges.sectionsToDelete = IndexSet([0, 2, 4])

@@ -16,22 +16,18 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMTableViewTests: LoggingTableTestCase
-{
+class SHMTableViewTests: LoggingTableTestCase {
     // MARK: - Basics
     
-    func test__append__willAddSectionAfterExistingTableSections()
-    {
+    func test__append__willAddSectionAfterExistingTableSections() {
         let section = SHMTableSection()
         self.viewController?.shmTable.append(section: section)
         
         expect(self.viewController?.shmTable.sections.last).to(beIdenticalTo(section))
     }
     
-    func test__append__willNotTriggerDataReloading()
-    {
-        guard let shmTable = self.viewController?.shmTable else
-        {
+    func test__append__willNotTriggerDataReloading() {
+        guard let shmTable = self.viewController?.shmTable else {
             fail("Table must exist")
             return
         }
@@ -45,23 +41,21 @@ class SHMTableViewTests: LoggingTableTestCase
     
     // MARK: - Registering NIBs
     
-    func test__tableFilledWithRows__hasAllRequiredNibsRegistered()
-    {
+    func test__tableFilledWithRows__hasAllRequiredNibsRegistered() {
         ensureTableWillDisplay([
             SHMTableSection(rows: [
                 SHMTableRow<LoggingTableViewCell>(model: "A", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "B", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "C", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "D", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
-                SHMTableRow<LoggingTableViewCell>(model: "E", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
+                SHMTableRow<LoggingTableViewCell>(model: "E", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
             ])
         ])
         
         expect(self.viewController?.shmTable.registeredNibs).to(contain(LoggingTableViewCell.reusableIdentifier))
     }
     
-    func test__registeringUnknownNib__willThrowError()
-    {
+    func test__registeringUnknownNib__willThrowError() {
         let sections = [
             SHMTableSection(rows: [
                 SHMTableRow<LoggingTableViewCell>(model: "A", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
@@ -87,10 +81,8 @@ class SHMTableViewTests: LoggingTableTestCase
     
     // MARK: - Data Source Edge Cases
     
-    func test__emptyDataSource__shouldDisplayEmptyTableView()
-    {
-        guard let loggedNumberOfSections = self.viewController?.shmTable.loggedNumberOfSections else
-        {
+    func test__emptyDataSource__shouldDisplayEmptyTableView() {
+        guard let loggedNumberOfSections = self.viewController?.shmTable.loggedNumberOfSections else {
             fail("Should be able to receive logged number of sections")
             return
         }
@@ -98,22 +90,19 @@ class SHMTableViewTests: LoggingTableTestCase
         expect(loggedNumberOfSections).to(equal(0))
     }
     
-    func test__sectionWithNoRows__shouldBeDisplayedInTableView()
-    {
+    func test__sectionWithNoRows__shouldBeDisplayedInTableView() {
         ensureTableWillDisplay([
             createSection(name: "A", rowCount: 100),
             createSection(name: "B", rowCount: 0),
-            createSection(name: "C", rowCount: 100),
+            createSection(name: "C", rowCount: 100)
         ])
         
-        guard let loggedNumberOfSections = self.viewController?.shmTable.loggedSectionsAndRows else
-        {
+        guard let loggedNumberOfSections = self.viewController?.shmTable.loggedSectionsAndRows else {
             fail("Should be able to receive logged number of sections and rows")
             return
         }
         
-        guard let loggedRowsCountForEmptySection = loggedNumberOfSections[1] else
-        {
+        guard let loggedRowsCountForEmptySection = loggedNumberOfSections[1] else {
             fail("Should be able to determine row count for empty section")
             return
         }

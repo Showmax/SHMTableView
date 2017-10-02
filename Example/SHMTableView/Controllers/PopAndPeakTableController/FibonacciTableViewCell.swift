@@ -9,31 +9,25 @@
 import UIKit
 import SHMTableView
 
-struct FibonacciCellModel
-{
+struct FibonacciCellModel {
     let labelTitle: String
 }
 
-class FibonacciTableViewCell: UITableViewCell
-{
+class FibonacciTableViewCell: UITableViewCell {
     @IBOutlet var label: UILabel!
 }
 
-extension FibonacciTableViewCell: SHMConfigurableRow
-{
+extension FibonacciTableViewCell: SHMConfigurableRow {
     typealias T = FibonacciCellModel
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         selectionStyle = .gray
         label.text = model.labelTitle
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }

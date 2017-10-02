@@ -15,25 +15,21 @@
 import UIKit
 import SHMTableView
 
-class SimpleStoryboardTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class SimpleStoryboardTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = String
     
     @IBOutlet var label: UILabel!
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         label.text = model
         
         // this will ensure that cell height is refreshed (another option, is remove this line and move text label setup inside configure() method)
         layoutIfNeeded()
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }

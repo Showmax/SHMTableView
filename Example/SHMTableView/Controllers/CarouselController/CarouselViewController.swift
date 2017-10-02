@@ -26,24 +26,20 @@ import SHMTableView
  
  */
 
-class CarouselViewController: SHMTableViewController
-{
+class CarouselViewController: SHMTableViewController {
     var viewModel = CarouselViewModel(category: .city)
     
-    lazy var categoriesViewModel: CategoriesViewModel =
-    {
+    lazy var categoriesViewModel: CategoriesViewModel = {
         return CategoriesViewModel(
             categories: [.city, .food, .nature, .cats, .technics],
             selectedCategory: self.viewModel.category,
             categoryAction: { [weak self] category in
                 
-                guard let me = self else
-                {
+                guard let me = self else {
                     return
                 }
                 
-                DispatchQueue.main.async
-                    {
+                DispatchQueue.main.async {
                         me.categoriesViewModel.selectedCategory = category
                         me.viewModel.category = category
                         me.shmTable.tableView?.reloadData()
@@ -52,8 +48,7 @@ class CarouselViewController: SHMTableViewController
         )
     }()
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         let carouselSection = SHMTableSection()

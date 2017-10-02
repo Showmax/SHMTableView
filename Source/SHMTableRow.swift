@@ -20,8 +20,7 @@ import UIKit
  
  */
 
-public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Cell: UITableViewCell
-{
+public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Cell: UITableViewCell {
     /// Holds model paired with view type
     public var model: Cell.T
  
@@ -37,8 +36,7 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     /// Setup model and define reusable identifier based on Cell type
     ///
     /// - Parameter model: instance of model
-    public init(model: Cell.T)
-    {
+    public init(model: Cell.T) {
         self.model = model
         self.reusableIdentifier = String(describing: Cell.self)
     }
@@ -48,43 +46,36 @@ public class SHMTableRow<Cell: SHMConfigurableRow>: SHMTableRowProtocol where Ce
     /// - Parameter model: instance of model
     /// - Parameter reusableIdentifier: optional, custom reusable identifier key
     /// - Parameter action: optional, primary row action used when tapped on row
-    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> Void)? = nil)
-    {
+    public convenience init(model: Cell.T, reusableIdentifier: String? = nil, action: ((IndexPath) -> Void)? = nil) {
         self.init(model: model)
         
         self.action = action
         
-        if let reusableIdentifier = reusableIdentifier
-        {
+        if let reusableIdentifier = reusableIdentifier {
             self.reusableIdentifier = reusableIdentifier
         }
     }
     
     /// Will try to call configure on given tableViewCell
-    public func configure(tableViewCell: UITableViewCell)
-    {
+    public func configure(tableViewCell: UITableViewCell) {
         (tableViewCell as? Cell)?.configure(model)
     }
 
     /// Will try to call configureAtWillDisplay on given tableViewCell
-    public func configureAtWillDisplay(tableViewCell: UITableViewCell)
-    {
+    public func configureAtWillDisplay(tableViewCell: UITableViewCell) {
         (tableViewCell as? Cell)?.configureAtWillDisplay(model)
     }
     
     /// Will try to call configureOnHide on given tableViewCell
-    public func configureOnHide(tableViewCell: UITableViewCell)
-    {
+    public func configureOnHide(tableViewCell: UITableViewCell) {
         (tableViewCell as? Cell)?.configureOnHide(model)
     }
 }
 
 // MARK: - SHMDiffable
 
-extension SHMTableRow
-{
-    public func isEqual(to other: SHMDiffable) -> Bool
-    {
+extension SHMTableRow {
+    public func isEqual(to other: SHMDiffable) -> Bool {
         // not equal if other object is of different type
         guard let other = other as? SHMTableRow else { return false }
         
@@ -97,8 +88,7 @@ extension SHMTableRow
         // not equal if both models are JFDiffable and are not equal
         if  let modelDiffable = model as? SHMDiffable,
             let otherModelDiffable = other.model as? SHMDiffable,
-            !modelDiffable.isEqual(to: otherModelDiffable)
-        {
+            !modelDiffable.isEqual(to: otherModelDiffable) {
             return false
         }
         

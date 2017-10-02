@@ -15,18 +15,15 @@
 import UIKit
 import SHMTableView
 
-class CarouselViewModel
-{
+class CarouselViewModel {
     var category: Category
     
-    init(category: Category)
-    {
+    init(category: Category) {
         self.category = category
     }
 }
 
-class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionViewDelegate, UICollectionViewDataSource
-{
+class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionViewDelegate, UICollectionViewDataSource {
     typealias T = CarouselViewModel
     
     var viewModel: CarouselViewModel? = nil
@@ -34,26 +31,21 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
     
     @IBOutlet var colView: UICollectionView!
     
-    func configure(_ viewModel: T)
-    {
+    func configure(_ viewModel: T) {
         self.viewModel = viewModel
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
-        guard let category = viewModel?.category else
-        {
+    func configureAtWillDisplay(_ model: T) {
+        guard let category = viewModel?.category else {
             return
         }
         
         imgData.removeAll()
         
-        for i in 1...10
-        {
+        for i in 1...10 {
             let urlPath = "http://lorempixel.com/318/318/\(category)/\(i)/"
             
-            guard let endpoint = URL(string: urlPath) else
-            {
+            guard let endpoint = URL(string: urlPath) else {
                 return
             }
             
@@ -61,23 +53,19 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
             
             let task = URLSession.shared.dataTask(with: request) { [weak self] (data, _, _) in
 
-                guard let data = data else
-                {
+                guard let data = data else {
                     return
                 }
                 
-                guard let me = self else
-                {
+                guard let me = self else {
                     return
                 }
                 
                 me.imgData.append(data)
                 
                 //
-                if me.imgData.count == 10
-                {
-                    DispatchQueue.main.async
-                    {
+                if me.imgData.count == 10 {
+                    DispatchQueue.main.async {
                         me.colView.reloadData()
                     }
                 }
@@ -88,27 +76,22 @@ class CarouselTableViewCell: UITableViewCell, SHMConfigurableRow, UICollectionVi
         }
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgData.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCollectionViewCell", for: indexPath)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
-    {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if  let carouselCell = cell as? CarouselCollectionViewCell,
-            indexPath.row < imgData.count
-        {
+            indexPath.row < imgData.count {
             carouselCell.image.image = UIImage(data: imgData[indexPath.row])  
         }
     }

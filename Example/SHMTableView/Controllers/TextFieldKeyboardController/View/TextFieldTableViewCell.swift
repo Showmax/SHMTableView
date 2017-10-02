@@ -9,53 +9,42 @@
 import UIKit
 import SHMTableView
 
-struct TextViewCellModel
-{
+struct TextViewCellModel {
     let placeholder: String
 }
 
-class TextFieldTableViewCell: UITableViewCell
-{
+class TextFieldTableViewCell: UITableViewCell {
     @IBOutlet var textField: UITextField!
     
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        if selected
-        {
+        if selected {
             textField.becomeFirstResponder()
         }
     }
 }
 
-extension TextFieldTableViewCell: SHMConfigurableRow
-{
+extension TextFieldTableViewCell: SHMConfigurableRow {
     typealias T = TextViewCellModel
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         textField.delegate = self
         textField.placeholder = model.placeholder
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }
 
-extension TextFieldTableViewCell: UITextFieldDelegate
-{
-    func textFieldDidBeginEditing(_ textField: UITextField) 
-    {
+extension TextFieldTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool 
-    {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
     }

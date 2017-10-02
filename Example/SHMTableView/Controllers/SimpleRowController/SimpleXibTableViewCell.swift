@@ -15,22 +15,18 @@
 import UIKit
 import SHMTableView
 
-class SimpleXibTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class SimpleXibTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = String
     
     @IBOutlet var label: UILabel!
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         label.text = model
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }

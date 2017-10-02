@@ -25,27 +25,22 @@ import SHMTableView
  
  */
 
-struct TableInTableModel
-{
+struct TableInTableModel {
     
 }
 
-class TableInTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class TableInTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = TableInTableModel
     
     var shmInTable: SHMTableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    {
-        didSet
-        {
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
             shmInTable = SHMTableView(tableView: tableView)
         }
     }
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         // simple row
         let simpleSection = SHMTableSection()
         
@@ -57,12 +52,10 @@ class TableInTableViewCell: UITableViewCell, SHMConfigurableRow
         simpleSection += SHMTableRow<SimpleXibTableViewCell>(model: "simple row at specific table")
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }

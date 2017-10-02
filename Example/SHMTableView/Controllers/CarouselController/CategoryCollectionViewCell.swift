@@ -14,7 +14,6 @@
 
 import UIKit
 
-class CategoryCollectionViewCell: UICollectionViewCell
-{
+class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label: UILabel!
 }

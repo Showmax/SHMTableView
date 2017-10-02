@@ -36,24 +36,20 @@ import UIKit
  instead.
  
  */
-public func += (left: SHMTableView, right: SHMTableSection)
-{
+public func += (left: SHMTableView, right: SHMTableSection) {
     left.append(section: right)
 }
 
 /// Add a row into a table by this one. It automatically handle the business logic behind sections.
-public func += (left: SHMTableView, right: SHMTableRowProtocol)
-{
+public func += (left: SHMTableView, right: SHMTableRowProtocol) {
     let section: SHMTableSection
     
-    if left.sections.isEmpty
-    {
+    if left.sections.isEmpty {
         section = SHMTableSection()
 
         left.append(section: section)
         
-    } else
-    {
+    } else {
         section = left.sections[0]
     }
     
@@ -61,13 +57,11 @@ public func += (left: SHMTableView, right: SHMTableRowProtocol)
 }
 
 /// Add a row into a section by this one.
-public func += (left: SHMTableSection, right: SHMTableRowProtocol)
-{
+public func += (left: SHMTableSection, right: SHMTableRowProtocol) {
     left.rows.append(right)
 }
 
 /// Add a collection of rows into a section by this one.
-public func += (left: SHMTableSection, right: [SHMTableRowProtocol])
-{
+public func += (left: SHMTableSection, right: [SHMTableRowProtocol]) {
     left.rows.append(contentsOf: right)
 }

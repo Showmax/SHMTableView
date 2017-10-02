@@ -21,10 +21,8 @@ import SHMTableView
  
  */
 
-class InteractionViewController: SHMTableViewController
-{
-    override func viewDidLoad()
-    {
+class InteractionViewController: SHMTableViewController {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // create interaction section and add a row
@@ -43,10 +41,9 @@ class InteractionViewController: SHMTableViewController
          
          */
         
-        interactionSection += SHMTableRow<InteractionTableViewCell>(model: InteractionModel(buttonAction: { [weak self] _ in
+        interactionSection += SHMTableRow<InteractionTableViewCell>(model: InteractionModel(buttonAction: { [weak self] () in
         
-            guard let me = self else
-            {
+            guard let me = self else {
                 return
             }
             
@@ -62,8 +59,7 @@ class InteractionViewController: SHMTableViewController
         
         }), action: { [weak self] indexPath in
         
-            guard let me = self else
-            {
+            guard let me = self else {
                 return
             }
             

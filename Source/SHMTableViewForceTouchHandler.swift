@@ -53,8 +53,7 @@ import UIKit
 /// }
 /// ````
 ///
-public class SHMTableViewForceTouchHandler: NSObject
-{
+public class SHMTableViewForceTouchHandler: NSObject {
     /// Parent controller on which we are registring the 3DTouch actions
     public weak var parentViewController: UIViewController?
         
@@ -67,23 +66,20 @@ public class SHMTableViewForceTouchHandler: NSObject
     /// Closure determining pop (the hard force touch) when peeking
     public var didPop: ((UIViewController) -> Void)?
     
-    public init(parentViewController: UIViewController?, tableView: UITableView?)
-    {
+    public init(parentViewController: UIViewController?, tableView: UITableView?) {
         self.parentViewController = parentViewController
         self.tableView = tableView
     }
     
     /// Fuction that registers viewController from dependencies for receiving 3DTouch events
-   public func register()
-    {
+   public func register() {
         guard let view = parentViewController?.view else { return }
     
         parentViewController?.registerForPreviewing(with: self, sourceView: view)
     }
 }
 
-extension SHMTableViewForceTouchHandler: UIViewControllerPreviewingDelegate
-{
+extension SHMTableViewForceTouchHandler: UIViewControllerPreviewingDelegate {
     /// Find the indexPath of cell according to position of touch, when found, cast the cell to Custom Cell and take label
     /// from it and carry it to viewController we wanna present. Then, return the viewController to present with given label.
     /// The label mustn't be set directly, because we instantiate it later, so the app would crash, so we set String attribute
@@ -93,14 +89,12 @@ extension SHMTableViewForceTouchHandler: UIViewControllerPreviewingDelegate
     ///   - previewingContext: previewing context on this viewController
     ///   - location: location of touch in superview
     /// - Returns: ViewController to peak
-    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? 
-    {
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard   let cellPostion = tableView?.convert(location, from: parentViewController?.view),
                 let indexPath = tableView?.indexPathForRow(at: cellPostion)
         else { return nil }
         
-        if let tableView = tableView
-        {
+        if let tableView = tableView {
             let cellRect = tableView.rectForRow(at: indexPath)
             let sourceRect = previewingContext.sourceView.convert(cellRect, from: tableView)
             previewingContext.sourceRect = sourceRect
@@ -115,8 +109,7 @@ extension SHMTableViewForceTouchHandler: UIViewControllerPreviewingDelegate
     /// - Parameters:
     ///   - previewingContext: previewing context on this viewController
     ///   - viewControllerToCommit: the viewController received from peaking so no need to instantiate it again...
-    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
-    {
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         didPop?(viewControllerToCommit)
     }
 }

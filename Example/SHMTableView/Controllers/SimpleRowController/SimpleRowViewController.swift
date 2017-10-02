@@ -25,10 +25,8 @@ import SHMTableView
  
  */
 
-class SimpleRowViewController: SHMTableViewController
-{
-    override func viewDidLoad()
-    {
+class SimpleRowViewController: SHMTableViewController {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // instantiate a simple section for usage of xib's rows
@@ -66,8 +64,7 @@ class SimpleRowViewController: SHMTableViewController
 
         var batch = [SHMTableRowProtocol]()
         
-        for i in 1...5
-        {
+        for i in 1...5 {
             batch.append(SHMTableRow<SimpleStoryboardTableViewCell>(model: "\(i). batch row"))
         }
         

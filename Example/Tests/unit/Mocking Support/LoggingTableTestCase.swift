@@ -17,12 +17,10 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class LoggingTableTestCase: XCTestCase
-{
+class LoggingTableTestCase: XCTestCase {
     var viewController: LoggingViewController?
     
-    override func setUp()
-    {
+    override func setUp() {
         super.setUp()
         
         let testingBundle: Bundle? = Bundle(for: type(of: self))
@@ -59,8 +57,7 @@ class LoggingTableTestCase: XCTestCase
         self.viewController?.view.layoutIfNeeded()
     }
     
-    func ensureTableWillDisplay(_ sections: [SHMTableSection])
-    {
+    func ensureTableWillDisplay(_ sections: [SHMTableSection]) {
         // Will update table model and schedule UI updates in next UI refresh cycle
         self.viewController?.shmTable.update(withNewSections: sections)
         

@@ -10,12 +10,10 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class TextFieldKeyboardViewController: SHMTableViewController
-{
+class TextFieldKeyboardViewController: SHMTableViewController {
     // MARK: - View Controller Lifecycle
     
-    override func viewDidLoad() 
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         fillModelIntoTable()
@@ -23,19 +21,16 @@ class TextFieldKeyboardViewController: SHMTableViewController
 
     // MARK: - IB Outlets
     
-    @IBAction func donePressed(_ sender: Any)
-    {
+    @IBAction func donePressed(_ sender: Any) {
         view.endEditing(true)
     }
     
     // MARK: - Helpers
     
-    private func fillModelIntoTable()
-    {
+    private func fillModelIntoTable() {
         let section = SHMTableSection()
         
-        for i in 0...20
-        {
+        for i in 0...20 {
             let cell = SHMTableRow<TextFieldTableViewCell>(
                 model: TextViewCellModel(placeholder: "\(i)")
             )

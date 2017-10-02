@@ -17,37 +17,32 @@ import XCTest
 import SHMTableView
 import Nimble
 
-class SHMTableRowProtocolTests: LoggingTableTestCase
-{
-    func test__configureMethods__areCalledDuringTableLoading()
-    {
+class SHMTableRowProtocolTests: LoggingTableTestCase {
+    func test__configureMethods__areCalledDuringTableLoading() {
         ensureTableWillDisplay([
             SHMTableSection(rows: [
                 SHMTableRow<LoggingTableViewCell>(model: "A", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "B", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "C", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
                 SHMTableRow<LoggingTableViewCell>(model: "D", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
-                SHMTableRow<LoggingTableViewCell>(model: "E", reusableIdentifier: LoggingTableViewCell.reusableIdentifier),
+                SHMTableRow<LoggingTableViewCell>(model: "E", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
             ])
         ])
         
-        guard let visibleCells = self.viewController?.shmTable.tableView?.visibleCells as? [LoggingTableViewCell] else
-        {
+        guard let visibleCells = self.viewController?.shmTable.tableView?.visibleCells as? [LoggingTableViewCell] else {
             fail("Previously defined cells should be visible now")
             return
         }
         
         expect(visibleCells).toNot(beEmpty())
         
-        for cell in visibleCells
-        {
+        for cell in visibleCells {
             expect(cell.configureMethodWasCalled).to(beTrue())
             expect(cell.configureAtWillDisplayMethodWasCalled).to(beTrue())
         }
     }
     
-    func test__cellHides__configureOnHideIsCalled()
-    {
+    func test__cellHides__configureOnHideIsCalled() {
         let rows = (0..<100).map({ SHMTableRow<LoggingTableViewCell>(model: "\($0)", reusableIdentifier: LoggingTableViewCell.reusableIdentifier) })
         
         let sections = [SHMTableSection(rows: rows)]
@@ -59,16 +54,13 @@ class SHMTableRowProtocolTests: LoggingTableTestCase
         
         shmwait(action: { done in
             
-            for cell in self.viewController?.tableView.visibleCells ?? []
-            {
-                guard let cell = cell as? LoggingTableViewCell else
-                {
+            for cell in self.viewController?.tableView.visibleCells ?? [] {
+                guard let cell = cell as? LoggingTableViewCell else {
                     XCTFail("Only LoggingTableViewCell can be at this table")
                     return
                 }
                 
-                if cell.configureOnHideMethodWasCalled
-                {
+                if cell.configureOnHideMethodWasCalled {
                     done()
                     return
                 }
@@ -76,8 +68,7 @@ class SHMTableRowProtocolTests: LoggingTableTestCase
         })
     }
     
-    func test__action__isCalledOnRowSelection()
-    {
+    func test__action__isCalledOnRowSelection() {
         var actionWasCalled: Bool = false
         
         let rowB = SHMTableRow<LoggingTableViewCell>(model: "B", reusableIdentifier: LoggingTableViewCell.reusableIdentifier)
@@ -94,8 +85,7 @@ class SHMTableRowProtocolTests: LoggingTableTestCase
         ])
         
         guard   let shmTable = self.viewController?.shmTable,
-                let tableView = self.viewController?.shmTable.tableView else
-        {
+                let tableView = self.viewController?.shmTable.tableView else {
             fail("Table must exist")
             return
         }

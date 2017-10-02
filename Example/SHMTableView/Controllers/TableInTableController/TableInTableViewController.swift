@@ -21,10 +21,8 @@ import SHMTableView
  
  */
 
-class TableInTableViewController: SHMTableViewController
-{
-    override func viewDidLoad()
-    {
+class TableInTableViewController: SHMTableViewController {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // create table in table section and add a row

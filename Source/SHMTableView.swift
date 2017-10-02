@@ -20,8 +20,7 @@ import UIKit
  If you need to handle table editing mode, you should implement it.
  
  */
-public protocol SHMTableViewEditingDelegate: class
-{
+public protocol SHMTableViewEditingDelegate: class {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
@@ -40,8 +39,7 @@ public protocol SHMTableViewEditingDelegate: class
  Instead you just focus on a structure and a content to be displayed by a UITableView.
  
  */
-public class SHMTableView: NSObject
-{
+public class SHMTableView: NSObject {
     /// Optional. Delegate for table in editing mode
     open weak var editingDelegate: SHMTableViewEditingDelegate?
     
@@ -64,8 +62,7 @@ public class SHMTableView: NSObject
     fileprivate var changesFinder: SHMTableChangesFinder
         
     /// For given table view will setup delegate, datasource, row automatic height, estimatedRowHeight.
-    public init(tableView: UITableView)
-    {
+    public init(tableView: UITableView) {
         self.changesFinder = SHMTableChangesFinder()
         
         super.init()
@@ -82,8 +79,7 @@ public class SHMTableView: NSObject
     // MARK: - Updating model
 
     /// Appends section to local list of sections
-    public func append(section: SHMTableSection)
-    {
+    public func append(section: SHMTableSection) {
         sections.append(section)
     }
     
@@ -97,50 +93,41 @@ public class SHMTableView: NSObject
         withNewSections newSections: [SHMTableSection],
         rowAnimation: UITableViewRowAnimation = .fade,
         forceReloadData: Bool = false
-        )
-    {
+        ) {
         let changes = changesFinder.find(betweenOld: sections, andNew: newSections)
         
         sections = newSections
         
-        if forceReloadData || allCurrentlyVisibleSectionsAboutToBeDeleted(with: changes.sectionsToDelete)
-        {
+        if forceReloadData || allCurrentlyVisibleSectionsAboutToBeDeleted(with: changes.sectionsToDelete) {
             reloadDataAll()
             
-        } else
-        {
+        } else {
             reloadDataJustChanges(changes, rowAnimation: rowAnimation)
         }
     }
     
     /// Call full table view reload
-    internal func reloadDataAll()
-    {
+    internal func reloadDataAll() {
         tableView?.reloadData()
     }
     
     /// Call batch table view reloads
-    internal func reloadDataJustChanges(_ changes: SHMTableChangesFinderChanges, rowAnimation: UITableViewRowAnimation)
-    {
+    internal func reloadDataJustChanges(_ changes: SHMTableChangesFinderChanges, rowAnimation: UITableViewRowAnimation) {
         tableView?.beginUpdates()
         
-        if !changes.sectionsToDelete.isEmpty
-        {
+        if !changes.sectionsToDelete.isEmpty {
             tableView?.deleteSections(changes.sectionsToDelete, with: rowAnimation)
         }
         
-        if !changes.sectionsToInsert.isEmpty
-        {
+        if !changes.sectionsToInsert.isEmpty {
             tableView?.insertSections(changes.sectionsToInsert, with: rowAnimation)
         }
         
-        if !changes.rowsToDelete.isEmpty
-        {
+        if !changes.rowsToDelete.isEmpty {
             tableView?.deleteRows(at: changes.rowsToDelete, with: rowAnimation)
         }
         
-        if !changes.rowsToInsert.isEmpty
-        {
+        if !changes.rowsToInsert.isEmpty {
             tableView?.insertRows(at: changes.rowsToInsert, with: rowAnimation)
         }
         
@@ -151,8 +138,7 @@ public class SHMTableView: NSObject
     // MARK: - Handling Editing Mode
 
     /// Turning on/off table view editing mode
-    public func setEditing(_ editing: Bool, animated: Bool)
-    {
+    public func setEditing(_ editing: Bool, animated: Bool) {
         tableView?.setEditing(editing, animated: animated)
     }
 
@@ -160,17 +146,14 @@ public class SHMTableView: NSObject
     
     /// Register NIB for given row reusable identifier. 
     /// Make sure nib with certain reusable identifier is registered only once.
-    public func register(row: SHMTableRowProtocol)
-    {
+    public func register(row: SHMTableRowProtocol) {
         let rowNibString = row.reusableIdentifier
         
-        if registeredNibs.contains(rowNibString)
-        {
+        if registeredNibs.contains(rowNibString) {
             return
         }
         
-        if tableView?.dequeueReusableCell(withIdentifier: rowNibString) != nil
-        {
+        if tableView?.dequeueReusableCell(withIdentifier: rowNibString) != nil {
             registeredNibs.append(rowNibString)
             
             return
@@ -185,13 +168,11 @@ public class SHMTableView: NSObject
 
     // MARK: - Internal helpers
     
-    internal func allCurrentlyVisibleSectionsAboutToBeDeleted(with sectionsToDelete: IndexSet) -> Bool
-    {
+    internal func allCurrentlyVisibleSectionsAboutToBeDeleted(with sectionsToDelete: IndexSet) -> Bool {
         return sectionsToDelete.contains(integersIn: allCurrentlyVisibleSections())
     }
     
-    internal func allCurrentlyVisibleSections() -> IndexSet
-    {
+    internal func allCurrentlyVisibleSections() -> IndexSet {
         var visibleSections = IndexSet()
         tableView?.indexPathsForVisibleRows?.forEach { visibleSections.insert($0.section) }
         return visibleSections

@@ -15,26 +15,22 @@
 import UIKit
 import SHMTableView
 
-struct MainControllerModel
-{
+struct MainControllerModel {
     let title: String
     let desc: String
 }
 
-class MainControllerCell: UITableViewCell, SHMConfigurableRow
-{
+class MainControllerCell: UITableViewCell, SHMConfigurableRow {
     typealias T = MainControllerModel
     
     @IBOutlet var title: UILabel!
     @IBOutlet var desc: UILabel!
     
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         
     }
 
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
         title.text = model.title
         desc.text = model.desc
         
@@ -42,7 +38,6 @@ class MainControllerCell: UITableViewCell, SHMConfigurableRow
         layoutIfNeeded() 
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
 }

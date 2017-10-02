@@ -19,18 +19,15 @@ import Foundation
  Defines list of categories with subordinate videos. Also is able to return list of categories with shuffled videos.
  
  */
-class VideoListModel
-{
+class VideoListModel {
     /// Represents the video title and whether is suitable for kids.
-    struct Video
-    {
+    struct Video {
         var isForKids: Bool
         var title: String
     }
     
     /// Represents category title and subordinate videos.
-    struct Category
-    {
+    struct Category {
         var title: String
         var videos: [Video]
     }
@@ -39,8 +36,7 @@ class VideoListModel
     var categories: [Category]
     
     /// List of categories with randmly shuffled videos. Ordering should be different with each call.
-    var categoriesWithShuffledVideos: [Category]
-    {
+    var categoriesWithShuffledVideos: [Category] {
         return categories.map { category -> Category in
             var category = category
             category.videos = self.shuffleArray(category.videos)
@@ -49,8 +45,7 @@ class VideoListModel
     }
     
     /// Creates initial structure of categories and videos
-    init()
-    {
+    init() {
         categories = [
             
             Category(
@@ -101,20 +96,17 @@ class VideoListModel
     // MARK: - Helpers
     
     // Source: Fisher–Yates shuffle on http://iosdevelopertips.com/swift-code/swift-shuffle-array-type.html
-    private func shuffleArray<T>(_ inArray: [T]) -> [T]
-    {
+    private func shuffleArray<T>(_ inArray: [T]) -> [T] {
         guard inArray.count > 1 else { return inArray }
         
         var array = inArray
         
-        for index in ((0 + 1)...array.count - 1).reversed()
-        {
+        for index in ((0 + 1)...array.count - 1).reversed() {
             // Random int from 0 to index-1
             let j = Int(arc4random_uniform(UInt32(index - 1)))
             
             // Swap two array elements
-            // Notice '&' required as swap uses 'inout' parameters
-            swap(&array[index], &array[j])
+            array.swapAt(index, j)
         }
         
         return array

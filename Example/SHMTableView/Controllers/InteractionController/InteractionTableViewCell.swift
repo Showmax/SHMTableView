@@ -25,32 +25,26 @@ import SHMTableView
  */
 
 
-struct InteractionModel
-{
+struct InteractionModel {
     let buttonAction: () -> Void
 }
 
-class InteractionTableViewCell: UITableViewCell, SHMConfigurableRow
-{
+class InteractionTableViewCell: UITableViewCell, SHMConfigurableRow {
     typealias T = InteractionModel
     
     var cellAction: InteractionModel? = nil
 
-    func configure(_ model: T)
-    {
+    func configure(_ model: T) {
         self.cellAction = model
     }
     
-    func configureAtWillDisplay(_ model: T)
-    {
+    func configureAtWillDisplay(_ model: T) {
     }
     
-    func configureOnHide(_ model: T)
-    {
+    func configureOnHide(_ model: T) {
     }
     
-    @IBAction func buttonPressed(sender: UIButton)
-    {
+    @IBAction func buttonPressed(sender: UIButton) {
         // the magic is happening here
         cellAction?.buttonAction()
     }

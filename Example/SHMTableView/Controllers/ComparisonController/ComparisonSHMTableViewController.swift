@@ -10,15 +10,13 @@ import Foundation
 import UIKit
 import SHMTableView
 
-class ComparisonSHMTableViewController: UIViewController
-{
+class ComparisonSHMTableViewController: UIViewController {
     public var shmTable: SHMTableView!
     @IBOutlet open weak var tableView: UITableView!
     
     var items: [Any] = []
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         items = [
@@ -32,16 +30,13 @@ class ComparisonSHMTableViewController: UIViewController
         
         let rows = items.flatMap({ item -> SHMTableRowProtocol? in
             
-            if let episode = item as? EpisodeCellViewModel
-            {
+            if let episode = item as? EpisodeCellViewModel {
                 return SHMTableRow<EpisodeTableViewCell>(model: episode, action: { _ in episode.openDetail() })
                 
-            } else if let video = item as? VideoCellViewModel
-            {
+            } else if let video = item as? VideoCellViewModel {
                 return SHMTableRow<VideoTableViewCell>(model: video, action: { _ in video.play() })
                 
-            } else
-            {
+            } else {
                 return nil
             }
         })

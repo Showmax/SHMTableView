@@ -8,21 +8,18 @@
 
 import UIKit
 
-class NumberDetailViewController: UIViewController 
-{
+class NumberDetailViewController: UIViewController {
     var textToShow: String?
  
     /// Label showing the number in the center of view
     @IBOutlet var label: UILabel!
     
     /// Override this var to show action items in 3DTouch action
-    override var previewActionItems: [UIPreviewActionItem] 
-    {
+    override var previewActionItems: [UIPreviewActionItem] {
         return previewActions()
     }
     
-    override func viewDidLoad() 
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         label.text = textToShow
@@ -31,10 +28,8 @@ class NumberDetailViewController: UIViewController
 
 // MARK: - Adding preview actions
 
-extension NumberDetailViewController
-{
-    func previewActions() -> [UIPreviewAction]
-    {
+extension NumberDetailViewController {
+    func previewActions() -> [UIPreviewAction] {
         let googleSearch = UIPreviewAction(title: "Search me with google",
                                             style: UIPreviewActionStyle.default,
                                             handler: { _, _ in 

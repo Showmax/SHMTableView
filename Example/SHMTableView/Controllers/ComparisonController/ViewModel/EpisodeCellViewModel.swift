@@ -8,13 +8,11 @@
 
 import Foundation
 
-struct EpisodeCellViewModel
-{
+struct EpisodeCellViewModel {
     let number: Int
     let title: String
     
-    func openDetail()
-    {
+    func openDetail() {
         print("open detail for \(title)")
     }
 }

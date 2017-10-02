@@ -8,12 +8,10 @@
 
 import Foundation
 
-struct VideoCellViewModel
-{
+struct VideoCellViewModel {
     let title: String
     
-    func play()
-    {
+    func play() {
         print("play video \(title)")
     }
 }
