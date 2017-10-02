@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,13 +39,13 @@
                     <blurEffect style="light"/>
                 </visualEffectView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShowMaxLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cvM-zC-NK0">
-                    <rect key="frame" x="8" y="18" width="336" height="75.5"/>
+                    <rect key="frame" x="16" y="15" width="320" height="72"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cvM-zC-NK0" secondAttribute="height" multiplier="1218:274" id="ege-UE-x8P"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHMTableViews Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-rQ-iDj">
-                    <rect key="frame" x="8" y="88.5" width="336" height="29.5"/>
+                    <rect key="frame" x="16" y="99.5" width="320" height="29.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="28f-0K-UYv"/>
                     </constraints>
@@ -55,9 +56,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="cvM-zC-NK0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="10" id="3OQ-Zb-gle"/>
+                <constraint firstItem="cvM-zC-NK0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="firstBaseline" constant="15" id="3OQ-Zb-gle"/>
                 <constraint firstAttribute="bottom" secondItem="Xs4-S1-tBD" secondAttribute="bottom" id="EjE-WR-i3u"/>
-                <constraint firstAttribute="bottomMargin" secondItem="MSk-rQ-iDj" secondAttribute="bottom" constant="10" id="HIa-dW-iUM"/>
+                <constraint firstAttribute="bottomMargin" secondItem="MSk-rQ-iDj" secondAttribute="bottom" constant="7" id="HIa-dW-iUM"/>
                 <constraint firstItem="MSk-rQ-iDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="HpD-9q-oJn"/>
                 <constraint firstItem="cvM-zC-NK0" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="Ict-7C-Q5b"/>
                 <constraint firstItem="Xs4-S1-tBD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="awo-8O-A4W"/>
