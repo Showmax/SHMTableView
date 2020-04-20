@@ -1,3 +1,5 @@
+# ❗️Deprecated and not used in production anymore. Feel free to fork if you needed❗️
+
 # SHMTableView
 
 [![Swift][swift-badge]][swift-url]
